@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../Login/login.php");
+}
+
+?>
+
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>

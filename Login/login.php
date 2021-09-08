@@ -4,7 +4,7 @@ error_reporting(0);
 session_start();
 
 if (isset($_SESSION['username'])) {
-    header("Location: hello.php");
+    header("Location: ../Auditor/auditor.php");
 }
 
 if (isset($_POST['getlogin'])) {
@@ -17,7 +17,7 @@ if (isset($_POST['getlogin'])) {
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['username'] = $row['username'];
-        header("Location: hello.php");
+        header("Location: ../Auditor/auditor.php");
     } else {
         echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
     }
