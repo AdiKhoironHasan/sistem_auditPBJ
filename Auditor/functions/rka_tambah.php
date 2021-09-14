@@ -12,11 +12,11 @@ if (isset($_POST['tambah'])) {
 
     $unit = $data_u["id_unit"];
     $auditor = $_POST['auditor'];
-    $status = $_POST['status'];
+    $status = 'Belum Terlaksana';
     $tahun = $_POST['tahun'];
     $tanggal = $_POST['tanggal'];
 
-    $sql = "INSERT INTO tb_rencana_kerja VALUES(NULL, '$unit', '$auditor', '$status', '$tahun', '$tanggal')";
+    $sql = "INSERT INTO tb_rka VALUES(NULL, '$unit', '$auditor', '$status', '$tahun', '$tanggal')";
     if (mysqli_query($conn, $sql)) {
         $success    =   "New record created successfully !";
     } else {

@@ -11,12 +11,13 @@ if (isset($_POST['tambah'])) {
     $data_u = mysqli_fetch_array(mysqli_query($conn, "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'"));
 
     $unit = $data_u["id_unit"];
+    $barang = $_POST["nama_barang"];
     $no_kontrak = $_POST['no_kontrak'];
     $tanggal = $_POST['tanggal'];
     $nilai = $_POST['nilai_kontrak'];
     $tahun = $_POST['tahun'];
 
-    $sql = "INSERT INTO tb_paket_barang VALUES(NULL, '$unit', '$no_kontrak', '$tanggal', '$nilai', '$tahun')";
+    $sql = "INSERT INTO tb_barang VALUES(NULL, '$unit', '$barang', '$no_kontrak', '$tanggal', '$nilai', '$tahun')";
     if (mysqli_query($conn, $sql)) {
         $success    =   "New record created successfully !";
     } else {

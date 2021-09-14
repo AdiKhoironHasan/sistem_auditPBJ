@@ -1,3 +1,52 @@
-1. sudah membuat login dan logout
-2. register belum jadi
-3. login masih hanya untuk auditor
+2 {
+    TARGET :
+    1. buat tampilan Dashboard user
+    2. perbaiki error submit, dan verifikasi/cek form (misal level tidak sesuai, data salah, dll)
+    3. menggunakan sweet alert
+    4. menambah foto
+}
+
+1 {
+    SELESAI :
+    1. sudah membuat login dan logout
+    2. register belum jadi
+    3. login masih hanya untuk auditor
+    4. sudah bisa logout dan menampilkan username untuk auditor
+
+    TARGET :
+    1. membuat register DONE
+    2. login dan register bisa berdasarkan user level DONE
+    3. perbaiki fungsi DONE
+    4. perbaiki Sidebar DONE
+    5. 4 Tabel Done DONE
+    6. Acc Registrasi User DONE
+
+    KEKURANGAN :
+    1. tabel barang kurang nama barang
+}
+
+SIDEBAR {
+    AUDITOR :
+    1. Dashboard (profil, jumlah data audit)
+    2. Rencana Kerrja Audit (CRUD RKA)
+    3. Data Audit 
+        1. Data Desk (CRUD oleh auditor)
+        2. Data VIsit (Read, Auditee upload)
+    4. Temuan Hasil Audit (CRUD, bisa print menjadi Laporan Hasil Audit)
+    5. Berita Acara
+
+    UNIT :
+    1. Dashboard (Profil, jumlah data barang)
+    2. Paket Barang (Data barang unit tersebut yang akan di audit)
+    3. Data Audit 
+        1. Desk (CRUD data desk untuk di audit)
+    4. Temuan Hasil Audit (Read THA dari auditor, dan bisa setuju/tidak dengan hasilnya)
+    5. Berita Acara (bisa ttd dan melihat berita acara)
+
+    DIREKTUR :
+    1. Dashboard (profil, dan proses audit yang sedang berjalan)
+    2. Rencana Kerja Audit (bisa melihat yang belum, sudah, atau tidak terlaksana)
+    3. Auditor (Melihat daftar auditor)
+    4. Unit (melihat daftar unit)
+    5. Berita acara (melihat berita acara)
+}

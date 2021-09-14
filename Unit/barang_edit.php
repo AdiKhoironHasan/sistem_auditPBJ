@@ -1,40 +1,4 @@
-<?php
-
-use function PHPSTORM_META\sql_injection_subst;
-
-include 'functions/connect.php';
-
-$id = $_GET['id']; // get id through query string
-
-$result = mysqli_query($conn, "SELECT * FROM tb_paket_barang WHERE id_barang='$id'"); // select query
-$unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
-$data = mysqli_fetch_array($result); // fetch data
-
-if (isset($_POST['edit'])) // when click on Update button
-{
-  $u = $_POST["unit"];
-  $data_u = mysqli_fetch_array(mysqli_query($conn, "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'"));
-
-  $id_barang = $_POST['id'];
-  $id_unit = $data_u["id_unit"]; //id_unit adalah field
-  $no_kontrak = $_POST['no_kontrak'];
-  $tanggal = $_POST['tanggal'];
-  $nilai = $_POST['nilai_kontrak'];
-  $tahun = $_POST['tahun'];
-
-  $edit = mysqli_query($conn, "UPDATE tb_paket_barang SET id_unit='$id_unit' , no_kontrak='$no_kontrak', tanggal='$tanggal', nilai_kontrak='$nilai', tahun_anggaran='$tahun' WHERE id_barang='$id_barang' ");
-
-  if ($edit) {
-    mysqli_close($conn); // Close connection
-    header("location:barang.php"); // redirects to all records page
-    exit;
-  } else {
-    echo mysqli_error($conn);
-    // echo "Error: " . $sql . " " . mysqli_error($conn);
-    echo ("GAGAL TAMBAH DATA");
-  }
-}
-?>
+<?php require "functions/barang_edit.php" ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
@@ -93,12 +57,16 @@ if (isset($_POST['edit'])) // when click on Update button
               </select>
             </div>
             <div class="form-group">
+              <label>Nama Barang</label>
+              <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" value="<?= $data["nama_barang"]; ?>">
+            </div>
+            <div class="form-group">
               <label>Nomor Kontrak</label>
               <input type="text" name="no_kontrak" class="form-control" placeholder="No." value="<?= $data["no_kontrak"]; ?>">
             </div>
             <div class="form-group">
               <label>Tanggal</label>
-              <input type="date" class="form-control" name="tanggal" value="<?= $data["tanggal"]; ?>">
+              <input type="date" class="form-control" name="tanggal" value="<?= $data["tanggal_kontrak"]; ?>">
             </div>
             <div class="form-group">
               <label>Nilai Kontrak</label>

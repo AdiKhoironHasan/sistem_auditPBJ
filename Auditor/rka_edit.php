@@ -1,35 +1,5 @@
 <?php
-
-use function PHPSTORM_META\sql_injection_subst;
-
-include '../../functions/connect.php';
-
-$id = $_GET['id']; // get id through query string
-
-$result = mysqli_query($conn, "SELECT * FROM tb_rencana_kerja WHERE id_rka='$id'"); // select query
-
-$data = mysqli_fetch_array($result); // fetch data
-
-if (isset($_POST['edit'])) // when click on Update button
-{
-  $id_rka = $_POST['id'];
-  $unit = $_POST['unit'];
-  $auditor = $_POST['auditor'];
-  $status = $_POST['status'];
-  $tahun = $_POST['tahun'];
-  $tanggal = $_POST['tanggal'];
-
-  $edit = mysqli_query($conn, "UPDATE tb_rencana_kerja SET id_unit='$unit' , id_auditor='$auditor', status='$status', tahun='$tahun', tanggal='$tanggal' WHERE id_rka='$id_rka' ");
-
-  if ($edit) {
-    mysqli_close($conn); // Close connection
-    header("location:rka.php"); // redirects to all records page
-    exit;
-  } else {
-    // echo mysqli_error();
-    echo ("GAGAL TAMBAH DATA");
-  }
-}
+include "functions/rka_edit.php";
 ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
@@ -89,15 +59,17 @@ if (isset($_POST['edit'])) // when click on Update button
             <div class="form-group">
               <label>Auditor</label>
               <select type="text" name="auditor" class="form-control">
-                <option hidden selected><?= $data["id_auditor"]; ?></option>
+                <option hidden selected><?= $data["id_user"]; ?></option>
                 <option>1</option>
                 <option>2</option>
+                <option>3</option>
               </select>
             </div>
             <div class="form-group">
               <label>Status</label>
               <select type="text" name="status" class="form-control">
                 <option hidden selected><?= $data["status"]; ?></option>
+                <option>Belum Terlaksana</option>
                 <option>Terlaksana</option>
                 <option>Tidak Terlaksana</option>
               </select>

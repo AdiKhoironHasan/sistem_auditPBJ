@@ -1,42 +1,48 @@
 <?php
+session_start();
 
-use function PHPSTORM_META\sql_injection_subst;
+require_once 'functions/user_edit.php';
+require_once 'functions/user_tambah.php';
+require 'functions/connect.php';
 
-include_once 'functions/barang_tambah.php';
-include 'functions/connect.php';
-$sql = mysqli_query($conn, "SELECT * FROM tb_barang");
-// $unit = mysqli_query($conn, "SELECT unit.nama_unit AS nama_unit FROM tb_unit AS unit, tb_rencana_kerja AS rka WHERE rka.id_unit = unit.id_unit");
-$unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
+if (!isset($_SESSION['username'])) {
+    header("Location: ../Login/login.php");
+}
+
+$sql = mysqli_query($conn, "SELECT * FROM tb_user");
+
 ?>
+
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
 
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Blank Page</h1>
+                    <h1>Data User</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Blank Page</li>
+                        <li class="breadcrumb-item active">Data User</li>
                     </ol>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
+
     <!-- Main content -->
     <section class="content">
 
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Title</h3>
-
+                <h3 class="card-title">Data User</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -48,44 +54,49 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
             </div>
             <div class="card-body">
                 <div class="mb-2">
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal_tambah">Tambah</button>
-                    <!-- <button type="button" class="btn btn-secondary">Secondary</button> -->
                 </div>
                 <table id="example1" class="table table-bordered table-striped text-center">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Unit</th>
-                            <th>Nama Barang</th>
-                            <th>No Kontrak</th>
-                            <th>Tanggal</th>
-                            <th>Nilai Kontrak</th>
-                            <th>Tahun Anggaran</th>
+                            <th>Nama</th>
+                            <th>Username</th>
+                            <th>Level</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 1;
-                        // $count = mysqli_num_rows($unit);
                         foreach ($sql as $row) :
                         ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td> <?= $row["id_unit"]; ?> </td>
-                                <td> <?= $row["nama_barang"]; ?> </td>
-                                <td><?= $row["no_kontrak"]; ?></td>
-                                <td> <?= $row["tanggal_kontrak"]; ?> </td>
-                                <td> <?= $row["nilai_kontrak"]; ?> </td>
-                                <td> <?= $row["tahun_anggaran"]; ?> </td>
+                                <td><?= $row["nama"]; ?></td>
+                                <td><?= $row["username"]; ?></td>
+                                <td><?= $row["level"]; ?></td>
+                                <td><?= $row["status"]; ?></td>
                                 <td>
                                     <div class="text-center">
-                                        <a href="#" style="color: deepskyblue"><i class="fas fa-info-circle"></i></a>
-                                        <a href="barang_edit.php?id=<?= $row["id_barang"] ?>" style="color: limegreen;"><i class="far fa-edit"></i></a>
-                                        <a href="functions/barang_delete.php?id=<?= $row["id_barang"] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" style="color: crimson;"><i class="far fa-trash-alt"></i></a>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="#modal_user<?= $row["id_user"]; ?>" data-toggle="modal" style="color: deepskyblue"><i class="fas fa-info-circle"></i></a>
+                                            </div>
+                                            <div class="col-0">
+                                                <a href="#modal_user_edit<?= $row["id_user"]; ?>" data-toggle="modal" style="color: limegreen;"><i class="far fa-edit"></i></a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="functions/user_delete.php?id=<?= $row["id_user"] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" style="color: crimson;"><i class="far fa-trash-alt"></i></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
+                            <?php include "layouts/modal-user.php"; ?>
+                            <?php include "layouts/modal-user-edit.php"; ?>
                         <?php
                             $no++;
                         endforeach
@@ -94,8 +105,6 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
                 </table>
             </div>
             <!-- /.card-body -->
-
-            <!-- /.card-footer-->
         </div>
         <!-- /.card -->
 
@@ -108,53 +117,38 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
 <div class="modal fade" id="modal_tambah">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="barang.php" method="post">
+            <form action="user.php" method="post">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Data</h4>
+                    <h4 class="modal-title">Tambah Data User</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <div class="form-group">
-                        <label>Unit</label>
-                        <select type="text" name="unit" class="form-control">
-                            <?php
-                            $count = mysqli_num_rows($unit);
-                            foreach ($unit as $u) :
-                            ?>
-                                <option><?= $u["nama_unit"]; ?></option>
-                            <?php
-                            endforeach;
-                            ?>
-                        </select>
+                        <label>Nama Lengkap</label>
+                        <input type="text" name="nama" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Nama Barang</label>
-                        <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang">
+                        <label>Username</label>
+                        <input type="text" name="username" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Nomor Kontrak</label>
-                        <input type="text" name="no_kontrak" class="form-control" placeholder="No.">
+                        <label>Password</label>
+                        <input type="text" class="form-control" name="password1">
                     </div>
                     <div class="form-group">
-                        <label>Tanggal</label>
-                        <input type="date" class="form-control" name="tanggal">
+                        <label>Password</label>
+                        <input type="text" class="form-control" name="password2">
                     </div>
                     <div class="form-group">
-                        <label>Nilai Kontrak</label>
-                        <input type="text" name="nilai_kontrak" class="form-control" placeholder="Rp.">
-                        <!-- <input type="text" name="nilai_kontrak" id="rupiah" class="form-control" placeholder="Rp."> -->
-                    </div>
-                    <div class="form-group">
-                        <label>Tahun Anggaran</label>
-                        <select type="text" name="tahun" class="form-control">
-                            <option>2018</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
+                        <label>Jabatan</label>
+                        <select type="text" name="level" class="form-control">
+                            <option hidden selected></option>
+                            <option>Ketua SPI</option>
+                            <option>Anggota SPI</option>
+                            <option>Ketua Unit</option>
+                            <option>Direktur</option>
                         </select>
                     </div>
                 </div>

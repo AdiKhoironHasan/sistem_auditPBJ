@@ -1,10 +1,10 @@
 <?php
-require_once 'functions/connect.php';
+include 'connect.php';
 // menyimpan data id kedalam variabel
 $id = $_GET['id'];
 // query SQL untuk insert data
-$query= "DELETE FROM tb_paket_barang WHERE id_barang='$id'";
+$query= "DELETE FROM tb_user WHERE id_user='$id'";
 mysqli_query($conn, $query);
 // mengalihkan ke halaman index.php
-header("location:barang.php");
+header("refresh: 0; url=../user.php");
 ?>

@@ -1,28 +1,6 @@
 <?php
 include 'functions/connect.php';
-error_reporting(0);
-session_start();
-
-if (isset($_SESSION['username'])) {
-    header("Location: ../Auditor/auditor.php");
-}
-
-if (isset($_POST['getlogin'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    // $password = md5($_POST['password']);
-
-    $sql = "SELECT * FROM tb_auditor WHERE username='$username' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
-    if ($result->num_rows > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['username'] = $row['username'];
-        header("Location: ../Auditor/auditor.php");
-    } else {
-        echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
-    }
-}
-
+include 'functions/getlogin.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +33,7 @@ if (isset($_POST['getlogin'])) {
 
                 <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" name="username" class="form-control" placeholder="Email">
+                        <input type="text" name="username" class="form-control" placeholder="Username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
