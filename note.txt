@@ -9,10 +9,13 @@
 1 {
     SELESAI :
     1. sudah membuat login dan logout
-    2. register belum jadi
-    3. login masih hanya untuk auditor
+    2. register done
+    3. login dan register bisa berdasarkan user level
     4. sudah bisa logout dan menampilkan username untuk auditor
-
+    5. Acc Registrasi User
+    6. 4 Tabel Done
+    7. perbaiki fungsi ke folder functions
+    
     TARGET :
     1. membuat register DONE
     2. login dan register bisa berdasarkan user level DONE
