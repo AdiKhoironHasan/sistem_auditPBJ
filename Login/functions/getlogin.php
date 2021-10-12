@@ -18,6 +18,9 @@ if (isset($_POST['getlogin'])) {
         if ($row['status'] == 'Aktif') {
             $_SESSION['username'] = $row['username'];
             $_SESSION['level'] = $row['level'];
+            $_SESSION['id_user'] = $row['id_user'];
+            $_SESSION['foto'] = $row['foto'];
+            $_SESSION['nama'] = $row['nama'];
             if ($row['level'] == 'Ketua Unit') {
                 header("refresh: 0; url=../Unit/unit.php");
             } else if ($row['level'] == 'Direktur') {

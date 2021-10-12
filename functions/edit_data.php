@@ -13,6 +13,7 @@ if (mysqli_query($koneksi, $query)) {
     header("location:input_rka.php");    
 }
 else{
-    echo "ERROR, data gagal diupdate". mysqli_error();
+    // echo "ERROR, data gagal diupdate". mysqli_error();
+    echo "<script>alert('DATA GAGAL DI UPDATE')</script>";
 }
 ?>

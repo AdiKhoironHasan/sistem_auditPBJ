@@ -27,7 +27,7 @@ if (isset($_POST['edit'])) // when click on Update button
         mysqli_close($conn); // Close connection
         echo "<script>alert('Data Berhasil Diubah')</script>";
         // exit;
-        header("refresh: 0; url=user.php"); // redirects to all records page
+        header("refresh: 0; url=data_user.php"); // redirects to all records page
     } else {
         // echo mysqli_error($edit);
         echo ("GAGAL EDIT DATA");

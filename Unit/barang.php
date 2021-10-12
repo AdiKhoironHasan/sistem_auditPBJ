@@ -1,10 +1,16 @@
 <?php
-
-use function PHPSTORM_META\sql_injection_subst;
+session_start();
 
 include_once 'functions/barang_tambah.php';
 include 'functions/connect.php';
-$sql = mysqli_query($conn, "SELECT * FROM tb_barang");
+
+$userid = $_SESSION['id_user'];
+$q_unit_user = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$userid");
+while ($q_unit_user_row = mysqli_fetch_array($q_unit_user)) {
+    $id_unit =  $q_unit_user_row['id_unit'];
+};
+$sql = mysqli_query($conn, "SELECT * FROM tb_barang WHERE id_unit=$id_unit");
+$sql_v_data_barang = mysqli_query($conn, "SELECT * FROM v_data_barang WHERE id_unit=$id_unit");
 // $unit = mysqli_query($conn, "SELECT unit.nama_unit AS nama_unit FROM tb_unit AS unit, tb_rencana_kerja AS rka WHERE rka.id_unit = unit.id_unit");
 $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
 ?>
@@ -68,16 +74,16 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
                         <?php
                         $no = 1;
                         // $count = mysqli_num_rows($unit);
-                        foreach ($sql as $row) :
+                        foreach ($sql_v_data_barang as $row) :
                         ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td> <?= $row["id_unit"]; ?> </td>
-                                <td> <?= $row["nama_barang"]; ?> </td>
+                                <td><?= $row["nama_unit"]; ?></td>
+                                <td><?= $row["nama_barang"]; ?></td>
                                 <td><?= $row["no_kontrak"]; ?></td>
-                                <td> <?= $row["tanggal_kontrak"]; ?> </td>
-                                <td> <?= $row["nilai_kontrak"]; ?> </td>
-                                <td> <?= $row["tahun_anggaran"]; ?> </td>
+                                <td><?= $row["tanggal_kontrak"]; ?></td>
+                                <td><?= $row["nilai_kontrak"]; ?></td>
+                                <td><?= $row["tahun_anggaran"]; ?></td>
                                 <td>
                                     <div class="text-center">
                                         <a href="#" style="color: deepskyblue"><i class="fas fa-info-circle"></i></a>
@@ -110,26 +116,21 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
         <div class="modal-content">
             <form action="barang.php" method="post">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Data</h4>
+                    <h4 class="modal-title">Tambah Data <?= $_SESSION['id_user'] ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-
-                    <div class="form-group">
-                        <label>Unit</label>
-                        <select type="text" name="unit" class="form-control">
-                            <?php
-                            $count = mysqli_num_rows($unit);
-                            foreach ($unit as $u) :
-                            ?>
-                                <option><?= $u["nama_unit"]; ?></option>
-                            <?php
-                            endforeach;
-                            ?>
-                        </select>
-                    </div>
+                    <?php
+                    $id = $_SESSION['id_user'];
+                    $q_unit_id = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$id");
+                    foreach ($q_unit_id as $q_unit_id_row) :
+                    ?>
+                        <input type="hidden" name="unit" value="<?= $q_unit_id_row["nama_unit"]; ?>">
+                    <?php
+                    endforeach;
+                    ?>
                     <div class="form-group">
                         <label>Nama Barang</label>
                         <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang">
