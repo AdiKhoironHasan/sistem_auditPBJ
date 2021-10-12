@@ -2,7 +2,7 @@
 $servername =   'localhost';
 $username   =   'root';
 $password   =   '';
-$dbname     =   "db_apb";
+$dbname     =   "auditpbj";
 $conn=mysqli_connect($servername,$username,$password,$dbname);
 if($conn === false)
 {

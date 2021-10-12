@@ -4,6 +4,17 @@
     2. perbaiki error submit, dan verifikasi/cek form (misal level tidak sesuai, data salah, dll)
     3. menggunakan sweet alert
     4. menambah foto
+    == 5. Input data barang auto include nama unit
+    == 6. perbaiki tampilan id unit menjadi nama unit di tabel
+    =/ 7. auditor dipisah data user yang sedang di ajukan dan data aktif (Print Button Bug)
+    8. notifikasi ketika ada user mendaftar
+    9. user daftar pilih unit  (register) 
+    // 10. insert user pilih unit (data user di auditor)
+    == 11. Daftar barang berisi barang dari unit itu saja
+    == 12. buat view tiap tabel
+    == 13. CRUD unit
+    == 14 insert unit pilih user 
+    15. perbaiki sesion tiap level
 }
 
 1 {
@@ -52,4 +63,25 @@ SIDEBAR {
     3. Auditor (Melihat daftar auditor)
     4. Unit (melihat daftar unit)
     5. Berita acara (melihat berita acara)
+}
+
+VIEW {
+    TABEL :
+    data_unit.php, tbunit -> nama user
+    == CREATE VIEW v_data_unit AS SELECT unit.id_unit, unit.nama_unit, user.nama FROM tb_unit as unit, tb_user as user WHERE user.id_user = unit.id_unit ;
+    rka.php, tb_rka -> nama user dan nama auditor
+    == CREATE VIEW v_data_rka AS SELECT rka.*, user.nama, unit.nama_unit FROM tb_unit as unit, tb_user as user, tb_rka as rka WHERE rka.id_user = user.id_user AND rka.id_unit = unit.id_unit ORDER BY rka.id_rka ASC;
+    barang.php, tb_barang -> nama unit
+    == CREATE VIEW v_data_barang AS SELECT barang.*, unit.nama_unit FROM tb_unit as unit, tb_barang as barang WHERE barang.id_unit = unit.id_unit ORDER BY barang.id_barang ASC;
+
+    FORM :
+        Ketua :
+            unit tambah data , tampilkan nama user dengan status ketua unit (belum memiliki unit)
+            =/ SELECT DISTINCT user.nama FROM tb_user as user, tb_unit as unit WHERE (user.id_user != unit.id_user) AND (user.level = 'Ketua Unit');
+            unit edit data, tampilkan nama user dengan status ketua unit (belum memiliki unit) atau tampilkan nama unit di sebelah nama ketua yang sudah memiliki unit
+            =/ 
+            rka tambah data, tampilan unit yang sudah memiliki ketua dan tampilkan nama user dengan status auditor
+            == CREATE VIEW v_nama_auditor AS SELECT nama FROM tb_user WHERE level = 'Ketua SPI' || level = 'Anggota SPI';
+            rka edit data, tampilan unit yang sudah memiliki ketua dan tampilkan nama user dengan status auditor
+            == 
 }

@@ -24,7 +24,7 @@
         <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="#" class="nav-link active">
+          <a href="auditor.php" class="nav-link active">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -35,10 +35,18 @@
         if ($_SESSION['level'] == 'Ketua SPI') {
         ?>
           <li class="nav-item">
-            <a href="user.php" class="nav-link">
+            <a href="data_user.php" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Data User
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="data_unit.php" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Data Unit
               </p>
             </a>
           </li>

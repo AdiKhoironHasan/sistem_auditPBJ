@@ -1,7 +1,7 @@
 <div class="modal fade" id="modal_user_edit<?= $row["id_user"]; ?>">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="user.php" method="post">
+            <form action="" method="post">
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Data User</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -24,6 +24,7 @@
                             <option hidden selected><?= $row["status"]; ?></option>
                             <option>Aktif</option>
                             <option>Tidak Aktif</option>
+                            <option>Mendaftar</option>
                         </select>
                     </div>
                     <div class="form-group">

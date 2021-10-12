@@ -5,7 +5,6 @@ include "functions/rka_edit.php";
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
 
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -49,10 +48,6 @@ include "functions/rka_edit.php";
               <label>Unit</label>
               <select type="text" name="unit" class="form-control">
                 <option hidden selected><?= $data["id_unit"]; ?></option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
                 <option>5</option>
               </select>
             </div>
@@ -91,7 +86,7 @@ include "functions/rka_edit.php";
             </div>
           </div>
           <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <a href="rka.php" type="button" class="btn btn-default" data-dismiss="modal">Close</a>
             <!-- <button type="submit" name="tambah" class="btn btn-primary">Save changes</button> -->
             <input type="submit" name="edit" class="btn btn-primary" value="Simpan">
           </div>

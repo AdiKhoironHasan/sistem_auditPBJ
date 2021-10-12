@@ -7,10 +7,10 @@ if (isset($_POST['tambah'])) {
     // while ($row = $result -> fetch_assoc()) {
     //     $id_unit =$row['id_unit'];
     // }
-    $u = $_POST["unit"];
-    $data_u = mysqli_fetch_array(mysqli_query($conn, "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'"));
+    $unit = $_POST["unit"];
+    // $data_u = mysqli_fetch_array(mysqli_query($conn, "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'"));
 
-    $unit = $data_u["id_unit"];
+    // $unit = $data_u["id_unit"];
     $auditor = $_POST['auditor'];
     $status = 'Belum Terlaksana';
     $tahun = $_POST['tahun'];

@@ -1,15 +1,11 @@
 <?php
-
-use function PHPSTORM_META\sql_injection_subst;
-
+// session_start();
 include 'connect.php';
 
-$id = $_GET['id']; // get id through query string
-
-$result = mysqli_query($conn, "SELECT * FROM tb_rka WHERE id_rka='$id'"); // select query
-
-$data = mysqli_fetch_array($result); // fetch data
-
+if (!isset($_SESSION['username'])) {
+    header("Location: ../Login/login.php");
+  }
+  
 if (isset($_POST['edit'])) // when click on Update button
 {
     $id_rka = $_POST['id'];
@@ -18,9 +14,9 @@ if (isset($_POST['edit'])) // when click on Update button
     $status = $_POST['status'];
     $tahun = $_POST['tahun'];
     $tanggal = $_POST['tanggal'];
-
+    
     $edit = mysqli_query($conn, "UPDATE tb_rka SET id_unit='$unit' , id_user='$auditor', status='$status', tahun='$tahun', tanggal='$tanggal' WHERE id_rka='$id_rka' ");
-
+    
     if ($edit) {
         mysqli_close($conn); // Close connection
         header("refresh: 0; url=rka.php"); // redirects to all records page
@@ -30,4 +26,9 @@ if (isset($_POST['edit'])) // when click on Update button
         echo ("GAGAL TAMBAH DATA");
     }
 }
-?>
+
+// $id = $_GET['id']; // get id through query string
+
+// $result = mysqli_query($conn, "SELECT * FROM tb_rka WHERE id_rka='$id'"); // select query
+
+// $data = mysqli_fetch_array($result); // fetch data

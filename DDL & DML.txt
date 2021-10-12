@@ -1,5 +1,5 @@
-CREATE DATABASE db_APB;
-use db_APB;
+CREATE DATABASE auditpbj;
+use auditpbj;
 
 CREATE TABLE tb_user (
 	id_user int(4) AUTO_INCREMENT,
@@ -95,12 +95,6 @@ CREATE TABLE tb_berita_acara (
 	PRIMARY KEY (id_berita),
 	FOREIGN KEY (id_lha) REFERENCES tb_lha(id_lha)
 );
-
-
-
-
-
-
 
 
 INSERT INTO tb_user VALUES 

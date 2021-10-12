@@ -21,7 +21,7 @@ if (isset($_POST['tambah'])) {
           $result = mysqli_query($conn, $sql);
           if ($result) {
             echo "<script>alert('Selamat, registrasi berhasil!')</script>";
-            header("refresh: 0; url=user.php");
+            header("refresh: 0; url=data_user.php");
             // header("Location: login.php");
             // $username = "";
             // $email = "";
