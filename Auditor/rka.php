@@ -1,16 +1,9 @@
 <?php
-
-use function PHPSTORM_META\sql_injection_subst;
-
-session_start();
-
-include_once 'functions/rka_tambah.php';
-include_once 'functions/rka_edit.php';
-include 'functions/connect.php';
-
-if (!isset($_SESSION['username'])) {
-  header("Location: ../Login/login.php");
-}
+require 'functions/connect.php';
+include_once 'functions/f_auditor.php';
+include 'functions/f_rka.php';
+// include_once 'functions/rka_tambah.php';
+// include_once 'functions/rka_edit.php';
 
 $sql = mysqli_query($conn, "SELECT * FROM tb_rka");
 $sql_v_data_rka = mysqli_query($conn, "SELECT * FROM v_data_rka");
