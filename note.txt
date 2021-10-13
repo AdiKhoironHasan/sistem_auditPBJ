@@ -1,3 +1,7 @@
+1. memperbaiki upload dan tampilan foto
+2. memperbaiki fungsi rka
+3. memperbaiki fungsi dan tampilan Sidebar rka dan auditor
+
 2 {
     TARGET :
     1. buat tampilan Dashboard user
@@ -81,7 +85,7 @@ VIEW {
             unit edit data, tampilkan nama user dengan status ketua unit (belum memiliki unit) atau tampilkan nama unit di sebelah nama ketua yang sudah memiliki unit
             =/ 
             rka tambah data, tampilan unit yang sudah memiliki ketua dan tampilkan nama user dengan status auditor
-            == CREATE VIEW v_nama_auditor AS SELECT nama FROM tb_user WHERE level = 'Ketua SPI' || level = 'Anggota SPI';
+            == CREATE VIEW v_nama_auditor AS SELECT id_user, nama FROM tb_user WHERE level = 'Ketua SPI' || level = 'Anggota SPI';
             rka edit data, tampilan unit yang sudah memiliki ketua dan tampilkan nama user dengan status auditor
             == 
 }

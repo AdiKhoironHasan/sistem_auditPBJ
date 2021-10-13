@@ -1,18 +1,10 @@
-<?php
-
-session_start();
-
-if (!isset($_SESSION['username'])) {
-  header("Location: ../Login/login.php");
-}
-
-?>
-
 <?php require "functions/connect.php" ?>
+<?php require "functions/f_auditor.php" ?>
 <?php require "functions/f_profil.php" ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
+
 <!-- <link rel="stylesheet" href="../../AdminLTE/dist/css/adminlte.min.css"> -->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -21,12 +13,12 @@ if (!isset($_SESSION['username'])) {
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Blank Page</h1>
+          <h1>Profil User</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">Profil User</li>
           </ol>
         </div>
       </div>
@@ -45,30 +37,21 @@ if (!isset($_SESSION['username'])) {
             <div class="card-body box-profile">
               <div class="text-center">
                 <?php
-                $foto_profil = $_SESSION['foto'];
-                $iduser = $_SESSION['id_user'];
-                $sql_foto = mysqli_query($conn, "SELECT * FROM tb_user WHERE id_user = $iduser");
-                if ($_SESSION['foto'] == NULL) {
+                if ($data_user['foto'] == NULL) {
                 ?>
                   <img class="profile-user-img img-fluid img-circle" src="../AdminLTE/dist/img/user2.png" alt="User profile picture">
                 <?php
                 } else {
                 ?>
-                  <?php
-                  foreach ($sql_foto as $sql_foto_row) :
-                  ?>
-                    <img class="profile-user-img img-fluid img-circle h-25 w-25" src="../AdminLTE/dist/img/auditor/<?= $sql_foto_row['foto']; ?>" alt="User profile picture">
-                  <?php
-                  endforeach
-                  ?>
+                  <img class="profile-user-img img-fluid img-circle h-25 w-25" src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>" alt="User profile picture">
               </div>
             <?php
                 }
             ?>
 
-            <h3 class="profile-username text-center"><?= $_SESSION['nama']; ?></h3>
+            <h3 class="profile-username text-center"><?= $data_user['nama']; ?></h3>
 
-            <p class="text-muted text-center">Software Engineer</p>
+            <p class="text-muted text-center"><?= $data_user['level']; ?></p>
 
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">
@@ -226,21 +209,26 @@ if (!isset($_SESSION['username'])) {
                       </div>
                       <div class="card-body">
                         <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
-                          <div class="text-center mb-3" id="fotoPreview"></div>
+                          <div class="text-center mb-3">
+                            <img src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>" class="h-25 w-25 border border-primary">
+                          </div>
                           <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Foto Profil</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 input-group">
                               <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="foto" id="foto" onchange="return fotoValidation()">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                               </div>
+                              <div class="input-group-append">
+                                <input type="submit" name="edit_foto" class="input-group-text" value="Upload">
+                              </div>
                             </div>
                           </div>
-                          <div class="form-group row">
+                          <!-- <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
                               <input type="submit" name="edit_foto" class="btn btn-danger" value="Simpan Perubahan">
                             </div>
-                          </div>
+                          </div> -->
                         </form>
                       </div>
                     </div>
@@ -257,20 +245,20 @@ if (!isset($_SESSION['username'])) {
                         </div>
                       </div>
                       <div class="card-body">
-                        <form class="form-horizontal" action="" method="POST">
-                          <div class="text-center mb-3" id="ttdPreview"></div>
-                          <div class="form-group row">
-                            <label for="inputName" class="col-sm-2 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                              <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="ttd" onchange="return ttdValidation()">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                              </div>
-                            </div>
+                        <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                          <div class="text-center mb-3">
+                            <img src="../AdminLTE/dist/img/auditor/ttd/<?= $data_user['ttd']; ?>" class="h-25 w-25  border border-primary">
                           </div>
                           <div class="form-group row">
-                            <div class="offset-sm-2 col-sm-10">
-                              <input type="submit" name="edit_ttd" class="btn btn-danger" value="Simpan Perubahan">
+                            <label for="inputName" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10 input-group">
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="ttd">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                              </div>
+                              <div class="input-group-append">
+                                <input type="submit" name="edit_ttd" class="input-group-text" value="Upload">
+                              </div>
                             </div>
                           </div>
                         </form>

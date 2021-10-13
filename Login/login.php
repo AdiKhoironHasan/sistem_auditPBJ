@@ -9,7 +9,7 @@ include 'functions/getlogin.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in (v2)</title>
+    <title>Audit PBJ | Log in</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -26,7 +26,7 @@ include 'functions/getlogin.php';
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../index.php" class="h1"><b>Admin</b>LTE</a>
+                <a href="../index.php" class="h1">Audit<b>PBJ</b></a>
             </div>
             <div class="card-body">
                 <!-- <p class="login-box-msg">Sign in to start your session</p> -->
@@ -63,12 +63,18 @@ include 'functions/getlogin.php';
                 <!-- </div> -->
                 <!-- /.social-auth-links -->
 
-                <p class="mb-1 mt-2">
-                    <a href="forgot-password.html">I forgot my password</a>
-                </p>
-                <p class="mb-0">
-                    <a href="register.php" class="text-center">Register a new membership</a>
-                </p>
+                <!-- <p class="mb-1 mt-2"> -->
+                <div class="row">
+                    <div class="col-sm-7">
+                        <a href="register.php">Mendaftar user baru</a>
+                    </div>
+                    <div class="col">
+                        <a href="forgot-password.html">Lupa Password?</a>
+                    </div>
+                </div>
+                <!-- </p> -->
+                <!-- <p class="mb-0"> -->
+                <!-- </p> -->
             </div>
             <!-- /.card-body -->
         </div>

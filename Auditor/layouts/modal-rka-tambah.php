@@ -26,10 +26,10 @@
             <select type="text" name="auditor" class="form-control">
               <option hidden selected value="">--Pilih Auditor--</option>
               <?php
-              $q_v_data_auditor = mysqli_query($conn, "SELECT * FROM v_data_auditor");
-              foreach ($q_v_data_auditor as $q_v_data_auditor_row) :
+              $q_v_nama_auditor = mysqli_query($conn, "SELECT * FROM v_nama_auditor");
+              foreach ($q_v_nama_auditor as $q_v_nama_auditor_row) :
               ?>
-                <option value="<?= $q_v_data_auditor_row["id_user"]; ?>"><?= $q_v_data_auditor_row["nama"]; ?></option>
+                <option value="<?= $q_v_nama_auditor_row["id_user"]; ?>"><?= $q_v_nama_auditor_row["nama"]; ?></option>
               <?php endforeach; ?>
             </select>
           </div>

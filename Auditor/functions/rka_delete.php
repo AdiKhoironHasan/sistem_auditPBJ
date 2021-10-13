@@ -6,5 +6,6 @@ $id = $_GET['id'];
 $query= "DELETE FROM tb_rka WHERE id_rka='$id'";
 mysqli_query($conn, $query);
 // mengalihkan ke halaman index.php
-header("location: ../rka.php");
+echo "<script>alert('Hapus Data Berhasil')</script>";
+header("refresh: 0; url=../rka.php");
 ?>
