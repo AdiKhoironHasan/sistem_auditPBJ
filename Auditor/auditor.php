@@ -39,33 +39,33 @@
                 <?php
                 if ($data_user['foto'] == NULL) {
                 ?>
-                  <img class="profile-user-img img-fluid img-circle" src="../AdminLTE/dist/img/user2.png" alt="User profile picture">
+                  <img class="profile-user-img img-fluid img-circle" src="../AdminLTE/dist/img/no-pictures.png" alt="User profile picture">
                 <?php
                 } else {
                 ?>
                   <img class="profile-user-img img-fluid img-circle h-25 w-25" src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>" alt="User profile picture">
-              </div>
-            <?php
+                <?php
                 }
-            ?>
+                ?>
+              </div>
 
-            <h3 class="profile-username text-center"><?= $data_user['nama']; ?></h3>
+              <h3 class="profile-username text-center"><?= $data_user['nama']; ?></h3>
 
-            <p class="text-muted text-center"><?= $data_user['level']; ?></p>
+              <p class="text-muted text-center"><?= $data_user['level']; ?></p>
 
-            <ul class="list-group list-group-unbordered mb-3">
-              <li class="list-group-item">
-                <b>Followers</b> <a class="float-right">1,322</a>
-              </li>
-              <li class="list-group-item">
-                <b>Following</b> <a class="float-right">543</a>
-              </li>
-              <li class="list-group-item">
-                <b>Friends</b> <a class="float-right">13,287</a>
-              </li>
-            </ul>
+              <ul class="list-group list-group-unbordered mb-3">
+                <li class="list-group-item">
+                  <b>Followers</b> <a class="float-right">1,322</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Following</b> <a class="float-right">543</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Friends</b> <a class="float-right">13,287</a>
+                </li>
+              </ul>
 
-            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
             </div>
             <!-- /.card-body -->
           </div>
@@ -133,7 +133,17 @@
                             <div class="form-group row">
                               <label for="inputName" class="col-sm-2 col-form-label">NPAK</label>
                               <div class="col-sm-10">
-                                <input type="text" class="form-control" name="npak" id="npak" value="<?= $dataUser_row['nip_npak']; ?>">
+                                <?php
+                                if ($data_user['nip_npak'] == NULL) {
+                                ?>
+                                  <input type="text" class="form-control" name="npak" id="npak" value="---- Data Belum Diisi ---">
+                                <?php
+                                } else {
+                                ?>
+                                  <input type="text" class="form-control" name="npak" id="npak" value="<?= $dataUser_row['nip_npak']; ?>">
+                                <?php
+                                }
+                                ?>
                               </div>
                             </div>
                             <div class="form-group row">
@@ -210,7 +220,17 @@
                       <div class="card-body">
                         <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                           <div class="text-center mb-3">
-                            <img src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>" class="h-25 w-25 border border-primary">
+                            <?php
+                            if ($data_user['foto'] == NULL) {
+                            ?>
+                              <img src="../AdminLTE/dist/img/no-pictures.png" class="h-25 w-25  border border-primary">
+                            <?php
+                            } else {
+                            ?>
+                              <img src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>" class="h-25 w-25  border border-primary">
+                            <?php
+                            }
+                            ?>
                           </div>
                           <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Foto Profil</label>
@@ -247,7 +267,17 @@
                       <div class="card-body">
                         <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                           <div class="text-center mb-3">
-                            <img src="../AdminLTE/dist/img/auditor/ttd/<?= $data_user['ttd']; ?>" class="h-25 w-25  border border-primary">
+                            <?php
+                            if ($data_user['ttd'] == NULL) {
+                            ?>
+                              <img src="../AdminLTE/dist/img/no-pictures.png" class="h-25 w-25  border border-primary">
+                            <?php
+                            } else {
+                            ?>
+                              <img src="../AdminLTE/dist/img/auditor/ttd/<?= $data_user['ttd']; ?>" class="h-25 w-25  border border-primary">
+                            <?php
+                            }
+                            ?>
                           </div>
                           <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Password</label>
@@ -337,4 +367,10 @@
       input.attr("type", "password");
     }
   });
+
+  $(function() {
+    bsCustomFileInput.init();
+  });
 </script>
+
+<script src="../AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>

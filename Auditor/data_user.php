@@ -1,9 +1,8 @@
 <?php
-session_start();
-
 require_once 'functions/user_edit.php';
 require_once 'functions/user_tambah.php';
 require 'functions/connect.php';
+include_once 'functions/f_auditor.php';
 
 if (!isset($_SESSION['username'])) {
     header("Location: ../Login/login.php");
