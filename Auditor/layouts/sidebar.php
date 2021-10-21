@@ -11,10 +11,20 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>" class="img-circle elevation-2" alt="User Image" />
+        <?php
+        if ($data_user['foto'] == NULL) {
+        ?>
+          <img class="img-circle elevation-2" alt="User Image" src="../AdminLTE/dist/img/no-pictures.png">
+        <?php
+        } else {
+        ?>
+          <img class="img-circle elevation-2" alt="User Image" src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>">
+        <?php
+        }
+        ?>
       </div>
       <div class="info">
-        <a href="#" class="d-block"><?= $data_user['username'] ?></a>
+        <a class="d-block"><?= $data_user['username'] ?></a>
       </div>
     </div>
 
