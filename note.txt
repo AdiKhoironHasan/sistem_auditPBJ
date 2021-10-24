@@ -1,6 +1,10 @@
-1. memperbaiki upload dan tampilan foto
-2. memperbaiki fungsi rka
-3. memperbaiki fungsi dan tampilan Sidebar rka dan auditor
+3 {
+    1. Buat menu active di Sidebar
+    2. Perbaiki navbar
+    3. Samakan penataan fungsi All user
+    4. Perbaiki tampian dashbiard All user
+    5. Perbaiki form (belum diisi, gunakan javascript untuk data yang sudah ada)
+}
 
 2 {
     TARGET :
@@ -72,7 +76,7 @@ SIDEBAR {
 VIEW {
     TABEL :
     data_unit.php, tbunit -> nama user
-    == CREATE VIEW v_data_unit AS SELECT unit.id_unit, unit.nama_unit, user.nama FROM tb_unit as unit, tb_user as user WHERE user.id_user = unit.id_unit ;
+    == CREATE VIEW v_data_unit AS SELECT unit.id_unit, unit.nama_unit, user.nama FROM tb_unit as unit, tb_user as user WHERE user.id_user = unit.id_user ;
     rka.php, tb_rka -> nama user dan nama auditor
     == CREATE VIEW v_data_rka AS SELECT rka.*, user.nama, unit.nama_unit FROM tb_unit as unit, tb_user as user, tb_rka as rka WHERE rka.id_user = user.id_user AND rka.id_unit = unit.id_unit ORDER BY rka.id_rka ASC;
     barang.php, tb_barang -> nama unit

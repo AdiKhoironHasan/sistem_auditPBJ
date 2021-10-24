@@ -9,8 +9,13 @@ $q_unit_user = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$userid"
 while ($q_unit_user_row = mysqli_fetch_array($q_unit_user)) {
     $id_unit =  $q_unit_user_row['id_unit'];
 };
-$sql = mysqli_query($conn, "SELECT * FROM tb_barang WHERE id_unit=$id_unit");
-$sql_v_data_barang = mysqli_query($conn, "SELECT * FROM v_data_barang WHERE id_unit=$id_unit");
+
+if (empty($id_unit)) {
+    $sql_v_data_barang = [];
+} else {
+    // $sql = mysqli_query($conn, "SELECT * FROM tb_barang WHERE id_unit=$id_unit");
+    $sql_v_data_barang = mysqli_query($conn, "SELECT * FROM v_data_barang WHERE id_unit=$id_unit");
+}
 // $unit = mysqli_query($conn, "SELECT unit.nama_unit AS nama_unit FROM tb_unit AS unit, tb_rencana_kerja AS rka WHERE rka.id_unit = unit.id_unit");
 $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
 ?>
