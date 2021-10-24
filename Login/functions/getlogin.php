@@ -3,7 +3,8 @@ error_reporting(0);
 session_start();
 
 if (isset($_SESSION['username'])) {
-    header("Location: ../Auditor/auditor.php");
+    // header("Location: ../Auditor/auditor.php");
+    include "logout.php";
 }
 
 if (isset($_POST['getlogin'])) {
@@ -16,13 +17,18 @@ if (isset($_POST['getlogin'])) {
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
         if ($row['status'] == 'Aktif') {
+            $iduser = $row['id_user'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['level'] = $row['level'];
             $_SESSION['id_user'] = $row['id_user'];
-            $_SESSION['foto'] = $row['foto'];
-            $_SESSION['nama'] = $row['nama'];
             if ($row['level'] == 'Ketua Unit') {
-                header("refresh: 0; url=../Unit/unit.php");
+                $cekUnit = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$iduser");
+                if ($cekUnit->num_rows == 1) {
+                    header("refresh: 0; url=../Unit/unit.php");
+                } else {
+                    echo "<script>alert('User Belum Terdaftar Unit')</script>";
+                    header("refresh: 0; url=login.php");
+                }
             } else if ($row['level'] == 'Direktur') {
                 header("refresh: 0; url=../Direktur/direktur.php");
             } else if ($row['level'] == 'Ketua SPI' || $row['level'] == 'Anggota SPI') {
