@@ -35,11 +35,17 @@
 <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="../AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- <script src="../AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script> -->
 
 <!-- Page specific script -->
 <!-- <script src="../functions/functions.js"></script> -->
 <script>
+  // Aktifkan script customfile
+  $(function() {
+    bsCustomFileInput.init();
+  });
+
   $(function() {
     $("#example1").DataTable({
       "responsive": true,
