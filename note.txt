@@ -3,6 +3,8 @@ RULE :  1. Ketua Unit harus punya unit (1)
         3. Direktur terima beres
         4. Anggota SPI auditor
 
+BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
+
 3 {
     1. Buat menu active di Sidebar
     2. Perbaiki navbar
@@ -11,6 +13,21 @@ RULE :  1. Ketua Unit harus punya unit (1)
     5. Perbaiki form (belum diisi, gunakan javascript untuk data yang sudah ada)
     6. Pwerbaiki Rupiah
     7. Perbaiki List Tahun
+    8. perbaiki tanggal
+    9. ubah password verifikasi pass lama dengan jquery
+
+    Target Unit:
+    1. satukan fungsi barang.php
+    2. perbaiki dashboard
+
+    Done :
+    1. memisahkan modal tambah rka menjadi file baru
+    2. memperbaiki fungsi tampilkan data tanpa foreach
+    3. menampilkan foto dan username di sidebar user ketua unit
+    4. menggabungkan fungsi data barang di barang.php
+    5. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
+    6. perbaiki dashboard
+
 }
 
 2 {

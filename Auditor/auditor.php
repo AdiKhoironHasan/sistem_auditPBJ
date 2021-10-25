@@ -138,7 +138,7 @@
                                 <?php
                                 if ($data_user['nip_npak'] == NULL) {
                                 ?>
-                                  <input type="text" class="form-control" name="npak" id="npak" value="---- Data Belum Diisi ---">
+                                  <input type="text" class="form-control" name="npak" id="npak" placeholder="---- Data Belum Diisi ---">
                                 <?php
                                 } else {
                                 ?>
@@ -282,7 +282,7 @@
                             ?>
                           </div>
                           <div class="form-group row">
-                            <label for="inputName" class="col-sm-2 col-form-label">Password</label>
+                            <label for="inputName" class="col-sm-2 col-form-label">Tanda Tangan</label>
                             <div class="col-sm-10 input-group">
                               <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="ttd">
@@ -310,7 +310,6 @@
       </div>
       <!-- /.row -->
     </div><!-- /.container-fluid -->
-
   </section>
   <!-- /.content -->
 </div>
@@ -369,10 +368,4 @@
       input.attr("type", "password");
     }
   });
-
-  $(function() {
-    bsCustomFileInput.init();
-  });
 </script>
-
-<script src="../AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>

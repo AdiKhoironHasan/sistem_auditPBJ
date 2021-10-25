@@ -1,6 +1,6 @@
 <?php
 require 'functions/connect.php';
-include_once 'functions/f_auditor.php';
+include 'functions/f_auditor.php';
 include 'functions/f_rka.php';
 // include_once 'functions/rka_tambah.php';
 // include_once 'functions/rka_edit.php';
