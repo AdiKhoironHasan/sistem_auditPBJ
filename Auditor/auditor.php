@@ -5,6 +5,8 @@
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
 
+
+
 <!-- <link rel="stylesheet" href="../../AdminLTE/dist/css/adminlte.min.css"> -->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

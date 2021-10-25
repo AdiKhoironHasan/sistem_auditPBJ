@@ -1,3 +1,5 @@
+<?php ?>
+
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>

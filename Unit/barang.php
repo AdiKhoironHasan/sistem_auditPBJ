@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-include_once 'functions/barang_tambah.php';
 include 'functions/connect.php';
+include 'functions/barang_tambah.php';
+include 'functions/barang_edit.php';
 
 $userid = $_SESSION['id_user'];
 $q_unit_user = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$userid");
@@ -92,11 +93,14 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
                                 <td>
                                     <div class="text-center">
                                         <a href="#" style="color: deepskyblue"><i class="fas fa-info-circle"></i></a>
-                                        <a href="barang_edit.php?id=<?= $row["id_barang"] ?>" style="color: limegreen;"><i class="far fa-edit"></i></a>
+                                        <a href="#modal_barang_edit<?= $row["id_barang"]; ?>" data-toggle="modal" style="color: limegreen;"><i class="far fa-edit"></i></a>
                                         <a href="functions/barang_delete.php?id=<?= $row["id_barang"] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" style="color: crimson;"><i class="far fa-trash-alt"></i></a>
                                     </div>
                                 </td>
                             </tr>
+                            <?php
+                            include "layouts/modal-barang-edit.php";
+                            ?>
                         <?php
                             $no++;
                         endforeach
@@ -132,7 +136,7 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
                     $q_unit_id = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$id");
                     foreach ($q_unit_id as $q_unit_id_row) :
                     ?>
-                        <input type="hidden" name="unit" value="<?= $q_unit_id_row["nama_unit"]; ?>">
+                        <input type="hidden" name="id_unit" value="<?= $q_unit_id_row["id_unit"]; ?>">
                     <?php
                     endforeach;
                     ?>

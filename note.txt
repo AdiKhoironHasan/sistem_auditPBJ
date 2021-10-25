@@ -1,9 +1,16 @@
+RULE :  1. Ketua Unit harus punya unit (1)
+        2. Ketua SPI full akses
+        3. Direktur terima beres
+        4. Anggota SPI auditor
+
 3 {
     1. Buat menu active di Sidebar
     2. Perbaiki navbar
     3. Samakan penataan fungsi All user
     4. Perbaiki tampian dashbiard All user
     5. Perbaiki form (belum diisi, gunakan javascript untuk data yang sudah ada)
+    6. Pwerbaiki Rupiah
+    7. Perbaiki List Tahun
 }
 
 2 {
