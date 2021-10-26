@@ -24,7 +24,7 @@ if (isset($_POST['edit'])) // when click on Update button
     $edit = mysqli_query($conn, "UPDATE tb_user SET username='$username', password='$password', status='$status', level='$level' WHERE id_user='$id_user' ");
 
     if ($edit) {
-        mysqli_close($conn); // Close connection
+        //mysqli_close($conn); // Close connection
         echo "<script>alert('Data Berhasil Diubah')</script>";
         // exit;
         header("refresh: 0; url=data_user.php"); // redirects to all records page

@@ -27,7 +27,7 @@ if (isset($_POST['tambah'])) {
         echo "<script>alert('Tambah Data Gagal')</script>";
         header("refresh: 0; url=rka.php");
     }
-    // mysqli_close($conn);
+    // //mysqli_close($conn);
 }
 
 if (isset($_POST['edit'])) // when click on Update button
@@ -42,7 +42,7 @@ if (isset($_POST['edit'])) // when click on Update button
     $edit = mysqli_query($conn, "UPDATE tb_rka SET id_unit='$unit' , id_user='$auditor', status='$status', tahun='$tahun', tanggal='$tanggal' WHERE id_rka='$id_rka' ");
     
     if ($edit) {
-        // mysqli_close($conn); // Close connection
+        // //mysqli_close($conn); // Close connection
         echo "<script>alert('Edit Data Berhasil')</script>";
         header("refresh: 0; url=rka.php");
         exit;

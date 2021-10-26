@@ -12,8 +12,8 @@ if (isset($_POST['edit_foto'])) {
         header("refresh: 0; url=unit.php");
     } else {
         if ($ukuran < 1044070) {
-            $foto = $data_user['nama']. '_'.$rand.'.'. $ext;
-            move_uploaded_file($_FILES['foto']['tmp_name'], '../AdminLTE/dist/img/unit/foto/' .$data_user['nama']. '_'.$rand.'.'. $ext);
+            $foto = $data_user['level'] . '_' . $data_user['nama'] . '_' . $rand . '.' . $ext;
+            move_uploaded_file($_FILES['foto']['tmp_name'], '../AdminLTE/dist/img/foto/' . $data_user['level'] . '_' . $data_user['nama'] . '_' . $rand . '.' . $ext);
             mysqli_query($conn, "UPDATE tb_user SET foto='$foto' WHERE id_user=$iduser");
             // header("location:unit.php?alert=berhasil");
             echo "<script>alert('Foto Berhasil Diubah')</script>";
@@ -39,8 +39,8 @@ if (isset($_POST['edit_ttd'])) {
         header("refresh: 0; url=unit.php");
     } else {
         if ($ukuran < 1044070) {
-            $ttd = $data_user['nama']. '_'.$rand.'.'. $ext;
-            move_uploaded_file($_FILES['ttd']['tmp_name'], '../AdminLTE/dist/img/unit/ttd/' .$data_user['nama']. '_'.$rand.'.'. $ext);
+            $ttd = $data_user['level'] . '_' . $data_user['nama'] . '_' . $rand . '.' . $ext;
+            move_uploaded_file($_FILES['ttd']['tmp_name'], '../AdminLTE/dist/img/ttd/' . $data_user['level'] . '_' . $data_user['nama'] . '_' . $rand . '.' . $ext);
             mysqli_query($conn, "UPDATE tb_user SET ttd='$ttd' WHERE id_user=$iduser");
             // header("location:unit.php?alert=berhasil");
             echo "<script>alert('Ttd Berhasil Diubah')</script>";
@@ -62,7 +62,7 @@ if (isset($_POST['edit_profil'])) {
     $sql = mysqli_query($conn, "UPDATE tb_user SET nama='$nama', username='$username', nip_npak='$npak', no_hp='$nohp' WHERE id_user='$iduser'");
 
     if ($sql) {
-        // mysqli_close($conn); // Close connection
+        // //mysqli_close($conn); // Close connection
         echo "<script>alert('Data Berhasil Diubah')</script>";
         // exit;
         header("refresh: 0; url=unit.php"); // redirects to all records page

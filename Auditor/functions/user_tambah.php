@@ -36,5 +36,5 @@ if (isset($_POST['tambah'])) {
       } else {
         echo "<script>alert('Password Tidak Sesuai')</script>";
       }
-    mysqli_close($conn);
+    //mysqli_close($conn);
 }

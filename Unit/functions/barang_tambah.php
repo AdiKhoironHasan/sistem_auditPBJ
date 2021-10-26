@@ -22,5 +22,5 @@ if (isset($_POST['tambah'])) {
     } else {
         echo "Error: " . $sql . " " . mysqli_error($conn);
     }
-    // mysqli_close($conn);
+    // //mysqli_close($conn);
 }

@@ -82,7 +82,7 @@ $result = mysqli_query($conn, "SELECT * FROM users");
                     <?php
 
                     // close connection database
-                    mysqli_close($conn);
+                    //mysqli_close($conn);
                     ?>
                 </tbody>
             </table>

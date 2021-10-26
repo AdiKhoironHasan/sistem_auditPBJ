@@ -12,7 +12,7 @@ if (isset($_POST['edit'])) // when click on Update button
   $edit = mysqli_query($conn, "UPDATE tb_barang SET nama_barang='$barang', no_kontrak='$no_kontrak', tanggal_kontrak='$tanggal', nilai_kontrak='$nilai', tahun_anggaran='$tahun' WHERE id_barang='$id_barang' ");
 
   if ($edit) {
-    // mysqli_close($conn); // Close connection
+    // //mysqli_close($conn); // Close connection
     echo "<script>alert('Selamat, Ubah Data Barang berhasil!')</script>";
     header("refresh: 0; url=barang.php");
     exit;

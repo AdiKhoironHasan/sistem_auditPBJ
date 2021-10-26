@@ -1,13 +1,12 @@
 <?php
-require_once 'functions/user_edit.php';
-require_once 'functions/user_tambah.php';
-require 'functions/connect.php';
-include_once 'functions/f_auditor.php';
+include 'functions/connect.php';
+include 'functions/f_auditor.php';
+include 'functions/data_user.php';
 
-if (!isset($_SESSION['username'])) {
-    header("Location: ../Login/login.php");
-}
+// require_once 'functions/user_edit.php';
+// require_once 'functions/user_tambah.php';
 
+// include 'functions/connect.php';
 $sqlOn = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Aktif'");
 $sqlOff = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Tidak Aktif' || status='Mendaftar'");
 
