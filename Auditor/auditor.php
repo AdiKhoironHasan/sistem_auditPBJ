@@ -45,7 +45,7 @@
                 <?php
                 } else {
                 ?>
-                  <img class="profile-user-img img-fluid img-circle h-25 w-25" src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>" alt="User profile picture">
+                  <img class="profile-user-img img-fluid img-circle h-25 w-25" src="../AdminLTE/dist/img/foto/<?= $data_user['foto']; ?>" alt="User profile picture">
                 <?php
                 }
                 ?>
@@ -229,7 +229,7 @@
                             <?php
                             } else {
                             ?>
-                              <img src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>" class="h-25 w-25  border border-primary">
+                              <img src="../AdminLTE/dist/img/foto/<?= $data_user['foto']; ?>" class="h-25 w-25  border border-primary">
                             <?php
                             }
                             ?>
@@ -276,7 +276,7 @@
                             <?php
                             } else {
                             ?>
-                              <img src="../AdminLTE/dist/img/auditor/ttd/<?= $data_user['ttd']; ?>" class="h-25 w-25  border border-primary">
+                              <img src="../AdminLTE/dist/img/ttd/<?= $data_user['ttd']; ?>" class="h-25 w-25  border border-primary">
                             <?php
                             }
                             ?>

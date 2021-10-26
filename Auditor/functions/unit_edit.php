@@ -15,5 +15,5 @@ if (isset($_POST['edit'])) {
   } else {
     // echo "Error: " . $sql . " " . mysqli_error($conn);
   }
-  mysqli_close($conn);
+  // //mysqli_close($conn);
 }

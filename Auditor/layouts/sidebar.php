@@ -18,7 +18,7 @@
         <?php
         } else {
         ?>
-          <img class="img-circle elevation-2" alt="User Image" src="../AdminLTE/dist/img/auditor/foto/<?= $data_user['foto']; ?>">
+          <img class="img-circle elevation-2" alt="User Image" src="../AdminLTE/dist/img/foto/<?= $data_user['foto']; ?>">
         <?php
         }
         ?>

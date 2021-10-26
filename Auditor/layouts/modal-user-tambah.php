@@ -12,23 +12,23 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Nama Lengkap</label>
-            <input type="text" name="nama" class="form-control">
+            <input type="text" name="nama" class="form-control" required oninvalid="this.setCustomValidity('Nama tidak boleh kosong')" oninput="setCustomValidity('')">
           </div>
           <div class="form-group">
             <label>Username</label>
-            <input type="text" name="username" class="form-control">
+            <input type="text" name="username" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Password</label>
-            <input type="text" class="form-control" name="password1">
+            <input type="text" class="form-control" name="password1" required>
           </div>
           <div class="form-group">
             <label>Password</label>
-            <input type="text" class="form-control" name="password2">
+            <input type="text" class="form-control" name="password2" required>
           </div>
           <div class="form-group">
             <label>Jabatan</label>
-            <select type="text" name="level" class="form-control">
+            <select type="text" name="level" class="form-control" required>
               <option hidden selected></option>
               <option>Ketua SPI</option>
               <option>Anggota SPI</option>
