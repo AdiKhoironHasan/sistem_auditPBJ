@@ -2,10 +2,14 @@
 session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: ../Login/login.php");
-} else {
-    if ($_SESSION['level'] != 'Ketua Unit') {
-        header("Location: ../404.php");
-    }
+}
+
+if ($_SESSION['level'] == 'Ketua SPI') {
+    header("Location: ../Auditor/auditor.php");
+} elseif ($_SESSION['level'] == 'Anggota SPI') {
+    header("Location: ../Auditor/auditor.php");
+} elseif ($_SESSION['level'] == 'Direktur') {
+    header("Location: ../Direktur/direktur.php");
 }
 
 $iduser = $_SESSION['id_user'];
