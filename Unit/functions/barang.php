@@ -1,28 +1,28 @@
 <?php
 if (isset($_POST['tambah'])) {
-    // $unit = "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'";
-    // $result = mysqli_query($conn, $unit);
-    // while ($row = $result -> fetch_assoc()) {
-    //     $id_unit =$row['id_unit'];
-    // }
-    // $u = $_POST["unit"];
-    // $data_u = mysqli_fetch_array(mysqli_query($conn, "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'"));
+  // $unit = "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'";
+  // $result = mysqli_query($conn, $unit);
+  // while ($row = $result -> fetch_assoc()) {
+  //     $id_unit =$row['id_unit'];
+  // }
+  // $u = $_POST["unit"];
+  // $data_u = mysqli_fetch_array(mysqli_query($conn, "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'"));
 
-    $unit = $_POST["id_unit"];
-    $barang = $_POST["nama_barang"];
-    $no_kontrak = $_POST['no_kontrak'];
-    $tanggal = $_POST['tanggal'];
-    $nilai = $_POST['nilai_kontrak'];
-    $tahun = $_POST['tahun'];
+  $unit = $_POST["id_unit"];
+  $barang = $_POST["nama_barang"];
+  $no_kontrak = $_POST['no_kontrak'];
+  $tanggal = $_POST['tanggal'];
+  $nilai = $_POST['nilai_kontrak'];
+  $tahun = $_POST['tahun'];
 
-    $sql = "INSERT INTO tb_barang VALUES(NULL, '$unit', '$barang', '$no_kontrak', '$tanggal', '$nilai', '$tahun')";
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Selamat, Tambah Barang berhasil!')</script>";
-        header("refresh: 0; url=barang.php");
-    } else {
-        echo "Error: " . $sql . " " . mysqli_error($conn);
-    }
-    // //mysqli_close($conn);
+  $sql = "INSERT INTO tb_barang VALUES(NULL, '$unit', '$barang', '$no_kontrak', '$tanggal', '$nilai', '$tahun')";
+  if (mysqli_query($conn, $sql)) {
+    echo "<script>alert('Selamat, Tambah Barang berhasil!')</script>";
+    header("refresh: 0; url=barang.php");
+  } else {
+    echo "Error: " . $sql . " " . mysqli_error($conn);
+  }
+  // //mysqli_close($conn);
 }
 
 if (isset($_POST['edit'])) // when click on Update button
@@ -48,3 +48,16 @@ if (isset($_POST['edit'])) // when click on Update button
     echo ("GAGAL EDIT DATA");
   }
 }
+
+$q_unit_user = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$iduser");
+$q_unit_user_row = mysqli_fetch_array($q_unit_user);
+$id_unit = $q_unit_user_row['id_unit'];
+
+if (empty($id_unit)) {
+  $sql_v_data_barang = [];
+} else {
+  // $sql = mysqli_query($conn, "SELECT * FROM tb_barang WHERE id_unit=$id_unit");
+  $sql_v_data_barang = mysqli_query($conn, "SELECT * FROM v_data_barang WHERE id_unit=$id_unit");
+}
+// $unit = mysqli_query($conn, "SELECT unit.nama_unit AS nama_unit FROM tb_unit AS unit, tb_rencana_kerja AS rka WHERE rka.id_unit = unit.id_unit");
+$unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");

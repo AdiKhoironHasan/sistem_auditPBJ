@@ -2,6 +2,10 @@
 session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: ../Login/login.php");
+} else {
+    if ($_SESSION['level'] != 'Ketua Unit') {
+        header("Location: ../404.php");
+    }
 }
 
 $iduser = $_SESSION['id_user'];

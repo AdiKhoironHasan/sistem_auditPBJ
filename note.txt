@@ -6,47 +6,47 @@ RULE :  1. Ketua Unit harus punya unit (1)
 BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
 
 3 {
-    1. Buat menu active di Sidebar
-    2. Perbaiki navbar
-    3. Samakan penataan fungsi All user
-    4. Perbaiki tampian dashbiard All user
+    == 1. Buat menu active di Sidebar auditor dan ketua unit
+    == 2. Perbaiki navbar auditor dan ketua unit
+    == 3. Samakan penataan fungsi auditor dan ketua unit
+    == 4. Perbaiki tampian dashbiard auditor dan ketua unit
     5. Perbaiki form (belum diisi, gunakan javascript untuk data yang sudah ada)
     6. Pwerbaiki Rupiah
     7. Perbaiki List Tahun
     8. perbaiki tanggal
     9. ubah password verifikasi pass lama dengan jquery
-
-    Target Unit:
-    1. satukan fungsi barang.php
-    2. perbaiki dashboard
-
-    Done :
-    1. memisahkan modal tambah rka menjadi file baru
-    2. memperbaiki fungsi tampilkan data tanpa foreach
-    3. menampilkan foto dan username di sidebar user ketua unit
-    4. menggabungkan fungsi data barang di barang.php
-    5. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
-    6. perbaiki dashboard
+    10. fix all view
+    11. All form required
+    12. warnai user level
+    13. tanggal indo
+    14. fix all form
+    15. memisahkan modal tambah rka menjadi file baru
+    16. memperbaiki fungsi tampilkan data tanpa foreach
+    17. menampilkan foto dan username di sidebar user ketua unit
+    18. menggabungkan fungsi data barang di barang.php
+    19. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
+    20. perbaiki dashboard
+    21. satukan fungsi barang.php
 
 }
 
 2 {
     TARGET :
-    1. buat tampilan Dashboard user
+    == 1. buat tampilan Dashboard user
     2. perbaiki error submit, dan verifikasi/cek form (misal level tidak sesuai, data salah, dll)
     3. menggunakan sweet alert
-    4. menambah foto
+    == 4. menambah foto
     == 5. Input data barang auto include nama unit
     == 6. perbaiki tampilan id unit menjadi nama unit di tabel
     =/ 7. auditor dipisah data user yang sedang di ajukan dan data aktif (Print Button Bug)
-    8. notifikasi ketika ada user mendaftar
+    == 8. notifikasi ketika ada user mendaftar
     9. user daftar pilih unit  (register) 
     // 10. insert user pilih unit (data user di auditor)
     == 11. Daftar barang berisi barang dari unit itu saja
     == 12. buat view tiap tabel
     == 13. CRUD unit
     == 14 insert unit pilih user 
-    15. perbaiki sesion tiap level
+    == 15. perbaiki sesion tiap level
 }
 
 1 {
@@ -117,3 +117,57 @@ VIEW {
             rka edit data, tampilan unit yang sudah memiliki ketua dan tampilkan nama user dengan status auditor
             == 
 }
+
+
+BACKUP : <script>
+    function fotoValidation() {
+      var fileInput = document.getElementById('foto');
+      var filePath = fileInput.value;
+      var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      if (!allowedExtensions.exec(filePath)) {
+        alert('Tolong upload file dengan format .jpeg/.jpg/.png/.gif');
+        fileInput.value = '';
+        return false;
+      } else {
+        //Image preview
+        if (fileInput.files && fileInput.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            document.getElementById('fotoPreview').innerHTML = '<img src="' + e.target.result + '" class="h-25 w-25" />';
+          };
+          reader.readAsDataURL(fileInput.files[0]);
+        }
+      }
+    }
+  
+    function ttdValidation() {
+      var fileInput = document.getElementById('ttd');
+      var filePath = fileInput.value;
+      var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      if (!allowedExtensions.exec(filePath)) {
+        alert('Tolong upload file dengan format .jpeg/.jpg/.png/.gif');
+        fileInput.value = '';
+        return false;
+      } else {
+        //Image preview
+        if (fileInput.files && fileInput.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            document.getElementById('ttdPreview').innerHTML = '<img src="' + e.target.result + '" class="h-25 w-25" />';
+          };
+          reader.readAsDataURL(fileInput.files[0]);
+        }
+      }
+    }
+  
+    $(".toggle-password").click(function() {
+  
+      $(this).toggleClass("fa-eye fa-eye-slash");
+      var input = $($(this).attr("toggle"));
+      if (input.attr("type") == "password") {
+        input.attr("type", "text");
+      } else {
+        input.attr("type", "password");
+      }
+    });
+  </script>

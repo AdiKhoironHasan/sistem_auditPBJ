@@ -1,6 +1,6 @@
 <?php
 include 'functions/connect.php';
-include 'functions/f_auditor.php';
+include 'functions/auditor.php';
 include 'functions/data_user.php';
 
 // require_once 'functions/user_edit.php';
@@ -11,7 +11,7 @@ $sqlOn = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Aktif'");
 $sqlOff = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Tidak Aktif' || status='Mendaftar'");
 
 ?>
-
+<?php $page = "Data User"; ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
@@ -27,7 +27,7 @@ $sqlOff = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Tidak Aktif' 
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="auditor.php">Home</a></li>
                         <li class="breadcrumb-item active">Data User</li>
                     </ol>
                 </div>
@@ -94,7 +94,7 @@ $sqlOff = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Tidak Aktif' 
                                     </div>
                                 </td>
                             </tr>
-                            <?php include "layouts/modal-user.php"; ?>
+                            <?php include "layouts/modal-user-info.php"; ?>
                             <?php include "layouts/modal-user-edit.php"; ?>
                         <?php
                             $no++;
@@ -159,7 +159,7 @@ $sqlOff = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Tidak Aktif' 
                                     </div>
                                 </td>
                             </tr>
-                            <?php include "layouts/modal-user.php"; ?>
+                            <?php include "layouts/modal-user-info.php"; ?>
                             <?php include "layouts/modal-user-edit.php"; ?>
                         <?php
                             $no++;

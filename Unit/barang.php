@@ -1,23 +1,8 @@
 <?php include "functions/connect.php"; ?>
 <?php include "functions/unit.php"; ?>
-<?php
-// include 'functions/barang_tambah.php';
-// include 'functions/barang_edit.php';
-include "functions/barang.php";
+<?php include "functions/barang.php"; ?>
 
-$q_unit_user = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$iduser");
-$q_unit_user_row = mysqli_fetch_array($q_unit_user);
-$id_unit = $q_unit_user_row['id_unit'];
-
-if (empty($id_unit)) {
-    $sql_v_data_barang = [];
-} else {
-    // $sql = mysqli_query($conn, "SELECT * FROM tb_barang WHERE id_unit=$id_unit");
-    $sql_v_data_barang = mysqli_query($conn, "SELECT * FROM v_data_barang WHERE id_unit=$id_unit");
-}
-// $unit = mysqli_query($conn, "SELECT unit.nama_unit AS nama_unit FROM tb_unit AS unit, tb_rencana_kerja AS rka WHERE rka.id_unit = unit.id_unit");
-$unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
-?>
+<?php $page = "Paket Barang"; ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
@@ -31,8 +16,8 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Data Barang</li>
+                        <li class="breadcrumb-item"><a href="unit.php">Home</a></li>
+                        <li class="breadcrumb-item active">Paket Barang</li>
                     </ol>
                 </div>
             </div>

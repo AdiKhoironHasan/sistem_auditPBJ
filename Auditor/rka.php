@@ -1,15 +1,12 @@
 <?php
 require 'functions/connect.php';
-include 'functions/f_auditor.php';
-include 'functions/f_rka.php';
-// include_once 'functions/rka_tambah.php';
-// include_once 'functions/rka_edit.php';
+include 'functions/auditor.php';
+include 'functions/rka.php';
 
-$sql = mysqli_query($conn, "SELECT * FROM tb_rka");
-$sql_v_data_rka = mysqli_query($conn, "SELECT * FROM v_data_rka");
 // $unit = mysqli_query($conn, "SELECT unit.nama_unit AS nama_unit FROM tb_unit AS unit, tb_rencana_kerja AS rka WHERE rka.id_unit = unit.id_unit");
-$unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
 ?>
+
+<?php $page = "RKA"; ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
@@ -26,7 +23,7 @@ $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="auditor.php">Home</a></li>
             <li class="breadcrumb-item active">Rencana Kerja Audit</li>
           </ol>
         </div>
