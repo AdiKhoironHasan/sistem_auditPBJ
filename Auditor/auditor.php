@@ -1,14 +1,12 @@
 <?php require "functions/connect.php" ?>
-<?php require "functions/f_auditor.php" ?>
-<?php require "functions/f_profil.php" ?>
+<?php require "functions/auditor.php" ?>
+<?php require "functions/profil.php" ?>
+
+<?php $page = "Dashboard"; ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
 
-
-
-<!-- <link rel="stylesheet" href="../../AdminLTE/dist/css/adminlte.min.css"> -->
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
@@ -19,8 +17,8 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Profil User</li>
+            <li class="breadcrumb-item"><a href="auditor.php">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
           </ol>
         </div>
       </div>
@@ -316,56 +314,3 @@
 <!-- /.content-wrapper -->
 
 <?php require "layouts/footer.php" ?>
-
-<script>
-  function fotoValidation() {
-    var fileInput = document.getElementById('foto');
-    var filePath = fileInput.value;
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-    if (!allowedExtensions.exec(filePath)) {
-      alert('Tolong upload file dengan format .jpeg/.jpg/.png/.gif');
-      fileInput.value = '';
-      return false;
-    } else {
-      //Image preview
-      if (fileInput.files && fileInput.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById('fotoPreview').innerHTML = '<img src="' + e.target.result + '" class="h-25 w-25" />';
-        };
-        reader.readAsDataURL(fileInput.files[0]);
-      }
-    }
-  }
-
-  function ttdValidation() {
-    var fileInput = document.getElementById('ttd');
-    var filePath = fileInput.value;
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-    if (!allowedExtensions.exec(filePath)) {
-      alert('Tolong upload file dengan format .jpeg/.jpg/.png/.gif');
-      fileInput.value = '';
-      return false;
-    } else {
-      //Image preview
-      if (fileInput.files && fileInput.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById('ttdPreview').innerHTML = '<img src="' + e.target.result + '" class="h-25 w-25" />';
-        };
-        reader.readAsDataURL(fileInput.files[0]);
-      }
-    }
-  }
-
-  $(".toggle-password").click(function() {
-
-    $(this).toggleClass("fa-eye fa-eye-slash");
-    var input = $($(this).attr("toggle"));
-    if (input.attr("type") == "password") {
-      input.attr("type", "text");
-    } else {
-      input.attr("type", "password");
-    }
-  });
-</script>

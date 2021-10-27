@@ -34,7 +34,7 @@
         <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="unit.php" class="nav-link active">
+          <a href="unit.php" class="nav-link <?php if ($page == "Dashboard") echo "active"?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -42,7 +42,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="barang.php" class="nav-link">
+          <a href="barang.php" class="nav-link <?php if ($page == "Paket Barang") echo "active"?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Paket Barang

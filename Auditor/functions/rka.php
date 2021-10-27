@@ -52,3 +52,7 @@ if (isset($_POST['edit'])) // when click on Update button
         header("refresh: 0; url=rka.php");
     }
 }
+
+$sql = mysqli_query($conn, "SELECT * FROM tb_rka");
+$sql_v_data_rka = mysqli_query($conn, "SELECT * FROM v_data_rka");
+$unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");

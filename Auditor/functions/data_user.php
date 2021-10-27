@@ -21,6 +21,7 @@ if (isset($_POST['tambah'])) {
             $result = mysqli_query($conn, $sql);
             if ($result) {
                 echo "<script>alert('Selamat, registrasi berhasil!')</script>";
+                header("refresh: 0; url=data_user.php");
                 // header("refresh: 0; url=data_user.php");
                 // header("Location: login.php");
                 // $username = "";
@@ -29,12 +30,15 @@ if (isset($_POST['tambah'])) {
                 // $_POST['cpassword'] = "";
             } else {
                 echo "<script>alert('Woops! Terjadi kesalahan.')</script>";
+                header("refresh: 0; url=data_user.php");
             }
         } else {
             echo "<script>alert('Woops! Username Sudah Terdaftar.')</script>";
+            header("refresh: 0; url=data_user.php");
         }
     } else {
         echo "<script>alert('Password Tidak Sesuai')</script>";
+        header("refresh: 0; url=data_user.php");
     }
     // //mysqli_close($conn);
 }
@@ -69,5 +73,6 @@ if (isset($_POST['edit'])) // when click on Update button
     } else {
         // echo mysqli_error($edit);
         echo ("GAGAL EDIT DATA");
+        header("refresh: 0; url=data_user.php");
     }
 }

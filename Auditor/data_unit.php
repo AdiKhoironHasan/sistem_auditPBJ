@@ -1,18 +1,10 @@
 <?php
-require_once 'functions/unit_edit.php';
-require_once 'functions/unit_tambah.php';
 require 'functions/connect.php';
-include_once 'functions/f_auditor.php';
-
-if (!isset($_SESSION['username'])) {
-    header("Location: ../Login/login.php");
-}
-
-$sql = mysqli_query($conn, "SELECT * FROM tb_unit");
-$sql_v_data_unit = mysqli_query($conn, "SELECT * FROM v_data_unit");
-
+include 'functions/auditor.php';
+include 'functions/data_unit.php';
 ?>
 
+<?php $page = "Data Unit"; ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/navbar.php" ?>
 <?php require "layouts/sidebar.php" ?>
@@ -28,7 +20,7 @@ $sql_v_data_unit = mysqli_query($conn, "SELECT * FROM v_data_unit");
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="auditor.php">Home</a></li>
                         <li class="breadcrumb-item active">Data Unit</li>
                     </ol>
                 </div>
