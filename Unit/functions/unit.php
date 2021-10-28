@@ -5,11 +5,11 @@ if (!isset($_SESSION['username'])) {
 }
 
 if ($_SESSION['level'] == 'Ketua SPI') {
-    header("Location: ../Auditor/auditor.php");
+    header("Location: ../404.php?level=Auditor/auditor.php");
 } elseif ($_SESSION['level'] == 'Anggota SPI') {
-    header("Location: ../Auditor/auditor.php");
+    header("Location: ../Auditor/auditor.php?level=Auditor/auditor.php");
 } elseif ($_SESSION['level'] == 'Direktur') {
-    header("Location: ../Direktur/direktur.php");
+    header("Location: ../Direktur/direktur.php?level=Direktur/direktur.php");
 }
 
 $iduser = $_SESSION['id_user'];

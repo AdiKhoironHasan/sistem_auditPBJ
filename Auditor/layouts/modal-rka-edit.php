@@ -12,14 +12,8 @@
                     <input type="hidden" name="id" value="<?= $row["id_rka"]; ?>">
                     <div class="form-group">
                         <label>Unit</label>
-                        <select type="text" name="unit" class="form-control">
-                            <?php
-                            $id_unit = $row["id_unit"];
-                            $q_unit_id = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_unit=$id_unit");
-                            foreach ($q_unit_id as $unit_id_row) :
-                            ?>
-                                <option hidden selected value="<?= $unit_id_row["id_unit"]; ?>"><?= $unit_id_row["nama_unit"]; ?></option>
-                            <?php endforeach ?>
+                        <select type="text" name="unit" class="form-control" required>
+                            <option hidden selected value="<?= $row["id_unit"]; ?>"><?= $row["nama_unit"]; ?></option>
                             <?php
                             $q_unit = mysqli_query($conn, "SELECT * FROM tb_unit");
                             foreach ($q_unit as $q_unit_row) :
@@ -30,15 +24,9 @@
                     </div>
                     <div class="form-group">
                         <label>Auditor</label>
-                        <select type="text" name="auditor" class="form-control">
+                        <select type="text" name="auditor" class="form-control" required>
                             <option hidden selected><?= $row["id_user"]; ?></option>
-                            <?php
-                            $id_user = $row["id_user"];
-                            $q_user_id = mysqli_query($conn, "SELECT * FROM tb_user WHERE id_user=$id_user");
-                            foreach ($q_user_id as $user_id_row) :
-                            ?>
-                                <option hidden selected value="<?= $user_id_row["id_user"]; ?>"><?= $user_id_row["nama"]; ?></option>
-                            <?php endforeach ?>
+                            <option hidden selected value="<?= $row["id_user"]; ?>"><?= $row["nama"]; ?></option>
                             <?php
                             $q_auditor = mysqli_query($conn, "SELECT * FROM tb_user WHERE level='Anggota SPI' OR level='Ketua SPI'");
                             foreach ($q_auditor as $q_auditor_row) :
@@ -49,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <select type="text" name="status" class="form-control">
+                        <select type="text" name="status" class="form-control" required>
                             <option hidden selected><?= $row["status"]; ?></option>
                             <option>Belum Terlaksana</option>
                             <option>Terlaksana</option>
@@ -58,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tahun</label>
-                        <select type="text" name="tahun" class="form-control">
+                        <select type="text" name="tahun" class="form-control" required>
                             <option hidden selected><?= $row["tahun"]; ?></option>
                             <option>2018</option>
                             <option>2019</option>
@@ -69,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tanggal</label>
-                        <input type="date" class="form-control" name="tanggal" value="<?= $row["tanggal"] ?>">
+                        <input type="date" class="form-control" name="tanggal" value="<?= $row["tanggal"] ?>" required>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
