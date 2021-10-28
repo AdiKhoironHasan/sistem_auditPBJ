@@ -6,24 +6,24 @@
                     <input type="hidden" name="id" value="<?= $row["id_barang"]; ?>">
                     <div class="form-group">
                         <label>Nama Barang</label>
-                        <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" value="<?= $row["nama_barang"]; ?>">
+                        <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" value="<?= $row["nama_barang"]; ?>" required>
                     </div>
                     <div class="form-group">
                         <label>Nomor Kontrak</label>
-                        <input type="text" name="no_kontrak" class="form-control" placeholder="No." value="<?= $row["no_kontrak"]; ?>">
+                        <input type="text" name="no_kontrak" class="form-control" placeholder="No." value="<?= $row["no_kontrak"]; ?>" required>
                     </div>
                     <div class="form-group">
                         <label>Tanggal</label>
-                        <input type="date" class="form-control" name="tanggal_kontrak" value="<?= $row["tanggal_kontrak"]; ?>">
+                        <input type="date" class="form-control" name="tanggal_kontrak" value="<?= $row["tanggal_kontrak"]; ?>" required>
                     </div>
                     <div class="form-group">
                         <label>Nilai Kontrak</label>
                         <!-- id="rupiah" -->
-                        <input type="text" name="nilai_kontrak" class="form-control" placeholder="Rp." value="<?= $row["nilai_kontrak"]; ?>">
+                        <input type="text" name="nilai_kontrak" class="form-control" placeholder="Rp." value="<?= $row["nilai_kontrak"]; ?>" required>
                     </div>
                     <div class="form-group">
                         <label>Tahun Anggaran</label>
-                        <select type="text" name="tahun" class="form-control">
+                        <select type="text" name="tahun" class="form-control" required>
                             <option hidden selected><?= $row["tahun_anggaran"]; ?></option>
                             <option>2018</option>
                             <option>2019</option>

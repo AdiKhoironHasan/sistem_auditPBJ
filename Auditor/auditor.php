@@ -121,13 +121,13 @@
                             <div class="form-group row">
                               <label for="inputName" class="col-sm-2 col-form-label">Nama Lengkap</label>
                               <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama" id="nama" value="<?= $dataUser_row['nama']; ?>">
+                                <input type="text" class="form-control" name="nama" id="nama" value="<?= $dataUser_row['nama']; ?>" required>
                               </div>
                             </div>
                             <div class="form-group row">
                               <label for="inputName" class="col-sm-2 col-form-label">Username</label>
                               <div class="col-sm-10">
-                                <input type="text" class="form-control" name="username" id="username" value="<?= $dataUser_row['username']; ?>">
+                                <input type="text" class="form-control" name="username" id="username" value="<?= $dataUser_row['username']; ?>" required maxlength="10" minlength="3">
                               </div>
                             </div>
                             <div class="form-group row">
@@ -136,11 +136,11 @@
                                 <?php
                                 if ($data_user['nip_npak'] == NULL) {
                                 ?>
-                                  <input type="text" class="form-control" name="npak" id="npak" placeholder="---- Data Belum Diisi ---">
+                                  <input type="number" class="form-control" name="npak" id="npak" placeholder="---- Data Belum Diisi ---" required>
                                 <?php
                                 } else {
                                 ?>
-                                  <input type="text" class="form-control" name="npak" id="npak" value="<?= $dataUser_row['nip_npak']; ?>">
+                                  <input type="number" class="form-control" name="npak" id="npak" value="<?= $dataUser_row['nip_npak']; ?>" required>
                                 <?php
                                 }
                                 ?>
@@ -149,7 +149,18 @@
                             <div class="form-group row">
                               <label for="inputName" class="col-sm-2 col-form-label">No. Handphone</label>
                               <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nohp" id="nohp" value="<?= $dataUser_row['no_hp']; ?>">
+                                <!-- <input type="number" class="form-control" name="nohp" id="nohp" value="<?= $dataUser_row['no_hp']; ?>" required maxlength="13" minlength="11"> -->
+                                <?php
+                                if ($data_user['no_hp'] == NULL) {
+                                ?>
+                                  <input type="number" class="form-control" name="nohp" id="nohp" placeholder="---- Data Belum Diisi ---" required maxlength="13" minlength="11">
+                                <?php
+                                } else {
+                                ?>
+                                  <input type="number" class="form-control" name="nohp" id="nohp" value="<?= $dataUser_row['no_hp']; ?>" required maxlength="13" minlength="11">
+                                <?php
+                                }
+                                ?>
                               </div>
                             </div>
                           <?php
@@ -180,21 +191,21 @@
                           <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Password Lama</label>
                             <div class="col-sm-10">
-                              <input type="password" class="form-control" id="passwordLama" name="passwordLama" placeholder="Password">
+                              <input type="password" class="form-control" id="passwordLama" name="passwordLama" placeholder="Password" required>
                               <!-- <span toggle="#password1" class="fa fa-fw fa-eye field-icon toggle-password"></span> -->
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
                             <div class="col-sm-10">
-                              <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
+                              <input type="password" class="form-control" id="password1" name="password1" placeholder="Password" required>
                               <!-- <span toggle="#password1" class="fa fa-fw fa-eye field-icon toggle-password"></span> -->
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Password Lagi</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="password2" name="password2" placeholder="Password Lagi">
+                              <input type="password" class="form-control" id="password2" name="password2" placeholder="Password Lagi" required>
                             </div>
                           </div>
                           <div class="form-group row">
@@ -236,8 +247,9 @@
                             <label for="inputName" class="col-sm-2 col-form-label">Foto Profil</label>
                             <div class="col-sm-10 input-group">
                               <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="foto" id="foto" onchange="return fotoValidation()">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <!-- <input type="file" class="custom-file-input" name="foto" id="foto" onchange="return fotoValidation()"> -->
+                                <input type="file" class="custom-file-input" name="foto" id="foto" accept="image/*" required>
+                                <label class="custom-file-label" for="customFile">Pilih File</label>
                               </div>
                               <div class="input-group-append">
                                 <input type="submit" name="edit_foto" class="input-group-text" value="Upload">
@@ -283,8 +295,8 @@
                             <label for="inputName" class="col-sm-2 col-form-label">Tanda Tangan</label>
                             <div class="col-sm-10 input-group">
                               <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="ttd">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <input type="file" class="custom-file-input" name="ttd" accept="image/*" required>
+                                <label class="custom-file-label" for="customFile">Pilih File</label>
                               </div>
                               <div class="input-group-append">
                                 <input type="submit" name="edit_ttd" class="input-group-text" value="Upload">

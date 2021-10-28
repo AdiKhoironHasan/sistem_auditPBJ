@@ -11,18 +11,19 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Nama Unit</label>
-            <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit">
+            <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit" required>
           </div>
           <div class="form-group">
             <label>Ketua Unit</label>
             <?php
-            $q_user_id = mysqli_query($conn, "SELECT nama FROM tb_user WHERE level = 'Ketua Unit'");
+            $q_user_id = mysqli_query($conn, "SELECT nama, id_user FROM tb_user WHERE level = 'Ketua Unit'");
             ?>
-            <select type="text" name="ketua_unit" class="form-control">
+            <select type="text" name="ketua_unit" class="form-control" required>
+              <option hidden selected value="">--Pilih Ketua Unit--</option>
               <?php
               foreach ($q_user_id as $q_user_id_row) :
               ?>
-                <option><?= $q_user_id_row['nama']; ?></option>
+                <option value="<?= $q_user_id_row['id_user']; ?>"><?= $q_user_id_row['nama']; ?></option>
               <?php
               endforeach
               ?>

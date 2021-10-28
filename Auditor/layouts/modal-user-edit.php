@@ -12,11 +12,11 @@
                     <input type="hidden" name="id" value="<?= $row["id_user"]; ?>">
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="text" name="username" class="form-control" value="<?= $row["username"]; ?>">
+                        <input type="text" name="username" class="form-control" value="<?= $row["username"]; ?>" required minlength="3" maxlength="10">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="text" class="form-control" name="password" value="<?= $row["password"]; ?>">
+                        <input type="text" class="form-control" name="password" value="<?= $row["password"]; ?>" required>
                     </div>
                     <div class="form-group">
                         <label>Status User</label>

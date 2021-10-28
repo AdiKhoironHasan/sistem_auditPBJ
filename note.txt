@@ -16,7 +16,7 @@ BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
     8. perbaiki tanggal
     9. ubah password verifikasi pass lama dengan jquery
     10. fix all view
-    11. All form required
+    == 11. All form required
     12. warnai user level
     13. tanggal indo
     14. fix all form
@@ -100,7 +100,7 @@ SIDEBAR {
 VIEW {
     TABEL :
     data_unit.php, tbunit -> nama user
-    == CREATE VIEW v_data_unit AS SELECT unit.id_unit, unit.nama_unit, user.nama FROM tb_unit as unit, tb_user as user WHERE user.id_user = unit.id_user ;
+    == CREATE VIEW v_data_unit AS SELECT unit.id_unit, unit.nama_unit, user.nama, user.id_user FROM tb_unit as unit, tb_user as user WHERE user.id_user = unit.id_user ;
     rka.php, tb_rka -> nama user dan nama auditor
     == CREATE VIEW v_data_rka AS SELECT rka.*, user.nama, unit.nama_unit FROM tb_unit as unit, tb_user as user, tb_rka as rka WHERE rka.id_user = user.id_user AND rka.id_unit = unit.id_unit ORDER BY rka.id_rka ASC;
     barang.php, tb_barang -> nama unit

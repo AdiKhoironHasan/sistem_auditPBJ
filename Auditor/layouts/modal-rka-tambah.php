@@ -11,7 +11,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Unit</label>
-            <select type="text" name="unit" class="form-control">
+            <select type="text" name="unit" class="form-control" required>
             <option hidden selected value="">--Pilih Unit--</option>
               <?php
               $q_unit = mysqli_query($conn, "SELECT * FROM tb_unit");
@@ -23,7 +23,7 @@
           </div>
           <div class="form-group">
             <label>Auditor</label>
-            <select type="text" name="auditor" class="form-control">
+            <select type="text" name="auditor" class="form-control" required>
               <option hidden selected value="">--Pilih Auditor--</option>
               <?php
               $q_v_nama_auditor = mysqli_query($conn, "SELECT * FROM v_nama_auditor");
@@ -35,7 +35,7 @@
           </div>
           <div class="form-group">
             <label>Tahun</label>
-            <select type="text" name="tahun" class="form-control">
+            <select type="text" name="tahun" class="form-control" required>
               <option hidden selected value="">--Pilih Tahun--</option>
               <option value="2018">2018</option>
               <option value="2019">2019</option>
@@ -46,7 +46,7 @@
           </div>
           <div class="form-group">
             <label>Tanggal</label>
-            <input type="date" class="form-control" name="tanggal">
+            <input type="date" class="form-control" name="tanggal" required>
           </div>
         </div>
         <div class="modal-footer justify-content-between">

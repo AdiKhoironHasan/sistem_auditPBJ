@@ -11,39 +11,40 @@
                 </div>
                 <div class="modal-body">
                     <?php
-                    $id = $_SESSION['id_user'];
-                    $q_unit_id = mysqli_query($conn, "SELECT * FROM tb_unit WHERE id_user=$id");
-                    foreach ($q_unit_id as $q_unit_id_row) :
+                    // $id = $_SESSION['id_user'];
+                    $q_data_unit = mysqli_query($conn, "SELECT * FROM v_data_unit WHERE id_user=$iduser");
+                    foreach ($q_data_unit as $q_data_unit_row) :
                     ?>
-                        <input type="hidden" name="id_unit" value="<?= $q_unit_id_row["id_unit"]; ?>">
+                        <input type="hidden" name="id_unit" value="<?= $q_data_unit_row["id_unit"]; ?>">
                     <?php
                     endforeach;
                     ?>
                     <div class="form-group">
                         <label>Nama Barang</label>
-                        <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang">
+                        <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" required>
                     </div>
                     <div class="form-group">
                         <label>Nomor Kontrak</label>
-                        <input type="text" name="no_kontrak" class="form-control" placeholder="No.">
+                        <input type="text" name="no_kontrak" class="form-control" placeholder="No." required>
                     </div>
                     <div class="form-group">
                         <label>Tanggal</label>
-                        <input type="date" class="form-control" name="tanggal">
+                        <input type="date" class="form-control" name="tanggal" required>
                     </div>
                     <div class="form-group">
                         <label>Nilai Kontrak</label>
-                        <input type="text" name="nilai_kontrak" class="form-control" placeholder="Rp.">
+                        <input type="number" name="nilai_kontrak" class="form-control" placeholder="Rp." required>
                         <!-- <input type="text" name="nilai_kontrak" id="rupiah" class="form-control" placeholder="Rp."> -->
                     </div>
                     <div class="form-group">
                         <label>Tahun Anggaran</label>
-                        <select type="text" name="tahun" class="form-control">
-                            <option>2018</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
+                        <select type="text" name="tahun" class="form-control" required>
+                            <option value="" selected hidden>--Pilih Tahun Anggaran--</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
                         </select>
                     </div>
                 </div>
