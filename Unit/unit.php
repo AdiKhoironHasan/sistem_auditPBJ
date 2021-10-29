@@ -49,12 +49,15 @@
                             </div>
 
                             <h3 class="profile-username text-center"><?= $data_user['nama']; ?></h3>
-
-                            <p class="text-muted text-center"><?= $data_user['level']; ?></p>
+                            <?php 
+                            $q_unit = mysqli_query($conn, "SELECT nama_unit FROM v_data_unit WHERE id_user=$iduser"); 
+                            $result_unit = mysqli_fetch_array($q_unit);
+                            ?>
+                            <p class="text-muted text-center"><?= $data_user['level'];?></p>
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Followers</b> <a class="float-right">1,322</a>
+                                    <b>Unit Kerja</b> <a class="float-right"><?= $result_unit['nama_unit'] ?></a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Following</b> <a class="float-right">543</a>
@@ -151,11 +154,11 @@
                                                                 <?php
                                                                 if ($data_user['no_hp'] == NULL) {
                                                                 ?>
-                                                                    <input type="number" class="form-control" name="nohp" id="nohp" placeholder="---- Data Belum Diisi ---" required  pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==4) return false;">
+                                                                    <input type="number" class="form-control" name="nohp" id="nohp" placeholder="---- Data Belum Diisi ---" required pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==13) return false;">
                                                                 <?php
                                                                 } else {
                                                                 ?>
-                                                                    <input type="number" class="form-control" name="nohp" id="nohp" value="<?= $dataUser_row['no_hp']; ?>" required maxlength="13" minlength="11">
+                                                                    <input type="number" class="form-control" name="nohp" id="nohp" value="<?= $dataUser_row['no_hp']; ?>" required pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==13) return false;">
                                                                 <?php
                                                                 }
                                                                 ?>

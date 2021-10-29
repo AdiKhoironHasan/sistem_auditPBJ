@@ -33,18 +33,20 @@
                     </div>
                     <div class="form-group">
                         <label>Nilai Kontrak</label>
-                        <input type="number" name="nilai_kontrak" class="form-control" placeholder="Rp." required>
-                        <!-- <input type="text" name="nilai_kontrak" id="rupiah" class="form-control" placeholder="Rp."> -->
+                        <!-- <input type="number" name="nilai_kontrak" class="form-control" placeholder="Rp." required> -->
+                        <input type="text" name="nilai_kontrak" id="rupiah" class="form-control" placeholder="Rp.">
                     </div>
                     <div class="form-group">
                         <label>Tahun Anggaran</label>
                         <select type="text" name="tahun" class="form-control" required>
                             <option value="" selected hidden>--Pilih Tahun Anggaran--</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
+                            <?php
+                            $tahunAwal = date('Y') - 5;
+                            $tahunAkhir = date('Y') + 10;
+                            for ($tahun = $tahunAkhir; $tahun >= $tahunAwal; $tahun--) {
+                                echo "<option value='$tahun'>$tahun</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
