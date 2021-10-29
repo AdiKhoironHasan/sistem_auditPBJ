@@ -25,8 +25,9 @@ include 'functions/getlogin.php';
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a href="../index.php" class="h1">Audit<b>PBJ</b></a>
+            <div class="text-center">
+                <img src="../AdminLTE/dist/img/logo1.png" style="width:300px;height:225px;">
+                <!-- <a href="../index.php" class="h1">Audit<b>PBJ</b></a> -->
             </div>
             <div class="card-body">
                 <!-- <p class="login-box-msg">Sign in to start your session</p> -->
@@ -36,7 +37,7 @@ include 'functions/getlogin.php';
                         <input type="text" name="username" class="form-control" placeholder="Username">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>

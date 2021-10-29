@@ -27,6 +27,7 @@ BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
     18. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
     19. perbaiki dashboard
     20. satukan fungsi barang.php
+    == 21. icon sidebar fix
 
 }
 

@@ -46,7 +46,7 @@
         ?>
           <li class="nav-item">
             <a href="data_user.php" class="nav-link <?php if ($page == "Data User") echo "active"?>" >
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Data User
               </p>
@@ -54,7 +54,7 @@
           </li>
           <li class="nav-item">
             <a href="data_unit.php" class="nav-link <?php if ($page == "Data Unit") echo "active"?>">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-university"></i>
               <p>
                 Data Unit
               </p>
@@ -65,7 +65,7 @@
         ?>
         <li class="nav-item">
           <a href="rka.php" class="nav-link <?php if ($page == "RKA") echo "active"?>">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-swatchbook"></i>
             <p>
               Rencana Kerja Audit
             </p>
@@ -73,7 +73,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-file-alt"></i>
             <p>
               Data Audit
               <i class="right fas fa-angle-left"></i>
@@ -96,7 +96,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-file-invoice"></i>
             <p>
               Temuan Hasil Audit
             </p>
@@ -104,7 +104,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-newspaper"></i>
             <p>
               Berita Acara
             </p>
@@ -112,7 +112,7 @@
         </li>
         <li class="nav-item">
           <a href="../Login/logout.php" class="nav-link">
-            <i class="nav-icon fas fa-table"></i>
+            <i class="nav-icon fas fa-sign-out-alt"></i>
             <p>
               Logout
               <!-- <i class="fas fa-angle-left right"></i> -->

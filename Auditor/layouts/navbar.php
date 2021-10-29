@@ -50,6 +50,17 @@
             <i class="fas fa-th-large"></i>
           </a>
         </li>
+        <li class="nav-item">
+          <div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div>
+          <script>
+            // function($) {
+              var $dark_mode_container = $('<div />', {
+                class: 'mb-4'
+              }).append($dark_mode_checkbox).append('<span>Dark Mode</span>')
+              $container.append($dark_mode_container)
+            // }
+          </script>
+        </li>
       </ul>
     </nav>
     <!-- /.navbar -->

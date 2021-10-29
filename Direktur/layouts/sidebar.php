@@ -33,7 +33,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fas fa-swatchbook"></i>
             <p>
               Rencana Kerja
             </p>
@@ -41,7 +41,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-user-tag"></i>
             <p>
               Auditor
             </p>
@@ -49,7 +49,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-university"></i>
             <p>
               Unit
             </p>
@@ -57,7 +57,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-newspaper"></i>
             <p>
               Berita Acara
             </p>
@@ -65,7 +65,7 @@
         </li>
         <li class="nav-item">
           <a href="../Login/logout.php" class="nav-link">
-            <i class="nav-icon fas fa-table"></i>
+            <i class="nav-icon fas fa-sign-out-alt"></i>
             <p>
               Logout
               <!-- <i class="fas fa-angle-left right"></i> -->

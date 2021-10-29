@@ -20,7 +20,7 @@
 <!-- AdminLTE App -->
 <script src="../AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<!-- <script src="dist/js/demo.js"></script> -->
+<!-- <script src="../AdminLTE/dist/js/demo.js"></script> -->
 
 <!-- DataTables  & Plugins -->
 <script src="../AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
