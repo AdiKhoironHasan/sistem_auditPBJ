@@ -7,20 +7,27 @@ if (isset($_POST['tambah'])) {
   // }
   // $u = $_POST["unit"];
   // $data_u = mysqli_fetch_array(mysqli_query($conn, "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'"));
+  $sNilai = $_POST['nilai_kontrak'];
+
+
+  $nilai = (int) filter_var($sNilai, FILTER_SANITIZE_NUMBER_INT);
+  // echo ("The extracted numbers are: $int \n");
 
   $unit = $_POST["id_unit"];
   $barang = $_POST["nama_barang"];
   $no_kontrak = $_POST['no_kontrak'];
   $tanggal = $_POST['tanggal'];
-  $nilai = $_POST['nilai_kontrak'];
   $tahun = $_POST['tahun'];
 
   $sql = "INSERT INTO tb_barang VALUES(NULL, '$unit', '$barang', '$no_kontrak', '$tanggal', '$nilai', '$tahun')";
   if (mysqli_query($conn, $sql)) {
-    echo "<script>alert('Selamat, Tambah Barang berhasil!')</script>";
+    echo "<script>alert('Selamat, Tambah Barang berhasil..!')</script>";
     header("refresh: 0; url=barang.php");
   } else {
-    echo "Error: " . $sql . " " . mysqli_error($conn);
+    echo "<script>alert('Tambah data barang gagal..!')</script>";
+    header("refresh: 0; url=barang.php");
+    // echo "Error: " . $sql . " " . mysqli_error($conn);
+    
   }
   // //mysqli_close($conn);
 }
@@ -61,3 +68,10 @@ if (empty($id_unit)) {
 }
 // $unit = mysqli_query($conn, "SELECT unit.nama_unit AS nama_unit FROM tb_unit AS unit, tb_rencana_kerja AS rka WHERE rka.id_unit = unit.id_unit");
 $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
+
+function rupiah($angka)
+{
+
+  $hasil_rupiah = "Rp. " . number_format($angka, 0, ',', '.');
+  return $hasil_rupiah;
+}

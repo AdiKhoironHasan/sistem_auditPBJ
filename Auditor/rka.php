@@ -73,9 +73,9 @@ include 'functions/rka.php';
                 <td><?= $no; ?></td>
                 <td><?= $row["nama_unit"]; ?></td>
                 <td><?= $row["nama"]; ?></td>
-                <td><?= $row["status"]; ?></td>
+                <td><span class="badge badge-<?php if ($row['status'] == "Terlaksana"){echo "success";}elseif($row['status'] == "Tidak Terlaksana"){echo "danger";}elseif($row['status'] == "Belum Terlaksana"){echo "primary";} ?>"><?= $row["status"]; ?></span></td>
                 <td><?= $row["tahun"]; ?></td>
-                <td><?= $row["tanggal"]; ?></td>
+                <td><?= tanggal($row["tanggal"]); ?></td>
                 <td>
                   <div class="text-center">
                     <a href="#modal_rka_edit<?= $row["id_rka"] ?>" data-toggle="modal" style="color: limegreen;"><i class="far fa-edit"></i></a>

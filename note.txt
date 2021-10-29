@@ -4,6 +4,7 @@ RULE :  1. Ketua Unit harus punya unit (1)
         4. Anggota SPI auditor
 
 BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
+         2. Max dan Min length tidak berfungsi di form type="number" 
 
 3 {
     == 1. Buat menu active di Sidebar auditor dan ketua unit
@@ -11,22 +12,21 @@ BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
     == 3. Samakan penataan fungsi auditor dan ketua unit
     == 4. Perbaiki tampian dashbiard auditor dan ketua unit
     5. Perbaiki form (belum diisi, gunakan javascript untuk data yang sudah ada)
-    6. Pwerbaiki Rupiah
-    7. Perbaiki List Tahun
-    8. perbaiki tanggal
+    1== 6. Pwerbaiki Rupiah
+    2== 7. Perbaiki List Tahun
+    3==8. perbaiki tanggal indo !!! FORM DAN DB BELUM DD MM YYY !!!
     9. ubah password verifikasi pass lama dengan jquery
     10. fix all view
     == 11. All form required
-    12. warnai user level
-    13. tanggal indo
-    14. fix all form
-    15. memisahkan modal tambah rka menjadi file baru
-    16. memperbaiki fungsi tampilkan data tanpa foreach
-    17. menampilkan foto dan username di sidebar user ketua unit
-    18. menggabungkan fungsi data barang di barang.php
-    19. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
-    20. perbaiki dashboard
-    21. satukan fungsi barang.php
+    == 12. warnai span status rka
+    13. fix all form
+    14. memisahkan modal tambah rka menjadi file baru
+    15. memperbaiki fungsi tampilkan data tanpa foreach
+    16. menampilkan foto dan nama di sidebar user ketua unit
+    17. menggabungkan fungsi data barang di barang.php
+    18. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
+    19. perbaiki dashboard
+    20. satukan fungsi barang.php
 
 }
 
@@ -171,3 +171,23 @@ BACKUP : <script>
       }
     });
   </script>
+
+<?php 
+$string = 'Rp. 200.000';
+$int = (int) filter_var($string, FILTER_SANITIZE_NUMBER_INT);  
+echo("The extracted numbers are: $int \n"); 
+?>
+
+<?php 
+//membuat format rupiah dengan PHP
+//tutorial www.malasngoding.com
+ 
+function rupiah($angka){
+	
+	$hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+	return $hasil_rupiah;
+ 
+}
+ 
+echo rupiah(1528700);
+?>

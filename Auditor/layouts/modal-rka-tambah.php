@@ -12,7 +12,7 @@
           <div class="form-group">
             <label>Unit</label>
             <select type="text" name="unit" class="form-control" required>
-            <option hidden selected value="">--Pilih Unit--</option>
+              <option hidden selected value="">--Pilih Unit--</option>
               <?php
               $q_unit = mysqli_query($conn, "SELECT * FROM tb_unit");
               foreach ($q_unit as $q_unit_row) :
@@ -37,11 +37,13 @@
             <label>Tahun</label>
             <select type="text" name="tahun" class="form-control" required>
               <option hidden selected value="">--Pilih Tahun--</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
+              <?php
+              $tahunAwal = date('Y') - 5;
+              $tahunAkhir = date('Y') + 10;
+              for ($tahun = $tahunAkhir; $tahun >= $tahunAwal; $tahun--) {
+                echo "<option value='$tahun'>$tahun</option>";
+              }
+              ?>
             </select>
           </div>
           <div class="form-group">

@@ -3,7 +3,7 @@
         <div class="modal-content">
             <form action="rka.php" method="post">
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Data User</h4>
+                    <h4 class="modal-title">Edit RKA</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -47,12 +47,14 @@
                     <div class="form-group">
                         <label>Tahun</label>
                         <select type="text" name="tahun" class="form-control" required>
-                            <option hidden selected><?= $row["tahun"]; ?></option>
-                            <option>2018</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
+                            <option hidden selected value="<?= $row["tahun"]; ?>"><?= $row["tahun"]; ?></option>
+                            <?php
+                            $tahunAwal = date('Y') - 5;
+                            $tahunAkhir = date('Y') + 10;
+                            for ($tahun = $tahunAkhir; $tahun >= $tahunAwal; $tahun--) {
+                                echo "<option value='$tahun'>$tahun</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="form-group">

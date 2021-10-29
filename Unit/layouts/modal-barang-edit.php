@@ -25,11 +25,13 @@
                         <label>Tahun Anggaran</label>
                         <select type="text" name="tahun" class="form-control" required>
                             <option hidden selected><?= $row["tahun_anggaran"]; ?></option>
-                            <option>2018</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
+                            <?php
+                            $tahunAwal = date('Y') - 5;
+                            $tahunAkhir = date('Y') + 10;
+                            for ($tahun = $tahunAkhir; $tahun >= $tahunAwal; $tahun--) {
+                                echo "<option value='$tahun'>$tahun</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>

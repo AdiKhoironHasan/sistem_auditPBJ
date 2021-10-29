@@ -70,7 +70,7 @@
                                 <td><?= $row["nama_barang"]; ?></td>
                                 <td><?= $row["no_kontrak"]; ?></td>
                                 <td><?= $row["tanggal_kontrak"]; ?></td>
-                                <td><?= $row["nilai_kontrak"]; ?></td>
+                                <td><?= rupiah($row["nilai_kontrak"]); ?></td>
                                 <td><?= $row["tahun_anggaran"]; ?></td>
                                 <td>
                                     <div class="text-center">

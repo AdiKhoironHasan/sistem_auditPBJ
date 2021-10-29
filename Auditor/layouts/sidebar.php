@@ -24,7 +24,7 @@
         ?>
       </div>
       <div class="info">
-        <a class="d-block"><?= $data_user['username'] ?></a>
+        <a class="d-block"><?= $data_user['nama'] ?></a>
       </div>
     </div>
 
