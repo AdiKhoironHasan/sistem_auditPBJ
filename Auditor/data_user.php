@@ -76,7 +76,15 @@ $sqlOff = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Tidak Aktif' 
                                 <td><?= $no; ?></td>
                                 <td><?= $row["nama"]; ?></td>
                                 <td><?= $row["username"]; ?></td>
-                                <td><span class="badge badge-<?php if ($row['level'] == "Ketua SPI"){echo "danger";}elseif($row['level'] == "Anggota SPI"){echo "secondary";}elseif($row['level'] == "Ketua Unit"){echo "primary";}elseif($row['level'] == "Direktur"){echo "success";} ?>"><?= $row["level"]; ?></span></td>
+                                <td><span class="badge badge-<?php if ($row['level'] == "Ketua SPI") {
+                                                                    echo "danger";
+                                                                } elseif ($row['level'] == "Anggota SPI") {
+                                                                    echo "secondary";
+                                                                } elseif ($row['level'] == "Ketua Unit") {
+                                                                    echo "primary";
+                                                                } elseif ($row['level'] == "Direktur") {
+                                                                    echo "success";
+                                                                } ?>"><?= $row["level"]; ?></span></td>
                                 <td><span class="badge badge-success"><?= $row["status"]; ?></span></td>
                                 <td>
                                     <div class="text-center">
@@ -142,7 +150,11 @@ $sqlOff = mysqli_query($conn, "SELECT * FROM tb_user WHERE status='Tidak Aktif' 
                                 <td><?= $row["nama"]; ?></td>
                                 <td><?= $row["username"]; ?></td>
                                 <td><?= $row["level"]; ?></td>
-                                <td><span class="badge badge-<?php if($row['status'] == "Tidak Aktif"){echo "danger";}elseif($row['status'] == "Mendaftar"){echo "primary";} ?>"><?= $row["status"]; ?></span></td>
+                                <td><span class="badge badge-<?php if ($row['status'] == "Tidak Aktif") {
+                                                                    echo "danger";
+                                                                } elseif ($row['status'] == "Mendaftar") {
+                                                                    echo "primary";
+                                                                } ?>"><?= $row["status"]; ?></span></td>
                                 <td>
                                     <div class="text-center">
                                         <div class="row">

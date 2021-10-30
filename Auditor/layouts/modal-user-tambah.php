@@ -17,7 +17,8 @@
           </div>
           <div class="form-group">
             <label>Username</label>
-            <input type="text" name="username" class="form-control" placeholder="Username" required minlength="3" maxlength="10">
+            <input type="text" name="username" id="usernameTambah" class="form-control" placeholder="Username" required minlength="3" maxlength="10">
+            <div id="hasilCekTambah"></div>
           </div>
           <div class="form-group">
             <label>Password</label>
@@ -41,7 +42,7 @@
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <!-- <button type="submit" name="tambah" class="btn btn-primary">Save changes</button> -->
-          <input type="submit" name="tambah" class="btn btn-primary" value="Simpan">
+          <input type="submit" name="tambah" id="tambah" class="btn btn-primary" value="Simpan" disabled="disabled">
         </div>
       </form>
     </div>
