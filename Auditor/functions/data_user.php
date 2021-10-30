@@ -55,24 +55,28 @@ if (isset($_POST['tambah'])) {
 //     echo '<div class="btn btn-success swalDefaultSuccess"></div>';
 // }
 
-if (isset($_POST['edit'])) // when click on Update button
-{
+if (isset($_POST['edit'])) {
     $id_user = $_POST['id'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $status = $_POST['status'];
     $level = $_POST['level'];
 
-    $edit = mysqli_query($conn, "UPDATE tb_user SET username='$username', password='$password', status='$status', level='$level' WHERE id_user='$id_user' ");
-
-    if ($edit) {
-        // //mysqli_close($conn); // Close connection
-        echo "<script>alert('Data Berhasil Diubah')</script>";
-        // exit;
-        header("refresh: 0; url=data_user.php"); // redirects to all records page
-    } else {
-        // echo mysqli_error($edit);
-        echo ("GAGAL EDIT DATA");
+    $cekUser = mysqli_query($conn, "SELECT * FROM tb_user WHERE username='$username'");
+    if ($cekUser) {
+        echo ("<script>alert('Username Sudah Ada')</script>");
         header("refresh: 0; url=data_user.php");
+    } else {
+        $edit = mysqli_query($conn, "UPDATE tb_user SET username='$username', password='$password', status='$status', level='$level' WHERE id_user='$id_user' ");
+        if ($edit) {
+            // //mysqli_close($conn); // Close connection
+            echo "<script>alert('Data Berhasil Diubah')</script>";
+            // exit;
+            header("refresh: 0; url=data_user.php"); // redirects to all records page
+        } else {
+            // echo mysqli_error($edit);
+            echo ("GAGAL EDIT DATA");
+            header("refresh: 0; url=data_user.php");
+        }
     }
 }

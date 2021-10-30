@@ -4,7 +4,7 @@ RULE :  1. Ketua Unit harus punya unit (1)
         4. Anggota SPI auditor
 
 BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
-         2. Max dan Min length tidak berfungsi di form type="number" 
+      2. Max dan Min length tidak berfungsi di form type="number" 
 
 3 {
     == 1. Buat menu active di Sidebar auditor dan ketua unit
@@ -12,9 +12,9 @@ BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
     == 3. Samakan penataan fungsi auditor dan ketua unit
     == 4. Perbaiki tampian dashbiard auditor dan ketua unit
     5. Perbaiki form (belum diisi, gunakan javascript untuk data yang sudah ada)
-    1== 6. Pwerbaiki Rupiah
-    2== 7. Perbaiki List Tahun
-    3==8. perbaiki tanggal indo !!! FORM DAN DB BELUM DD MM YYY !!!
+    == 6. Pwerbaiki Rupiah
+    == 7. Perbaiki List Tahun
+    == 8. perbaiki tanggal indo !!! FORM DAN DB BELUM DD MM YYY !!!
     9. ubah password verifikasi pass lama dengan jquery
     10. fix all view
     == 11. All form required
@@ -27,6 +27,8 @@ BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
     18. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
     19. perbaiki dashboard
     20. satukan fungsi barang.php
+    == 21. icon sidebar fix
+    == 22. verifikasi ketersediaan username jquery !!! Baru tambah dan edit user di auditor !! 
 
 }
 

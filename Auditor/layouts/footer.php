@@ -20,7 +20,7 @@
 <!-- AdminLTE App -->
 <script src="../AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<!-- <script src="dist/js/demo.js"></script> -->
+<!-- <script src="../AdminLTE/dist/js/demo.js"></script> -->
 
 <!-- DataTables  & Plugins -->
 <script src="../AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -61,6 +61,56 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#usernameTambah').keyup(function() {
+      var uname = $('#usernameTambah').val();
+      if (uname == 0) {
+        $('#hasilCekTambah').text('');
+      } else {
+        $.ajax({
+          url: 'functions/cek_tambah_user.php',
+          type: 'POST',
+          data: 'username=' + uname,
+          success: function(hasil) {
+            if (hasil > 0) {
+              $('#hasilCekTambah').html('<label class="col-form-label" for="inputSuccess"><i class="fas fa-times-circle"></i> Username Tidak Tersedia</label>');
+              $('#tambah').attr('disabled', 'disabled');
+            } else if (hasil) {
+              $('#hasilCekTambah').html('<label class="col-form-label" for="inputSuccess"><i class="fas fa-check-circle"></i> Username Tersedia</label>');
+              $('#tambah').removeAttr('disabled');
+            }
+          }
+        });
+      }
+    });
+  });
+
+  $(document).ready(function() {
+    $('#usernameEdit').keyup(function() {
+      var uname = $('#usernameEdit').val();
+      if (uname == 0) {
+        $('#hasilCekEdit').text('');
+      } else {
+        $.ajax({
+          url: 'functions/cek_edit_user.php',
+          type: 'POST',
+          data: 'username=' + uname,
+          success: function(hasil) {
+            if (hasil > 0) {
+              $('#hasilCekEdit').html('<label class="col-form-label" for="inputSuccess"><i class="fas fa-times-circle"></i> Username Tidak Tersedia</label>');
+              $('#edit').attr('disabled', 'disabled');
+            } else if (hasil) {
+              $('#hasilCekEdit').html('<label class="col-form-label" for="inputSuccess"><i class="fas fa-check-circle"></i> Username Tersedia</label>');
+              $('#edit').removeAttr('disabled');
+            }
+          }
+        });
+      }
     });
   });
 </script>
