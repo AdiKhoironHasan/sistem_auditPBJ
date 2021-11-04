@@ -12,7 +12,8 @@
                     <input type="hidden" name="id" value="<?= $row["id_unit"]; ?>">
                     <div class="form-group">
                         <label>Nama Unit</label>
-                        <input type="text" name="nama_unit" class="form-control" value="<?= $row["nama_unit"] ?>">
+                        <input type="text" name="nama_unit" id="cekNamaUnit" class="form-control" value="<?= $row["nama_unit"] ?>">
+                        <div id="hasilCekUnit"></div>
                     </div>
                     <div class="form-group">
                         <label>Ketua Unit</label>
@@ -34,7 +35,7 @@
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <!-- <button type="submit" name="tambah" class="btn btn-primary">Save changes</button> -->
-                    <input type="submit" name="edit" class="btn btn-primary" value="Simpan">
+                    <input type="submit" name="edit" id="editUnit" class="btn btn-primary" value="Simpan">
                 </div>
             </form>
         </div>

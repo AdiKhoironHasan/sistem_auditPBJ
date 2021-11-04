@@ -113,6 +113,54 @@
       }
     });
   });
+  
+  $(document).ready(function() {
+    $('#cekNamaUnit').keyup(function() {
+      var namaUnit = $('#cekNamaUnit').val();
+      if (namaUnit == 0) {
+        $('#hasilCekUnit').text('');
+      } else {
+        $.ajax({
+          url: 'functions/cek_edit_unit.php',
+          type: 'POST',
+          data: 'namaUnit=' + namaUnit,
+          success: function(hasil) {
+            if (hasil > 0) {
+              $('#hasilCekUnit').html('<label class="col-form-label" for="inputSuccess"><i class="fas fa-times-circle"></i> Nama Unit Tidak Tersedia</label>');
+              $('#editUnit').attr('disabled', 'disabled');
+            } else if (hasil) {
+              $('#hasilCekUnit').html('<label class="col-form-label" for="inputSuccess"><i class="fas fa-check-circle"></i> Nama Unit Tersedia</label>');
+              $('#editUnit').removeAttr('disabled');
+            }
+          }
+        });
+      }
+    });
+  });
+
+  $(document).ready(function() {
+    $('#namaUnitTambah').keyup(function() {
+      var namaUnit = $('#namaUnitTambah').val();
+      if (namaUnit == 0) {
+        $('#hasilUnitTambah').text('');
+      } else {
+        $.ajax({
+          url: 'functions/cek_edit_unit.php',
+          type: 'POST',
+          data: 'namaUnit=' + namaUnit,
+          success: function(hasil) {
+            if (hasil > 0) {
+              $('#hasilUnitTambah').html('<label class="col-form-label" for="inputSuccess"><i class="fas fa-times-circle"></i> Nama Unit Tidak Tersedia</label>');
+              $('#tambahUnit').attr('disabled', 'disabled');
+            } else if (hasil) {
+              $('#hasilUnitTambah').html('<label class="col-form-label" for="inputSuccess"><i class="fas fa-check-circle"></i> Nama Unit Tersedia</label>');
+              $('#tambahUnit').removeAttr('disabled');
+            }
+          }
+        });
+      }
+    });
+  });
 </script>
 
 <!-- ./wrapper -->
