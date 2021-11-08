@@ -107,6 +107,8 @@ VIEW {
     == CREATE VIEW v_data_rka AS SELECT rka.*, user.nama, unit.nama_unit FROM tb_unit as unit, tb_user as user, tb_rka as rka WHERE rka.id_user = user.id_user AND rka.id_unit = unit.id_unit ORDER BY rka.id_rka ASC;
     barang.php, tb_barang -> nama unit
     == CREATE VIEW v_data_barang AS SELECT barang.*, unit.nama_unit FROM tb_unit as unit, tb_barang as barang WHERE barang.id_unit = unit.id_unit ORDER BY barang.id_barang ASC;
+    desk.php, tb_desk, tb_rka
+    == CREATE VIEW v_data_desk AS SELECT rka.id_unit, desk.* FROM tb_desk AS desk, tb_rka AS rka WHERE desk.id_rka = rka.id_rka;
 
     FORM :
         Ketua :

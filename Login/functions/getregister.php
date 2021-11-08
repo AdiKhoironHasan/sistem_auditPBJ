@@ -19,7 +19,7 @@ if (isset($_POST['register'])) {
     $sql = "SELECT * FROM tb_user WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
     if (!$result->num_rows > 0) {
-      $sql = "INSERT INTO tb_user VALUES (NULL, '$nama', '$username', '$password1', '$npak', '$level', '$nohp', NULL, NULL, 'Tidak Aktif')";
+      $sql = "INSERT INTO tb_user VALUES (NULL, '$nama', '$username', '$password1', '$npak', '$level', '$nohp', NULL, NULL, 'Mendaftar')";
       $result = mysqli_query($conn, $sql);
       if ($result) {
         echo "<script>alert('Selamat, registrasi berhasil!')</script>";
