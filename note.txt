@@ -20,13 +20,13 @@ BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
     == 11. All form required
     == 12. warnai span status rka
     13. fix all form
-    14. memisahkan modal tambah rka menjadi file baru
-    15. memperbaiki fungsi tampilkan data tanpa foreach
-    16. menampilkan foto dan nama di sidebar user ketua unit
-    17. menggabungkan fungsi data barang di barang.php
-    18. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
-    19. perbaiki dashboard
-    20. satukan fungsi barang.php
+    == 14. memisahkan modal tambah rka menjadi file baru
+    == 15. memperbaiki fungsi tampilkan data tanpa foreach
+    == 16. menampilkan foto dan nama di sidebar user ketua unit
+    == 17. menggabungkan fungsi data barang di barang.php
+    == 18. memperbaiki bug Tidak adanya nama file setelah di input di profil user ketua unit
+    == 19. perbaiki dashboard
+    == 20. satukan fungsi barang.php
     == 21. icon sidebar fix
     == 22. verifikasi ketersediaan username jquery !!! Baru tambah dan edit user di auditor !! 
 
@@ -192,4 +192,20 @@ function rupiah($angka){
 }
  
 echo rupiah(1528700);
+
+<select name="tahun" id="tahun">
+<?php
+//Heri Priady//
+//28 - 01- 2018//
+$tg_awal= date('Y')-5;
+$tgl_akhir= date('Y')+10;
+for ($i=$tgl_akhir; $i>=$tg_awal; $i--)
+{
+echo "
+<option value='$i'";
+if(date('Y')==$i){echo "selected";}
+echo">$i</option>";
+}
+?>
+</select>
 ?>
