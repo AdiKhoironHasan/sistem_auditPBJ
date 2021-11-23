@@ -26,6 +26,9 @@
       <li>
         <a href="coba.php">Coba.php</a>
       </li>
+      <li>
+        <a href="Auditor/layouts/deskPDF.php">Desk PDF</a>
+      </li>
     </ul>
   </div>
 </body>
