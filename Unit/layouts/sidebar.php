@@ -50,7 +50,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="#" class="nav-link <?php if ($page == "Data Desk") echo "active"?>">
             <i class="nav-icon fas fa-swatchbook"></i>
             <p>
               Data Audit
@@ -59,7 +59,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="../index.html" class="nav-link">
+              <a href="desk.php" class="nav-link <?php if ($page == "Data Desk") echo "active"?>">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Data Desk</p>
               </a>
