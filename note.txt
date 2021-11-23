@@ -6,6 +6,8 @@ RULE :  1. Ketua Unit harus punya unit (1)
 BUG : == 1. Tidak ada nama file setelah di input di profil user ketua unit
       2. Max dan Min length tidak berfungsi di form type="number" 
 
+second commit
+
 3 {
     == 1. Buat menu active di Sidebar auditor dan ketua unit
     == 2. Perbaiki navbar auditor dan ketua unit
