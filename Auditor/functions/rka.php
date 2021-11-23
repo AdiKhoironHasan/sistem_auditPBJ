@@ -54,7 +54,9 @@ if (isset($_POST['edit'])) // when click on Update button
 }
 
 $sql = mysqli_query($conn, "SELECT * FROM tb_rka");
-$sql_v_data_rka = mysqli_query($conn, "SELECT * FROM v_data_rka");
+$rkaBelumTerlaksana = mysqli_query($conn, "SELECT * FROM v_data_rka WHERE status='Belum Terlaksana'");
+$rkaTidakTerlaksana = mysqli_query($conn, "SELECT * FROM v_data_rka WHERE status='Tidak Terlaksana'");
+$rkaTerlaksana = mysqli_query($conn, "SELECT * FROM v_data_rka WHERE status='Terlaksana'");
 $unit = mysqli_query($conn, "SELECT nama_unit FROM tb_unit");
 
 function tanggal($tanggal)
