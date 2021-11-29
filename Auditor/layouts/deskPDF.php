@@ -320,8 +320,8 @@
         </table>
         <table style="width: 100%;" class="bdr-none-top">
             <tr>
-                <td colspan="2" style="width: 50%;" class="bdr-none-top"><b>Pimpinan Auditi</b></td>
-                <td colspan="2" style="width: 50%;" class="bdr-none-top"><b>Ketua Auditor</b></td>
+                <td colspan="2" style="width: 50%;" class="bdr-none-top bdr-none-rght"><b>Pimpinan Auditi</b></td>
+                <td colspan="2" style="width: 50%;" class="bdr-none-top bdr-none-lft"><b>Ketua Auditor</b></td>
             </tr>
             <tr>
                 <div style="width: 100%;">
@@ -330,8 +330,8 @@
                 </div>
             </tr>
             <tr>
-                <td colspan="2"><b>*nama*</b></td>
-                <td colspan="2"><b>*nama*</b></td>
+                <td colspan="2" class="bdr-none-rght"><b>*nama*</b></td>
+                <td colspan="2" class="bdr-none-lft"><b>*nama*</b></td>
             </tr>
             <tr>
                 <td colspan="4"><b>Direview Oleh</b></td>
