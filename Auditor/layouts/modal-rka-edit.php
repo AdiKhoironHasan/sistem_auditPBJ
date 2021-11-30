@@ -23,15 +23,29 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Auditor</label>
-                        <select type="text" name="auditor" class="form-control" required>
-                            <option hidden selected><?= $row["id_user"]; ?></option>
-                            <option hidden selected value="<?= $row["id_user"]; ?>"><?= $row["nama"]; ?></option>
-                            <?php
-                            $q_auditor = mysqli_query($conn, "SELECT * FROM tb_user WHERE level='Anggota SPI' OR level='Ketua SPI'");
-                            foreach ($q_auditor as $q_auditor_row) :
-                            ?>
-                                <option value="<?= $q_auditor_row["id_user"]; ?>"><?= $q_auditor_row["nama"]; ?></option>
+                        <label>Auditor 1</label>
+                        <select type="text" name="auditor1" class="form-control" required>
+                            <option hidden selected value="<?= $row["auditor1"]; ?>"><?= NamaAuditor($row["auditor1"]); ?></option>
+                            <?php foreach ($dataAuditor as $dataAuditor_row) : ?>
+                                <option value="<?= $dataAuditor_row["id_user"] ?>"><?= $dataAuditor_row["nama"]; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Auditor 2</label>
+                        <select type="text" name="auditor2" class="form-control" required>
+                            <option hidden selected value="<?= $row["auditor2"]; ?>"><?= NamaAuditor($row["auditor2"]); ?></option>
+                            <?php foreach ($dataAuditor as $dataAuditor_row) : ?>
+                                <option value="<?= $dataAuditor_row["id_user"] ?>"><?= $dataAuditor_row["nama"]; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Auditor 3</label>
+                        <select type="text" name="auditor3" class="form-control" required>
+                            <option hidden selected value="<?= $row["auditor3"]; ?>"><?= NamaAuditor($row["auditor3"]); ?></option>
+                            <?php foreach ($dataAuditor as $dataAuditor_row) : ?>
+                                <option value="<?= $dataAuditor_row["id_user"] ?>"><?= $dataAuditor_row["nama"]; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

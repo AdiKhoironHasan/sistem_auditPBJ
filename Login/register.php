@@ -74,7 +74,6 @@ include 'functions/getregister.php';
           <div class="input-group mb-3">
             <select type="text" name="level" class="form-control">
               <option value="" hidden selected disabled>Jabatan</option>
-              <option value="Ketua SPI">Ketua SPI</option>
               <option value="Auditor">Anggota SPI</option>
               <option value="Ketua Unit">Ketua Unit</option>
               <option value="Direktur">Direktur</option>

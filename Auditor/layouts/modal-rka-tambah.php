@@ -22,9 +22,33 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Auditor</label>
-            <select type="text" name="auditor" class="form-control" required>
-              <option hidden selected value="">--Pilih Auditor--</option>
+            <label>Auditor 1</label>
+            <select type="text" name="auditor1" class="form-control" required>
+              <option hidden selected value="">--Pilih Auditor 1--</option>
+              <?php
+              $q_v_nama_auditor = mysqli_query($conn, "SELECT * FROM v_nama_auditor");
+              foreach ($q_v_nama_auditor as $q_v_nama_auditor_row) :
+              ?>
+                <option value="<?= $q_v_nama_auditor_row["id_user"]; ?>"><?= $q_v_nama_auditor_row["nama"]; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Auditor 2</label>
+            <select type="text" name="auditor2" class="form-control" required>
+              <option hidden selected value="">--Pilih Auditor 2--</option>
+              <?php
+              $q_v_nama_auditor = mysqli_query($conn, "SELECT * FROM v_nama_auditor");
+              foreach ($q_v_nama_auditor as $q_v_nama_auditor_row) :
+              ?>
+                <option value="<?= $q_v_nama_auditor_row["id_user"]; ?>"><?= $q_v_nama_auditor_row["nama"]; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Auditor 3</label>
+            <select type="text" name="auditor3" class="form-control" required>
+              <option hidden selected value="">--Pilih Auditor 3--</option>
               <?php
               $q_v_nama_auditor = mysqli_query($conn, "SELECT * FROM v_nama_auditor");
               foreach ($q_v_nama_auditor as $q_v_nama_auditor_row) :
