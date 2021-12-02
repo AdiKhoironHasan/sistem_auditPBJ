@@ -1,3 +1,9 @@
+<?php
+include "../functions/connect.php";
+
+$QueryDataDesk = mysqli_query($conn, "SELECT * FROM tb_desk WHERE id_desk = 2"); //id dari row yang dipilih
+$dataDesk = mysqli_fetch_array($QueryDataDesk);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +93,7 @@
                 <td style="width: 20%" rowspan="3" class="bdr bdr-none-bot" style="padding-top: 30px"><img src="https://pnc.ac.id/wp-content/uploads/2019/09/LOGO-PNC-2-300x300.png" style="width: 100px; height: 100px"></td>
                 <td style="width: 40%;" rowspan="2" class="bdr"><b>FORM</b></td>
                 <td style="width: 15%;" class="txt-lft-20 bdr-none">Kode Dokumen</td>
-                <td style="width: 25%;" class="txt-lft bdr-none">:</td>
+                <td style="width: 25%;" class="txt-lft bdr-none">:&emsp;&emsp;<?= $dataDesk["kd_dokumen"]; ?></td>
             </tr>
             <tr>
                 <td class="txt-lft-20 bdr-none">Revisi</td>
@@ -99,7 +105,9 @@
                 <td class="txt-lft bdr-none">:</td>
             </tr>
             <tr>
-                <td class="bdr bdr-none-top" style="padding-top: 10px;"><h3><b>APIP</b></h3></td>
+                <td class="bdr bdr-none-top">
+                    <h3><b>APIP</b></h3>
+                </td>
                 <td class="txt-lft-20 bdr-none">Halaman</td>
                 <td class="txt-lft bdr-none">:</td>
             </tr>
@@ -113,7 +121,7 @@
             </tr>
             <tr>
                 <td>*Perpustakaan*</td>
-                <td>**</td>
+                <td><?= $dataDesk["tipe_monitoring"]; ?></td>
                 <td>*pengadaan pc untuk pencarian buku perpustakaan*</td>
             </tr>
             <tr>
@@ -122,16 +130,16 @@
                 <th>AUDITOR</th>
             </tr>
             <tr>
-                <td>*25/04/2021*</td>
-                <td rowspan="3">*27/04/2021*</td>
+                <td><?= $dataDesk["masa_monitoring"]; ?></td>
+                <td rowspan="3"><?= $dataDesk["tgl_monitoring"]; ?></td>
                 <td class="bdr txt-lft-50">1. *Prih Diantoro Abdau*</td>
             </tr>
             <tr>
-                <td>sd.</td>
+                <td>**</td>
                 <td class="bdr txt-lft-50">2. *Faredah Herwina*</td>
             </tr>
             <tr>
-                <td>*30/04/2021*</td>
+                <td>**</td>
                 <td class="bdr txt-lft-50">3. *Lutfi Syafirullah*</td>
             </tr>
         </table>
@@ -153,13 +161,13 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">TGL SPPBJ</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["tgl_sppbj"]; ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td>b</td>
                 <td class="txt-lft-20">SUBSTANSI KONTRAK</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["sub_kontrak"]; ?></td>
                 <td>01.04.03</td>
             </tr>
             <tr>
@@ -171,7 +179,7 @@
             <tr>
                 <td>d</td>
                 <td class="txt-lft-20">PERTENTANGAN</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["pertentangan"]; ?></td>
                 <td></td>
             </tr>
             <tr>
@@ -185,7 +193,7 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">INFORMASI PENGADAAN BARANG</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["info_pengadaan_barang"]; ?></td>
                 <td>01.03.04</td>
             </tr>
             <tr>
@@ -199,7 +207,7 @@
             <tr>
                 <td></td>
                 <td class="txt-lft-20">PEMERIKSAAN KONDISI LAPANGAN PADA TAHAP AWAL PELAKSANAAN KONTRAK</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["pemeriksaan_lapangan"]; ?></td>
                 <td></td>
             </tr>
             <tr>
@@ -219,7 +227,7 @@
             <tr>
                 <td>b</td>
                 <td class="txt-lft-20">JAMINAN UANG MUKA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["jaminan_uangmuka"]; ?></td>
                 <td></td>
             </tr>
             <tr>
@@ -233,7 +241,7 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">UJI COBA YANG DILAKUKAN OLEH PENYEDIA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["ujicoba_penyedia"]; ?></td>
                 <td>01.03.04</td>
             </tr>
             <tr>
@@ -247,13 +255,13 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">BERITA ACARA SERAH</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["berita_acara"]; ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td>b</td>
                 <td class="txt-lft-20">WAKTU PENERIMAAN</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $dataDesk["waktu_penerimaan"]; ?></td>
                 <td></td>
             </tr>
             <tr>
@@ -264,58 +272,58 @@
                 <td colspan="4"><b>CATATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $dataDesk["catatan"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>KRITERIA / PERSYARATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $dataDesk["kriteria"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>AKAR PENYEAB</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $dataDesk["akar_penyebab"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>AKIBAT</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $dataDesk["akibat"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>REKOMENDASI</b></td>
             </tr>
             <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
+                <td colspan="4"><?= $dataDesk["rekomendasi"]; ?></td>
             </tr>
             <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
+                <td colspan="4"><?= $dataDesk["rekomendasi"]; ?></td>
             </tr>
             <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
+                <td colspan="4"><?= $dataDesk["rekomendasi"]; ?></td>
             </tr>
             <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
+                <td colspan="4"><?= $dataDesk["rekomendasi"]; ?></td>
             </tr>
             <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
+                <td colspan="4"><?= $dataDesk["rekomendasi"]; ?></td>
             </tr>
             <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
+                <td colspan="4"><?= $dataDesk["rekomendasi"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>TANGGAPAN AUDITEE</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $dataDesk["tanggapan_auditee"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>RENCANA PERBAIKAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $dataDesk["rencana_perbaikan"]; ?></td>
             </tr>
         </table>
         <table style="width: 100%;" class="bdr-none-top">
@@ -348,4 +356,5 @@
 <!-- <script>
     window.print();
 </script> -->
+
 </html>

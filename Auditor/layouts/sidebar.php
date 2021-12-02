@@ -34,7 +34,7 @@
         <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="auditor.php" class="nav-link <?php if ($page == "Dashboard") echo "active"?>">
+          <a href="auditor.php" class="nav-link <?php if ($page == "Dashboard") echo "active" ?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -45,7 +45,7 @@
         if ($data_user['level'] == 'Ketua SPI') {
         ?>
           <li class="nav-item">
-            <a href="data_user.php" class="nav-link <?php if ($page == "Data User") echo "active"?>" >
+            <a href="data_user.php" class="nav-link <?php if ($page == "Data User") echo "active" ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Data User
@@ -53,7 +53,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="data_unit.php" class="nav-link <?php if ($page == "Data Unit") echo "active"?>">
+            <a href="data_unit.php" class="nav-link <?php if ($page == "Data Unit") echo "active" ?>">
               <i class="nav-icon fas fa-university"></i>
               <p>
                 Data Unit
@@ -64,7 +64,7 @@
         }
         ?>
         <li class="nav-item">
-          <a href="rka.php" class="nav-link <?php if ($page == "RKA") echo "active"?>">
+          <a href="rka.php" class="nav-link <?php if ($page == "RKA") echo "active" ?>">
             <i class="nav-icon fas fa-swatchbook"></i>
             <p>
               Rencana Kerja Audit
@@ -81,7 +81,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="../index.html" class="nav-link">
+              <a href="layouts/desk-pdf.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Data Desk</p>
               </a>
