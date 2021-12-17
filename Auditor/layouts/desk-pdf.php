@@ -185,7 +185,40 @@ $dataDesk = mysqli_fetch_array($QueryDataDesk);
             <tr>
                 <td colspan="4" style="height: 50px;"></td>
             </tr>
-
+            <tr>
+                <td colspan="4"><b>PELAKSANAAN KONTRAK PENGADAAN BARANG</b></td>
+            </tr>
+            <tr>
+                <td><b>1</b></td>
+                <td colspan="3" class="txt-lft-20"><b>SURAT PESANAN</b></td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td class="txt-lft-20">TGL SURAT PESANAN</td>
+                <td class="txt-up"><?= $dataDesk["tgl_sppbj"]; ?></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td class="txt-lft-20">TTD PENYEDIA</td>
+                <td class="txt-up"><?= $dataDesk["sub_kontrak"]; ?></td>
+                <td>01.04.03</td>
+            </tr>
+            <tr>
+                <td>c</td>
+                <td class="txt-lft-20">MATERAI 6000</td>
+                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>d</td>
+                <td class="txt-lft-20">TANGGAL DISETUJUI</td>
+                <td class="txt-up"><?= $dataDesk["pertentangan"]; ?></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="height: 30px;"></td>
+            </tr>
             <tr>
                 <td><b>2</b></td>
                 <td colspan="3" class="txt-lft-20"><b>PENYUSUNAN PROGRAM MUTU</b></td>
@@ -197,9 +230,8 @@ $dataDesk = mysqli_fetch_array($QueryDataDesk);
                 <td>01.03.04</td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
-
             <tr>
                 <td><b>3</b></td>
                 <td colspan="3" class="txt-lft-20"><b>PEMERIKSAAN BERSAMA</b></td>
@@ -211,7 +243,7 @@ $dataDesk = mysqli_fetch_array($QueryDataDesk);
                 <td></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
 
             <tr>
@@ -231,7 +263,7 @@ $dataDesk = mysqli_fetch_array($QueryDataDesk);
                 <td></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
 
             <tr>
@@ -245,7 +277,7 @@ $dataDesk = mysqli_fetch_array($QueryDataDesk);
                 <td>01.03.04</td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
 
             <tr>
@@ -265,7 +297,7 @@ $dataDesk = mysqli_fetch_array($QueryDataDesk);
                 <td></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
 
             <tr>

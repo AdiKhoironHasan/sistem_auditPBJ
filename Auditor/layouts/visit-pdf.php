@@ -140,173 +140,182 @@
         <br>
 
         <table style="width: 100%;">
-            <tr>
+            <!-- <tr>
                 <th style="width: 5%;">NO</th>
                 <th style="width: 35%;">ITEM</th>
                 <th style="width: 45%;">URAIAN</th>
                 <th style="width: 15%;">KODE TEMUAN</th>
-            </tr>
+            </tr> -->
             <tr>
                 <td colspan="4"><b>PENYUSUNAN PROGRAM MUTU</b></td>
             </tr>
             <tr>
-                <td><b>1</b></td>
-                <td colspan="3" class="txt-lft-20"><b>KETERLIBATAN UNIT KERJA DALAM PENYUSUNAN MUTU</b></td>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">KETERLIBATAN UNIT KERJA DALAM PENYUSUNAN MUTU</td>
             </tr>
             <tr>
-                <td></td>
-                <td class="txt-lft-20">TGL SPPBJ</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td></td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Belum memiliki*</td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
-            </tr>
-
-            <tr>
-                <td><b>2</b></td>
-                <td colspan="3" class="txt-lft-20"><b>PENYUSUNAN PROGRAM MUTU</b></td>
+                <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
+                <td colspan="3" class="txt-lft-20">REVISI PROGRAM MUTU</td>
             </tr>
             <tr>
-                <td>a</td>
-                <td class="txt-lft-20">INFORMASI PENGADAAN BARANG</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td>01.03.04</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Belum memiliki*</td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
-            </tr>
-
-            <tr>
-                <td><b>3</b></td>
-                <td colspan="3" class="txt-lft-20"><b>PEMERIKSAAN BERSAMA</b></td>
+                <td colspan="4"><b>PEMERIKSAAN BERSAMA</b></td>
             </tr>
             <tr>
-                <td></td>
-                <td class="txt-lft-20">PEMERIKSAAN KONDISI LAPANGAN PADA TAHAP AWAL PELAKSANAAN KONTRAK</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td></td>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">PEMERIKSAAN KONDISI LAPANGAN PADA TAHAP AWAL PERUBAHAN KONTRAK</td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
-            </tr>
-
-            <tr>
-                <td><b>4</b></td>
-                <td colspan="3" class="txt-lft-20"><b>PEMBAYARAN UANG MUKA</b></td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Tidak melibatkan unit kerja*</td>
             </tr>
             <tr>
-                <td>a</td>
-                <td class="txt-lft-20">BESARAN UANG MUKA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td></td>
+                <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
+                <td colspan="3" class="txt-lft-20">PEMERIKSAAN BERSAMA MENGAKIBATKAN PERUBAHAN KONTRAK</td>
             </tr>
             <tr>
-                <td>b</td>
-                <td class="txt-lft-20">JAMINAN UANG MUKA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td></td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Tidak mengakibatkan perubahan kontrak*</td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
-            </tr>
-
-            <tr>
-                <td><b>5</b></td>
-                <td colspan="3" class="txt-lft-20"><b>UJI COBA BARANG</b></td>
+                <td colspan="4"><b>PERUBAHAN KEGIATAN PERUBAHAN</b></td>
             </tr>
             <tr>
-                <td>a</td>
-                <td class="txt-lft-20">UJI COBA YANG DILAKUKAN OLEH PENYEDIA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td>01.03.04</td>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">PERUBAHAN KEGIATAN</td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
-            </tr>
-
-            <tr>
-                <td><b>6</b></td>
-                <td colspan="3" class="txt-lft-20"><b>SERAH TERIMA BARANG</b></td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Tidak ada perubahan kegiatan*</td>
             </tr>
             <tr>
-                <td>a</td>
-                <td class="txt-lft-20">BERITA ACARA SERAH</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td></td>
+                <td colspan="4"><b>ASURANSI</b></td>
             </tr>
             <tr>
-                <td>b</td>
-                <td class="txt-lft-20">WAKTU PENERIMAAN</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td></td>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">UNIT KERJA MEMERIKSA BARANG YANG DIKIRIM OLEH PENYEDIA</td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Asuransi sudah sesuai dengan kontrak*</td>
             </tr>
-
+            <tr>
+                <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
+                <td colspan="3" class="txt-lft-20">PENJELASAN MANFAAT SUDAH DI JELASKAN DI DALAM KONTRAK</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Sudah di jelaskan di dalam kontrak*</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>PENGIRIMAN BARANG OLEH PENYEDIA</b></td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">PENGIRIMAN BARANG OLEH PENYEDIA</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Pengiriman sudah sesuai peraturan dan kontrak*</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>UJI COBA BARANG</b></td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">UJI COBA SETELAH DIKIRIM</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Barang sudah dilakukan uji coba dan disaksikan pphp*</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>SERAH TERIMA BARANG</b></td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">SERAH TERIMA BARANG</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Terdapat satu PC yang cacat*</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>DENDA DAN GANTI RUGI</b></td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">DENDA DAN GANTI RUGI</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*TErdapat keterlambatan pengiriman dan penyedia mengganti rugi*</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>PERPANJANGAN WAKTU PELAKANAAN PEKERJAAN</b></td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">PERPANJANGAN WAKTU PELAKANAAN PEKERJAAN</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Tidak ada perpanjangan waktu*</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>LAPORAN HASIL KEGIATAN</b></td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
+                <td colspan="3" class="txt-lft-20">LAPORAN HASIL KEGIATAN</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Sudah ada laporan dan dokumentasi pelaksanaaan kegiatan*</td>
+            </tr>
             <tr>
                 <td colspan="4"><b>CATATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;">*Tidak ada catatan*</td>
             </tr>
             <tr>
-                <td colspan="4"><b>KRITERIA / PERSYARATAN</b></td>
+                <td colspan="4"><b>KRITERIA/PERSYARATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;">*Perpres no 44 tentang pengadaan barang*</td>
             </tr>
             <tr>
-                <td colspan="4"><b>AKAR PENYEAB</b></td>
+                <td colspan="4"><b>AKAR PENYEBAB</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;">*Tidak ada*</td>
             </tr>
             <tr>
                 <td colspan="4"><b>AKIBAT</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;">*Tidak ada catatan*</td>
             </tr>
             <tr>
                 <td colspan="4"><b>REKOMENDASI</b></td>
             </tr>
             <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
+                <td colspan="4" style="height: 100px;">*Tidak ada rekomendasi*</td>
             </tr>
             <tr>
                 <td colspan="4"><b>TANGGAPAN AUDITEE</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;">*Tidak ada*</td>
             </tr>
             <tr>
                 <td colspan="4"><b>RENCANA PERBAIKAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;">*Tidak ada*</td>
             </tr>
         </table>
         <table style="width: 100%;" class="bdr-none-top">
             <tr>
                 <td colspan="2" style="width: 50%;" class="bdr-none-top bdr-none-rght"><b>Pimpinan Auditi</b></td>
+                <!--ketua unit -->
                 <td colspan="2" style="width: 50%;" class="bdr-none-top bdr-none-lft"><b>Ketua Auditor</b></td>
+                <!--auditor 1 -->
             </tr>
             <tr>
                 <div style="width: 100%;">
@@ -320,6 +329,7 @@
             </tr>
             <tr>
                 <td colspan="4"><b>Direview Oleh</b></td>
+                <!--ketuaspi -->
             </tr>
             <tr>
                 <td colspan="4" style="height: 100px;">*ttd*</td>
