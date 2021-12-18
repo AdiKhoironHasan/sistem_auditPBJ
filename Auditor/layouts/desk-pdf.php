@@ -93,7 +93,7 @@ $dataDesk = mysqli_fetch_array($QueryDataDesk);
                 <td style="width: 20%" rowspan="3" class="bdr bdr-none-bot" style="padding-top: 30px"><img src="https://pnc.ac.id/wp-content/uploads/2019/09/LOGO-PNC-2-300x300.png" style="width: 100px; height: 100px"></td>
                 <td style="width: 40%;" rowspan="2" class="bdr"><b>FORM</b></td>
                 <td style="width: 15%;" class="txt-lft-20 bdr-none">Kode Dokumen</td>
-                <td style="width: 25%;" class="txt-lft bdr-none">:&emsp;&emsp;<?= $dataDesk["kd_dokumen"]; ?></td>
+                <td style="width: 25%;" class="txt-lft bdr-none">:</td>
             </tr>
             <tr>
                 <td class="txt-lft-20 bdr-none">Revisi</td>

@@ -1,5 +1,11 @@
 <?php require "functions/connect.php" ?>
 <?php require "functions/auditor.php" ?>
+<?php require "functions/timeline.php" ?>
+<?php
+// var_dump($data_desk);
+// var_export($data_visit);
+// die();
+?>
 <?php $page = "RKA"; ?>
 <?php require "layouts/header.php" ?>
 <?php require "layouts/sidebar.php" ?>
@@ -48,7 +54,7 @@
                             <div class="timeline">
                                 <!-- Timeline time label -->
                                 <div class="time-label">
-                                    <span class="bg-primary">10 Feb. 2014</span>
+                                    <span class="bg-primary"><?= $data_rka['tanggal'] ?></span>
                                 </div>
                                 <div>
                                     <!-- Before each timeline item corresponds to one icon on the left scale -->
@@ -60,62 +66,62 @@
                                 </div>
                                 <div>
                                     <!-- Before each timeline item corresponds to one icon on the left scale -->
-                                    <i class="fas fa-file-alt bg-warning"></i>
+                                    <i class="fas fa-file-alt bg-<?= $desk_color ?>"></i>
                                     <!-- Timeline item -->
                                     <div class="timeline-item">
                                         <!-- Header. Optional -->
-                                        <h3 class="timeline-header"><b>Pengisian Data Desk</b> <i class="fas fa-exclamation-triangle text-warning"></i></h3>
+                                        <h3 class="timeline-header"><b>Pengisian Data Desk</b> <i class="fas <?= $desk_icon ?> text-<?= $desk_color ?>"></i></h3>
                                         <!-- Body -->
                                         <div class="timeline-body">
-                                            Data belum di isi
+                                            <?= $desk_keterangan ?>
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="#" class="btn btn-primary btn-sm">Tambah Data</a>
-                                            <a href="#" class="btn btn-info btn-sm">Ubah Data</a>
-                                            <a href="layouts/desk-pdf.php" class="btn btn-success btn-sm">Cetak</a>
+                                            <a href="#" class="btn btn-primary btn-sm <?= $desk_tambah ?>">Tambah Data</a>
+                                            <a href="#" class="btn btn-info btn-sm <?= $desk_ubah ?>">Ubah Data</a>
+                                            <a href="layouts/desk-pdf.php" class="btn btn-success btn-sm <?= $desk_cetak ?>">Cetak</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <!-- Before each timeline item corresponds to one icon on the left scale -->
-                                    <i class="fas fa-file-alt bg-warning"></i>
+                                    <i class="fas fa-file-alt bg-<?= $visit_color ?>"></i>
                                     <!-- Timeline item -->
                                     <div class="timeline-item">
                                         <!-- Header. Optional -->
-                                        <h3 class="timeline-header"><b>Pengisian Data Visit</b> <i class="fas fa-exclamation-triangle text-warning"></i></h3>
+                                        <h3 class="timeline-header"><b>Pengisian Data Visit</b> <i class="fas <?= $visit_icon ?> text-<?= $visit_color ?>"></i></h3>
 
                                         <!-- Body -->
                                         <div class="timeline-body">
-                                            Data belum di isi
+                                            <?= $visit_keterangan ?>
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="#" class="btn btn-primary btn-sm">Tambah Data</a>
-                                            <a href="#" class="btn btn-info btn-sm">Ubah Data</a>
-                                            <a href="layouts/visit-pdf.php" class="btn btn-success btn-sm">Cetak</a>
+                                            <a href="visit-tambah.php?<?= sendToVisit($id_desk, $u, $a1, $a2, $a3) ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah Data</a>
+                                            <a href="#" class="btn btn-info btn-sm <?= $visit_ubah ?>">Ubah Data</a>
+                                            <a href="layouts/visit-pdf.php" class="btn btn-success btn-sm <?= $visit_cetak ?>">Cetak</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <!-- Before each timeline item corresponds to one icon on the left scale -->
-                                    <i class="fas fa-newspaper bg-warning"></i>
+                                    <i class="fas fa-newspaper bg-<?= $berita_color ?>"></i>
                                     <!-- Timeline item -->
                                     <div class="timeline-item">
                                         <!-- Header. Optional -->
-                                        <h3 class="timeline-header"><b>Berita Acara</b> <i class="fas fa-exclamation-triangle text-warning"></i></h3>
+                                        <h3 class="timeline-header"><b>Berita Acara</b> <i class="fas <?= $berita_icon ?> text-<?= $berita_color ?>"></i></h3>
                                         <!-- Body -->
                                         <div class="timeline-body">
-                                            Data belum di isi
+                                            <?= $berita_keterangan ?>
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="layouts/berita-acara.php" class="btn btn-success btn-sm">Cetak</a>
+                                            <a href="layouts/berita-acara.php" class="btn btn-success btn-sm <?= $berita_cetak ?>">Cetak</a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- The last icon means the story is complete -->
-                                <div>
+                                <!-- <div>
                                     <i class="fas fa-clock bg-danger"></i>
                                     <div class="timeline-item">
                                         <h3 class="timeline-header"><b>Rencana Audit Tidak Terlaksana</b> <i class="fas fa-times-circle  text-danger"></i></h3>
@@ -123,9 +129,9 @@
                                             Data tidak di isi dampai waktu tenggang
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="time-label">
-                                    <span class="bg-danger">10 Feb. 2015</span>
+                                    <span class="bg-danger"><?= $data_berita['tanggal'] ?></span>
                                 </div>
                             </div>
                         </div>

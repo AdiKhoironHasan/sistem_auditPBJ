@@ -71,7 +71,7 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-file-alt"></i>
             <p>
@@ -87,7 +87,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="layouts/visit-pdf.php" class="nav-link">
+              <a href="visit.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Data Visit</p>
               </a>
@@ -109,7 +109,7 @@
               Berita Acara
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="../Login/logout.php" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>
