@@ -4,6 +4,7 @@
 <?php
 // var_dump($data_desk);
 // var_export($data_visit);
+// var_export($id_desk, $u, $a1, $a2, $a3);
 // die();
 ?>
 <?php $page = "RKA"; ?>
@@ -77,7 +78,7 @@
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="#" class="btn btn-primary btn-sm <?= $desk_tambah ?>">Tambah Data</a>
+                                            <a href="desk.php?<?= sendToDesk($id_rka, $unit, $auditor1, $auditor2, $auditor3, $ketua, $auditee) ?>" class="btn btn-primary btn-sm <?= $desk_tambah ?>">Tambah Data</a>
                                             <a href="#" class="btn btn-info btn-sm <?= $desk_ubah ?>">Ubah Data</a>
                                             <a href="layouts/desk-pdf.php" class="btn btn-success btn-sm <?= $desk_cetak ?>">Cetak</a>
                                         </div>
@@ -97,7 +98,7 @@
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="visit-tambah.php?<?= sendToVisit($id_desk, $u, $a1, $a2, $a3) ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah Data</a>
+                                            <a href="visit-tambah.php?<?= sendToVisit($id_desk, $unit, $auditor1, $auditor2, $auditor3) ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah Data</a>
                                             <a href="#" class="btn btn-info btn-sm <?= $visit_ubah ?>">Ubah Data</a>
                                             <a href="layouts/visit-pdf.php" class="btn btn-success btn-sm <?= $visit_cetak ?>">Cetak</a>
                                         </div>
@@ -131,7 +132,7 @@
                                     </div>
                                 </div> -->
                                 <div class="time-label">
-                                    <span class="bg-danger"><?= $data_berita['tanggal'] ?></span>
+                                    <span class="bg-danger"><?= $berita_tgl ?></span>
                                 </div>
                             </div>
                         </div>

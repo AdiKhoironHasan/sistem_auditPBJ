@@ -103,3 +103,21 @@ function tanggal($tanggal)
     $result = $tgl . " " . $bulanIndo[(int)$bulan - 1] . " " . $tahun;
     return ($result);
 }
+
+function sendToTimeline($id, $u, $a1, $a2, $a3, $k, $a)
+{
+    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&k=$k&a=$a";
+    return $data;
+}
+
+function idKetuaUnit($id_unit)
+{
+    global $conn;
+    $query = mysqli_query($conn, "SELECT id_user FROM tb_unit WHERE id_unit=$id_unit");
+    $data = mysqli_fetch_array($query);
+
+    return $data['id_user'];
+}
+
+$qKetuaSPI = mysqli_query($conn, "SELECT id_user, nama FROM tb_user WHERE level='Ketua SPI'");
+$dataKetuaSPI = mysqli_fetch_array($qKetuaSPI);

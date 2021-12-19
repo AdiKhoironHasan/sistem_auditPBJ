@@ -1,12 +1,14 @@
 <?php
-$id_rka = $_GET['id_rka'];
+$id_rka = $_GET['id'];
+$unit = $_GET['u'];
+$auditor1 = $_GET['a1'];
+$auditor2 = $_GET['a2'];
+$auditor3 = $_GET['a3'];
+$ketua = $_GET['k'];
+$auditee = $_GET['a'];
+
 $cek_rka = mysqli_query($conn, "SELECT * FROM tb_rka WHERE id_rka=$id_rka");
 $data_rka = mysqli_fetch_array($cek_rka);
-$id = $data_rka['id_rka'];
-$u = $data_rka['id_unit'];
-$a1 = $data_rka['auditor1'];
-$a2 = $data_rka['auditor2'];
-$a3 = $data_rka['auditor3'];
 
 $cek_desk = mysqli_query($conn, "SELECT id_desk FROM tb_desk WHERE id_rka = $id_rka");
 $data_desk = mysqli_fetch_array($cek_desk);
@@ -59,6 +61,7 @@ if (!empty($data_berita)) {
     // $rka_status = 'RKA selesai di laksanakan';
     // $rka_icon = 'fa-check-circle';
     // $rka_color = 'success';
+    $berita_tgl = $data_berita['tanggal'];
 } else {
     $berita_cetak = 'disabled';
     $berita_color = 'warning';
@@ -67,6 +70,13 @@ if (!empty($data_berita)) {
     // $rka_status = 'RKA tidak di laksanakan';
     // $rka_icon = 'fa-times-circle';
     // $rka_color = 'danger';
+    $berita_tgl = 'Belum Selesai';
+}
+
+function sendToDesk($id, $u, $a1, $a2, $a3, $k, $a)
+{
+    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&k=$k&a=$a";
+    return $data;
 }
 
 function sendToVisit($id, $u, $a1, $a2, $a3)

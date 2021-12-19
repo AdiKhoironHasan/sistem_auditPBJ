@@ -82,7 +82,7 @@ include 'functions/rka.php';
                 <td><?= tanggal($row["tanggal"]); ?></td>
                 <td>
                   <div class="text-center">
-                    <a href="timeline.php?id_rka=<?= $row["id_rka"] ?>"><i class="fas fa-info-circle" style="color: deepskyblue;"></i></a>
+                    <a href="timeline.php?<?= sendToTimeline($row['id_rka'], $row['id_unit'], $row['auditor1'], $row['auditor2'], $row['auditor3'], $dataKetuaSPI['id_user'], idKetuaUnit($row['id_unit'])) ?>"><i class="fas fa-info-circle" style="color: deepskyblue;"></i></a>
                     <a href="#modal_rka_edit<?= $row["id_rka"] ?>" data-toggle="modal" style="color: limegreen;"><i class="far fa-edit"></i></a>
                     <a href="functions/rka_delete.php?id=<?= $row["id_rka"] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" style="color: crimson;"><i class="far fa-trash-alt"></i></a>
                   </div>
