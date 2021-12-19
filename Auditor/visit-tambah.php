@@ -408,10 +408,11 @@ include 'functions/visit.php';
                             <td colspan="4"><b>*Rostika Listyaningrum*</b></td>
                         </tr>
                     </table>
-                    <!-- <div class="my-3 px-5 text-center">
-                        <a href="timeline.php" class="btn btn-primary mx-2">Kembali</a>
-                        <input type="submit" name="simpan-visit" class="btn btn-success mx-2" value="Simpan">
-                    </div> -->
+                    <div class="row justify-content-center mt-3 rounded-sm mx-1" style="background-color: #ADD8E6;">
+                        <div class="col-md-8 text-center d-grid gap-2 my-2">
+                            <button type="button" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+                    </div>
                 </form>
             </div>
             <!-- /.card-body -->

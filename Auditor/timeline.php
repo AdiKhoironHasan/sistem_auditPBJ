@@ -63,6 +63,9 @@
                                     <!-- Timeline item -->
                                     <div class="timeline-item">
                                         <h3 class="timeline-header"><b>Perencanaan RKA</b> <i class="fas fa-check-circle text-success"></i></h3>
+                                        <div class="timeline-body">
+                                            Rencana Kerja Audit dibuat pada <?= $data_rka['tanggal'] ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>

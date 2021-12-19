@@ -109,6 +109,7 @@ include 'functions/desk.php';
                 </div>
             </div>
             <div class="card-body">
+
                 <form action="#">
                     <table style="width: 100%;">
                         <tr>
@@ -152,10 +153,10 @@ include 'functions/desk.php';
                             <th>AUDITOR</th>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="background-color: lightblue;">
                                 <input type="text" name="masa_monitoring_1" class="forn-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini" onfocus="(this.type='date')">
                             </td>
-                            <td rowspan="3">
+                            <td rowspan="3" style="background-color: lightblue;">
                                 <input type="text" name="tgl_monitoring" class="forn-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini" onfocus="(this.type='date')">
                             </td>
                             <td class="bdr txt-lft-50">1. <?= namaUser($auditor1) ?></td>
@@ -165,7 +166,7 @@ include 'functions/desk.php';
                             <td class="bdr txt-lft-50">2. <?= namaUser($auditor2) ?></td>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="background-color: lightblue;">
                                 <input type="text" name="masa_monitoring_2" class="forn-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini" onfocus="(this.type='date')">
                             </td>
                             <td class="bdr txt-lft-50">3. <?= namaUser($auditor3) ?></td>
@@ -189,7 +190,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>a</td>
                             <td class="txt-lft-20">TGL SPPBJ</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="kontrak_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -197,7 +198,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>b</td>
                             <td class="txt-lft-20">SUBSTANSI KONTRAK</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="kontrak_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td>01.04.03</td>
@@ -205,7 +206,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>c</td>
                             <td class="txt-lft-20">TTD KONTRAK OLEH PENYEDIA</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="kontrak_3" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -213,7 +214,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>d</td>
                             <td class="txt-lft-20">PERTENTANGAN</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="kontrak_4" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -231,7 +232,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>a</td>
                             <td class="txt-lft-20">TGL SURAT PESANAN</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="surat_pesanan_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -239,7 +240,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>b</td>
                             <td class="txt-lft-20">TTD PENYEDIA</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="surat_pesanan_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td>01.04.03</td>
@@ -247,7 +248,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>c</td>
                             <td class="txt-lft-20">MATERAI 6000</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="surat_pesanan_3" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -255,7 +256,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>d</td>
                             <td class="txt-lft-20">TANGGAL DISETUJUI</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="surat_pesanan_4" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -270,7 +271,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>a</td>
                             <td class="txt-lft-20">INFORMASI PENGADAAN BARANG</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="penyusunan_program_mutu" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td>01.03.04</td>
@@ -285,7 +286,7 @@ include 'functions/desk.php';
                         <tr>
                             <td></td>
                             <td class="txt-lft-20">PEMERIKSAAN KONDISI LAPANGAN PADA TAHAP AWAL PELAKSANAAN KONTRAK</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="pemeriksaan_bersama" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -301,7 +302,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>a</td>
                             <td class="txt-lft-20">BESARAN UANG MUKA</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="pembayaran_uang_muka_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -309,7 +310,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>b</td>
                             <td class="txt-lft-20">JAMINAN UANG MUKA</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="pembayaran_uang_muka_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -325,7 +326,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>a</td>
                             <td class="txt-lft-20">UJI COBA YANG DILAKUKAN OLEH PENYEDIA</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="uji_coba_barang_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td>01.03.04</td>
@@ -341,7 +342,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>a</td>
                             <td class="txt-lft-20">BERITA ACARA SERAH</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="serah_terima_barang_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -349,7 +350,7 @@ include 'functions/desk.php';
                         <tr>
                             <td>b</td>
                             <td class="txt-lft-20">WAKTU PENERIMAAN</td>
-                            <td class="txt-up">
+                            <td class="txt-up" style="background-color: lightblue;">
                                 <input type="text" name="serah_terima_barang_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td></td>
@@ -357,20 +358,19 @@ include 'functions/desk.php';
                         <tr>
                             <td colspan="4" style="height: 30px;"></td>
                         </tr>
-
                         <tr>
                             <td colspan="4"><b>CATATAN</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="height: 100px;">
-                                <textarea name="catatan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
+                            <td colspan="4" style="height: 100px; background-color: lightblue;">
+                                <textarea name="catatan" cols="100" rows="6" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="4"><b>KRITERIA / PERSYARATAN</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="height: 100px;">
+                            <td colspan="4" style="height: 100px; background-color: lightblue;">
                                 <textarea name="keriteria" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
                             </td>
                         </tr>
@@ -378,7 +378,7 @@ include 'functions/desk.php';
                             <td colspan="4"><b>AKAR PENYEAB</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="height: 100px;">
+                            <td colspan="4" style="height: 100px; background-color: lightblue;">
                                 <textarea name="akar_penyebab" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
                             </td>
                         </tr>
@@ -386,7 +386,7 @@ include 'functions/desk.php';
                             <td colspan="4"><b>AKIBAT</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="height: 100px;">
+                            <td colspan="4" style="height: 100px; background-color: lightblue;">
                                 <textarea name="akibat" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
                             </td>
                         </tr>
@@ -394,7 +394,7 @@ include 'functions/desk.php';
                             <td colspan="4"><b>REKOMENDASI</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4">
+                            <td colspan="4" style="height: 100px; background-color: lightblue;">>
                                 <textarea name="rekomendasi" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
                             </td>
                         </tr>
@@ -402,7 +402,7 @@ include 'functions/desk.php';
                             <td colspan="4"><b>TANGGAPAN AUDITEE</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="height: 100px;">
+                            <td colspan="4" style="height: 100px; background-color: lightblue;">
                                 <textarea name="tanggapan_auditee" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
                             </td>
                         </tr>
@@ -410,7 +410,7 @@ include 'functions/desk.php';
                             <td colspan="4"><b>RENCANA PERBAIKAN</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="height: 100px;">
+                            <td colspan="4" style="height: 100px; background-color: lightblue;">
                                 <textarea name="rencana_perbaikan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
                             </td>
                         </tr>
@@ -440,7 +440,7 @@ include 'functions/desk.php';
                             <td colspan="4"><b>*Rostika Listyaningrum*</b></td>
                         </tr>
                     </table>
-                    <div class="row justify-content-center mt-3 rounded-sm mx-1 bg-teal">
+                    <div class="row justify-content-center mt-3 rounded-sm mx-1" style="background-color: #ADD8E6;">
                         <div class="col-md-8 text-center d-grid gap-2 my-2">
                             <button type="button" class="btn btn-primary btn-lg">Submit</button>
                         </div>
