@@ -111,6 +111,7 @@ include 'functions/desk.php';
             <div class="card-body">
 
                 <form action="#">
+                    <input type="hidden" name="id_rka" value="<?= $id_rka ?>">
                     <table style="width: 100%;">
                         <tr>
                             <td style="width: 20%" rowspan="3" class="bdr bdr-none-bot" style="padding-top: 30px"><img src="https://pnc.ac.id/wp-content/uploads/2019/09/LOGO-PNC-2-300x300.png" style="width: 100px; height: 100px"></td>
@@ -143,7 +144,7 @@ include 'functions/desk.php';
                             <th style="width: 40%;">PAKET PEKERJAAN</th>
                         </tr>
                         <tr>
-                            <td>*Perpustakaan*</td>
+                            <td class="text-uppercase"><?= namaUnit($unit) ?></td>
                             <td>**</td>
                             <td>*pengadaan pc untuk pencarian buku perpustakaan*</td>
                         </tr>
@@ -394,7 +395,7 @@ include 'functions/desk.php';
                             <td colspan="4"><b>REKOMENDASI</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4" style="height: 100px; background-color: lightblue;">>
+                            <td colspan="4" style="height: 100px; background-color: lightblue;">
                                 <textarea name="rekomendasi" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
                             </td>
                         </tr>

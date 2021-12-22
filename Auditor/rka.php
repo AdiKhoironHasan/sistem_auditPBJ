@@ -57,6 +57,7 @@ include 'functions/rka.php';
             <tr>
               <th>No</th>
               <th>Unit</th>
+              <th>Paket Barang</th>
               <th>Auditor 1</th>
               <th>Auditor 2</th>
               <th>Auditor 3</th>
@@ -73,7 +74,8 @@ include 'functions/rka.php';
             ?>
               <tr>
                 <td><?= $no; ?></td>
-                <td><?= $row["nama_unit"]; ?></td>
+                <td><?= namaUnit($row["id_unit"]); ?></td>
+                <td><?= $row["nama_barang"]; ?></td>
                 <td><?= NamaAuditor($row["auditor1"]); ?></td>
                 <td><?= NamaAuditor($row["auditor2"]); ?></td>
                 <td><?= NamaAuditor($row["auditor3"]); ?></td>

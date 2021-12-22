@@ -1,15 +1,17 @@
 <?php
 
-$success  = "";
 if (isset($_POST['tambah'])) {
     // $unit = "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'";
     // $result = mysqli_query($conn, $unit);
     // while ($row = $result -> fetch_assoc()) {
     //     $id_unit =$row['id_unit'];
     // }
-    $unit = $_POST["unit"];
+    // $unit = $_POST["unit"];
     // $data_u = mysqli_fetch_array(mysqli_query($conn, "SELECT id_unit FROM tb_unit WHERE nama_unit = '$u'"));
 
+    $barang = $_POST['barang'];
+    // var_export($barang);
+    // die();
     // $unit = $data_u["id_unit"];
     $auditor1 = $_POST['auditor1'];
     $auditor2 = $_POST['auditor2'];
@@ -19,7 +21,7 @@ if (isset($_POST['tambah'])) {
     $tanggal = $_POST['tanggal'];
 
     // $sql = "INSERT INTO tb_rka VALUES(NULL, '$unit', '$auditor', '$status', '$tahun', '$tanggal')";
-    $sql = "INSERT INTO tb_rka (id_unit, auditor1, auditor2, auditor3, status, tahun, tanggal) VALUES('$unit', '$auditor1', '$auditor2', '$auditor3', '$status', '$tahun', '$tanggal')";
+    $sql = "INSERT INTO tb_rka (id_barang, auditor1, auditor2, auditor3, status, tahun, tanggal) VALUES('$barang', '$auditor1', '$auditor2', '$auditor3', '$status', '$tahun', '$tanggal')";
     if (mysqli_query($conn, $sql)) {
         // $success    =   "New record created successfully !";
         echo "<script>alert('Tambah Data Berhasil')</script>";
@@ -35,7 +37,7 @@ if (isset($_POST['tambah'])) {
 if (isset($_POST['edit'])) // when click on Update button
 {
     $id_rka = $_POST['id'];
-    $unit = $_POST['unit'];
+    $barang = $_POST['barang'];
     $auditor1 = $_POST['auditor1'];
     $auditor2 = $_POST['auditor2'];
     $auditor3 = $_POST['auditor3'];
@@ -43,7 +45,7 @@ if (isset($_POST['edit'])) // when click on Update button
     $tahun = $_POST['tahun'];
     $tanggal = $_POST['tanggal'];
 
-    $edit = mysqli_query($conn, "UPDATE tb_rka SET id_unit='$unit' , auditor1='$auditor1', auditor2='$auditor2', auditor3='$auditor3', status='$status', tahun='$tahun', tanggal='$tanggal' WHERE id_rka='$id_rka' ");
+    $edit = mysqli_query($conn, "UPDATE tb_rka SET id_barang='$barang' , auditor1='$auditor1', auditor2='$auditor2', auditor3='$auditor3', status='$status', tahun='$tahun', tanggal='$tanggal' WHERE id_rka='$id_rka' ");
 
     if ($edit) {
         // //mysqli_close($conn); // Close connection
@@ -121,3 +123,13 @@ function idKetuaUnit($id_unit)
 
 $qKetuaSPI = mysqli_query($conn, "SELECT id_user, nama FROM tb_user WHERE level='Ketua SPI'");
 $dataKetuaSPI = mysqli_fetch_array($qKetuaSPI);
+
+function dataBarang($id)
+{
+    global $conn;
+
+    $q = mysqli_query($conn, "SELECT id_barang, nama_barang FROM tb_barang WHERE id_unit = $id");
+    $data = mysqli_fetch_array($q);
+
+    $data;
+}
