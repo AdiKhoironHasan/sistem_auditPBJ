@@ -81,9 +81,10 @@
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="desk.php?<?= sendToDesk($id_rka, $unit, $auditor1, $auditor2, $auditor3, $ketua, $auditee) ?>" class="btn btn-primary btn-sm <?= $desk_tambah ?>">Tambah Data</a>
-                                            <a href="#" class="btn btn-info btn-sm <?= $desk_ubah ?>">Ubah Data</a>
-                                            <a href="layouts/desk-pdf.php" class="btn btn-success btn-sm <?= $desk_cetak ?>">Cetak</a>
+                                            <a href="desk.php?id=<?= $id_rka ?>" class=" btn btn-primary btn-sm <?= $desk_tambah ?>">Tambah</a>
+                                            <a href="desk-ubah.php?id=<?= $id_rka ?>" class="btn btn-info btn-sm <?= $desk_ubah ?>">Ubah</a>
+                                            <a href="functions/desk-delete.php?id=<?= $id_rka ?>" onclick="return confirm('Anda yakin mau menghapus data desk ini ?')" class="btn btn-danger btn-sm <?= $desk_ubah ?>">Hapus</a>
+                                            <a href="layouts/desk-pdf.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $desk_cetak ?>">Cetak</a>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +102,7 @@
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="visit-tambah.php?<?= sendToVisit($id_desk, $unit, $auditor1, $auditor2, $auditor3) ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah Data</a>
+                                            <a href="visit-tambah.php?id=<?= $id_rka ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah Data</a>
                                             <a href="#" class="btn btn-info btn-sm <?= $visit_ubah ?>">Ubah Data</a>
                                             <a href="layouts/visit-pdf.php" class="btn btn-success btn-sm <?= $visit_cetak ?>">Cetak</a>
                                         </div>

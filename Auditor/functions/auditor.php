@@ -31,3 +31,12 @@ function namaUser($id_user)
 
     return $data['nama'];
 }
+
+function namaBarang($id_barang)
+{
+    global $conn;
+    $query = mysqli_query($conn, "SELECT nama_barang FROM tb_barang WHERE id_barang = $id_barang");
+    $data = mysqli_fetch_array($query);
+
+    return $data['nama_barang'];
+}

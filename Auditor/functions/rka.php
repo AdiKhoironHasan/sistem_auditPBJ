@@ -106,9 +106,9 @@ function tanggal($tanggal)
     return ($result);
 }
 
-function sendToTimeline($id, $u, $a1, $a2, $a3, $k, $a)
+function sendToTimeline($id, $u, $a1, $a2, $a3, $k, $a, $b)
 {
-    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&k=$k&a=$a";
+    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&k=$k&a=$a&b=$b";
     return $data;
 }
 

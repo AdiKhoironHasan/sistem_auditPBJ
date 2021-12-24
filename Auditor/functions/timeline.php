@@ -1,11 +1,5 @@
 <?php
-$id_rka = $_GET['id'];
-$unit = $_GET['u'];
-$auditor1 = $_GET['a1'];
-$auditor2 = $_GET['a2'];
-$auditor3 = $_GET['a3'];
-$ketua = $_GET['k'];
-$auditee = $_GET['a'];
+include 'data_audit.php';
 
 $cek_rka = mysqli_query($conn, "SELECT * FROM tb_rka WHERE id_rka=$id_rka");
 $data_rka = mysqli_fetch_array($cek_rka);
@@ -73,14 +67,14 @@ if (!empty($data_berita)) {
     $berita_tgl = 'Belum Selesai';
 }
 
-function sendToDesk($id, $u, $a1, $a2, $a3, $k, $a)
+function sendToDesk($id, $u, $a1, $a2, $a3, $k, $a, $b)
 {
-    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&k=$k&a=$a";
+    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&k=$k&a=$a&b=$b";
     return $data;
 }
 
-function sendToVisit($id, $u, $a1, $a2, $a3)
+function sendToVisit($id, $u, $a1, $a2, $a3, $b)
 {
-    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3";
+    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&b=$b";
     return $data;
 }
