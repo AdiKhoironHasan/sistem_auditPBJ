@@ -32,7 +32,6 @@
             <label>Jabatan</label>
             <select type="text" name="level" class="form-control" required>
               <option hidden selected value="">--Pilih Jabatan--</option>
-              <option value="Ketua SPI">Ketua SPI</option>
               <option value="Anggota SPI">Anggota SPI</option>
               <option value="Ketua Unit">Ketua Unit</option>
               <option value="Direktur">Direktur</option>

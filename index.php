@@ -27,7 +27,13 @@
         <a href="coba.php">Coba.php</a>
       </li>
       <li>
-        <a href="Auditor/layouts/deskPDF.php">Desk PDF</a>
+        <a href="Auditor/layouts/desk-pdf.php">Desk PDF</a>
+      </li>
+      <li>
+        <a href="Auditor/layouts/visit-pdf.php">Visit PDF</a>
+      </li>
+      <li>
+        <a href="Auditor/layouts/berita-acara.php">Berita Acara</a>
       </li>
     </ul>
   </div>

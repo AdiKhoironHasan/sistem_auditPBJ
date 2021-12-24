@@ -1,3 +1,11 @@
+<?php
+include "../functions/connect.php";
+include "../functions/auditor.php";
+include "../functions/data_audit.php";
+
+// $Querydata$data_desk = mysqli_query($conn, "SELECT * FROM tb_desk WHERE id_desk = 2"); //id dari row yang dipilih
+// $data_desk = mysqli_fetch_array($Querydata$data_desk);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +107,9 @@
                 <td class="txt-lft bdr-none">:</td>
             </tr>
             <tr>
-                <td class="bdr bdr-none-top" style="padding-top: 10px;"><h3><b>APIP</b></h3></td>
+                <td class="bdr bdr-none-top">
+                    <h3><b>APIP</b></h3>
+                </td>
                 <td class="txt-lft-20 bdr-none">Halaman</td>
                 <td class="txt-lft bdr-none">:</td>
             </tr>
@@ -112,9 +122,9 @@
                 <th style="width: 40%;">PAKET PEKERJAAN</th>
             </tr>
             <tr>
-                <td>*Perpustakaan*</td>
-                <td>**</td>
-                <td>*pengadaan pc untuk pencarian buku perpustakaan*</td>
+                <td class="text-uppercase"><?= namaUnit($unit) ?></td>
+                <td class="text-uppercase"><?= $data_desk["tipe_monitoring"]; ?></td>
+                <td class="text-uppercase"><?= namaBarang($id_barang) ?></td>
             </tr>
             <tr>
                 <th>MASA MONITORING</th>
@@ -122,17 +132,17 @@
                 <th>AUDITOR</th>
             </tr>
             <tr>
-                <td>*25/04/2021*</td>
-                <td rowspan="3">*27/04/2021*</td>
-                <td class="bdr txt-lft-50">1. *Prih Diantoro Abdau*</td>
+                <td><?= date("d-m-Y", strtotime($data_desk["masa_monitoring_awal"])) ?></td>
+                <td rowspan="3"><?= date("d-m-Y", strtotime($data_desk["tgl_monitoring"])) ?></td>
+                <td class="bdr txt-lft-50 text-capitalize">1. &nbsp;&nbsp;<?= namaUser($auditor1) ?></td>
             </tr>
             <tr>
-                <td>sd.</td>
-                <td class="bdr txt-lft-50">2. *Faredah Herwina*</td>
+                <td>s/d.</td>
+                <td class="bdr txt-lft-50 text-capitalize">2. &nbsp;&nbsp;<?= namaUser($auditor2) ?></td>
             </tr>
             <tr>
-                <td>*30/04/2021*</td>
-                <td class="bdr txt-lft-50">3. *Lutfi Syafirullah*</td>
+                <td><?= date("d-m-Y", strtotime($data_desk['masa_monitoring_akhir'])) ?></td>
+                <td class="bdr txt-lft-50 text-capitalize">3. &nbsp;&nbsp;<?= namaUser($auditor3) ?></td>
             </tr>
         </table>
         <br>
@@ -153,31 +163,64 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">TGL SPPBJ</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $data_desk['kontrak_1'] ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td>b</td>
                 <td class="txt-lft-20">SUBSTANSI KONTRAK</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td>01.04.03</td>
+                <td class="txt-up"><?= $data_desk['kontrak_2'] ?></td>
+                <td></td>
             </tr>
             <tr>
                 <td>c</td>
                 <td class="txt-lft-20">TTD KONTRAK OLEH PENYEDIA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $data_desk['kontrak_3'] ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td>d</td>
                 <td class="txt-lft-20">PERTENTANGAN</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $data_desk['kontrak_4'] ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td colspan="4" style="height: 50px;"></td>
             </tr>
-
+            <tr>
+                <td colspan="4"><b>PELAKSANAAN KONTRAK PENGADAAN BARANG</b></td>
+            </tr>
+            <tr>
+                <td><b>1</b></td>
+                <td colspan="3" class="txt-lft-20"><b>SURAT PESANAN</b></td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td class="txt-lft-20">TGL SURAT PESANAN</td>
+                <td class="txt-up"><?= $data_desk['surat_pesanan_1'] ?></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td class="txt-lft-20">TTD PENYEDIA</td>
+                <td class="txt-up"><?= $data_desk['surat_pesanan_2'] ?></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>c</td>
+                <td class="txt-lft-20">MATERAI 6000</td>
+                <td class="txt-up"><?= $data_desk['surat_pesanan_3'] ?></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>d</td>
+                <td class="txt-lft-20">TANGGAL DISETUJUI</td>
+                <td class="txt-up"><?= $data_desk['surat_pesanan_4'] ?></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="height: 30px;"></td>
+            </tr>
             <tr>
                 <td><b>2</b></td>
                 <td colspan="3" class="txt-lft-20"><b>PENYUSUNAN PROGRAM MUTU</b></td>
@@ -185,25 +228,24 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">INFORMASI PENGADAAN BARANG</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td>01.03.04</td>
+                <td class="txt-up"><?= $data_desk['penyusunan_program_mutu'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
-
             <tr>
                 <td><b>3</b></td>
                 <td colspan="3" class="txt-lft-20"><b>PEMERIKSAAN BERSAMA</b></td>
             </tr>
             <tr>
-                <td></td>
+                <td>a</td>
                 <td class="txt-lft-20">PEMERIKSAAN KONDISI LAPANGAN PADA TAHAP AWAL PELAKSANAAN KONTRAK</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $data_desk['pemeriksaan_bersama'] ?></td>
                 <td></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
 
             <tr>
@@ -213,17 +255,17 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">BESARAN UANG MUKA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $data_desk['pembayaran_uang_muka_1'] ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td>b</td>
                 <td class="txt-lft-20">JAMINAN UANG MUKA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $data_desk['pembayaran_uang_muka_2'] ?></td>
                 <td></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
 
             <tr>
@@ -233,11 +275,11 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">UJI COBA YANG DILAKUKAN OLEH PENYEDIA</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
-                <td>01.03.04</td>
+                <td class="txt-up"><?= $data_desk['uji_coba_barang'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
 
             <tr>
@@ -247,100 +289,91 @@
             <tr>
                 <td>a</td>
                 <td class="txt-lft-20">BERITA ACARA SERAH</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $data_desk['serah_terima_barang_1'] ?></td>
                 <td></td>
             </tr>
             <tr>
                 <td>b</td>
                 <td class="txt-lft-20">WAKTU PENERIMAAN</td>
-                <td class="txt-up">*sesuai dengan peraturan*</td>
+                <td class="txt-up"><?= $data_desk['serah_terima_barang_2'] ?></td>
                 <td></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 50px;"></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
 
             <tr>
                 <td colspan="4"><b>CATATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk['catatan'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>KRITERIA / PERSYARATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["kriteria"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>AKAR PENYEAB</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["akar_penyebab"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>AKIBAT</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["akibat"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>REKOMENDASI</b></td>
             </tr>
             <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
-            </tr>
-            <tr>
-                <td colspan="4">*Pilih Rekomendasi*</td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["rekomendasi"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>TANGGAPAN AUDITEE</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["tanggapan_auditee"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>RENCANA PERBAIKAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">**</td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["rencana_perbaikan"]; ?></td>
             </tr>
         </table>
         <table style="width: 100%;" class="bdr-none-top">
             <tr>
-                <td colspan="2" style="width: 50%;" class="bdr-none-top"><b>Pimpinan Auditi</b></td>
-                <td colspan="2" style="width: 50%;" class="bdr-none-top"><b>Ketua Auditor</b></td>
+                <td colspan="2" style="width: 50%;" class="bdr-none-top bdr-none-rght"><b>Pimpinan Auditi</b></td>
+                <td colspan="2" style="width: 50%;" class="bdr-none-top bdr-none-lft"><b>Ketua Auditor</b></td>
             </tr>
             <tr>
                 <div style="width: 100%;">
-                    <td colspan="2" style="height: 100px;" class="bdr-none-rght">*ttd*</td>
-                    <td colspan="2" style="height: 100px;" class="bdr-none-lft">*ttd*</td>
+                    <td colspan="2" style="height: 100px;" class="bdr-none-rght">
+                        <img src="../../AdminLTE/dist/img/ttd/<?= ttdUser($auditee) ?>" height="100" width="100">
+                    </td>
+                    <td colspan="2" style="height: 100px;" class="bdr-none-lft">
+                        <img src="../../AdminLTE/dist/img/ttd/<?= ttdUser($auditor1) ?>" height="100" width="100">
+                    </td>
                 </div>
             </tr>
             <tr>
-                <td colspan="2"><b>*nama*</b></td>
-                <td colspan="2"><b>*nama*</b></td>
+                <td colspan="2" class="bdr-none-rght text-capitalize"><b><?= namaUser($auditee) ?></b></td>
+                <td colspan="2" class="bdr-none-lft text-capitalize"><b><?= namaUser($auditor1) ?></b></td>
             </tr>
             <tr>
                 <td colspan="4"><b>Direview Oleh</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*ttd*</td>
+                <td colspan="4" style="height: 100px;">
+                    <img src="../../AdminLTE/dist/img/ttd/<?= $data_ketua_spi['ttd'] ?>" height="100" width="100">
+                </td>
             </tr>
             <tr>
-                <td colspan="4"><b>*Rostika Listyaningrum*</b></td>
+                <td colspan="4" class="text-capitalize"><b><?= namaUser($ketua) ?></b></td>
             </tr>
         </table>
     </div>
@@ -348,4 +381,5 @@
 <!-- <script>
     window.print();
 </script> -->
+
 </html>

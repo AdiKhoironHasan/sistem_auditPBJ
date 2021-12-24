@@ -11,27 +11,41 @@
                 <div class="modal-body">
                     <input type="hidden" name="id" value="<?= $row["id_rka"]; ?>">
                     <div class="form-group">
-                        <label>Unit</label>
-                        <select type="text" name="unit" class="form-control" required>
-                            <option hidden selected value="<?= $row["id_unit"]; ?>"><?= $row["nama_unit"]; ?></option>
+                        <label>Paket Barang</label>
+                        <select type="text" name="barang" class="form-control" required>
+                            <option hidden selected value="<?= $row["id_barang"]; ?>"><?= $row["nama_barang"]; ?></option>
                             <?php
-                            $q_unit = mysqli_query($conn, "SELECT * FROM tb_unit");
-                            foreach ($q_unit as $q_unit_row) :
+                            $q_barang = mysqli_query($conn, "SELECT * FROM tb_barang");
+                            foreach ($q_barang as $q_barang_row) :
                             ?>
-                                <option value="<?= $q_unit_row["id_unit"]; ?>"><?= $q_unit_row["nama_unit"]; ?></option>
+                                <option value="<?= $q_barang_row["id_barang"]; ?>"><?= $q_barang_row["nama_barang"]; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Auditor</label>
-                        <select type="text" name="auditor" class="form-control" required>
-                            <option hidden selected><?= $row["id_user"]; ?></option>
-                            <option hidden selected value="<?= $row["id_user"]; ?>"><?= $row["nama"]; ?></option>
-                            <?php
-                            $q_auditor = mysqli_query($conn, "SELECT * FROM tb_user WHERE level='Anggota SPI' OR level='Ketua SPI'");
-                            foreach ($q_auditor as $q_auditor_row) :
-                            ?>
-                                <option value="<?= $q_auditor_row["id_user"]; ?>"><?= $q_auditor_row["nama"]; ?></option>
+                        <label>Auditor 1</label>
+                        <select type="text" name="auditor1" class="form-control" required>
+                            <option hidden selected value="<?= $row["auditor1"]; ?>"><?= NamaAuditor($row["auditor1"]); ?></option>
+                            <?php foreach ($dataAuditor as $dataAuditor_row) : ?>
+                                <option value="<?= $dataAuditor_row["id_user"] ?>"><?= $dataAuditor_row["nama"]; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Auditor 2</label>
+                        <select type="text" name="auditor2" class="form-control" required>
+                            <option hidden selected value="<?= $row["auditor2"]; ?>"><?= NamaAuditor($row["auditor2"]); ?></option>
+                            <?php foreach ($dataAuditor as $dataAuditor_row) : ?>
+                                <option value="<?= $dataAuditor_row["id_user"] ?>"><?= $dataAuditor_row["nama"]; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Auditor 3</label>
+                        <select type="text" name="auditor3" class="form-control" required>
+                            <option hidden selected value="<?= $row["auditor3"]; ?>"><?= NamaAuditor($row["auditor3"]); ?></option>
+                            <?php foreach ($dataAuditor as $dataAuditor_row) : ?>
+                                <option value="<?= $dataAuditor_row["id_user"] ?>"><?= $dataAuditor_row["nama"]; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
