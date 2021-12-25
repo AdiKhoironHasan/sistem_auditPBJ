@@ -102,9 +102,10 @@
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="visit-tambah.php?id=<?= $id_rka ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah Data</a>
-                                            <a href="#" class="btn btn-info btn-sm <?= $visit_ubah ?>">Ubah Data</a>
-                                            <a href="layouts/visit-pdf.php" class="btn btn-success btn-sm <?= $visit_cetak ?>">Cetak</a>
+                                            <a href="visit.php?id=<?= $id_rka ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah</a>
+                                            <a href="visit-ubah.php?id=<?= $id_rka ?>" class="btn btn-info btn-sm <?= $visit_ubah ?>">Ubah</a>
+                                            <a href="functions/desk-delete.php?id=<?= $id_rka ?>" onclick="return confirm('Anda yakin mau menghapus data desk ini ?')" class="btn btn-danger btn-sm <?= $visit_ubah ?>">Hapus</a>
+                                            <a href="layouts/visit-pdf.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $visit_cetak ?>">Cetak</a>
                                         </div>
                                     </div>
                                 </div>

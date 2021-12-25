@@ -21,6 +21,12 @@ $id_barang = $data_rka['id_barang'];
 $data_desk = mysqli_query($conn, "SELECT * FROM tb_desk WHERE id_rka = $id_rka");
 $data_desk = mysqli_fetch_array($data_desk);
 
+if (!empty($data_desk)) {
+    $id_desk = $data_desk['id_desk'];
+    $data_visit = mysqli_query($conn, "SELECT * FROM tb_visit WHERE id_desk = $id_desk");
+    $data_visit = mysqli_fetch_array($data_visit);
+}
+
 function ttdUser($id)
 {
     global $conn;

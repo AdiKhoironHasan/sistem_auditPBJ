@@ -1,3 +1,9 @@
+<?php
+include "../functions/connect.php";
+include "../functions/auditor.php";
+include "../functions/data_audit.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,9 +120,9 @@
                 <th style="width: 40%;">PAKET PEKERJAAN</th>
             </tr>
             <tr>
-                <td>*Perpustakaan*</td>
-                <td>**</td>
-                <td>*pengadaan pc untuk pencarian buku perpustakaan*</td>
+                <td class="text-uppercase"><?= namaUnit($unit) ?></td>
+                <td class="text-uppercase"><?= $data_visit["tipe_monitoring"]; ?></td>
+                <td class="text-uppercase"><?= namaBarang($id_barang) ?></td>
             </tr>
             <tr>
                 <th>MASA MONITORING</th>
@@ -124,17 +130,17 @@
                 <th>AUDITOR</th>
             </tr>
             <tr>
-                <td>*25/04/2021*</td>
-                <td rowspan="3">*27/04/2021*</td>
-                <td class="bdr txt-lft-50">1. *Prih Diantoro Abdau*</td>
+                <td><?= date("d-m-Y", strtotime($data_visit["masa_monitoring_awal"])) ?></td>
+                <td rowspan="3"><?= date("d-m-Y", strtotime($data_visit["tgl_monitoring"])) ?></td>
+                <td class="bdr txt-lft-50 text-capitalize">1. &nbsp;&nbsp;<?= namaUser($auditor1) ?></td>
             </tr>
             <tr>
                 <td>sd.</td>
-                <td class="bdr txt-lft-50">2. *Faredah Herwina*</td>
+                <td class="bdr txt-lft-50 text-capitalize">2. &nbsp;&nbsp;<?= namaUser($auditor2) ?></td>
             </tr>
             <tr>
-                <td>*30/04/2021*</td>
-                <td class="bdr txt-lft-50">3. *Lutfi Syafirullah*</td>
+                <td><?= date("d-m-Y", strtotime($data_visit['masa_monitoring_akhir'])) ?></td>
+                <td class="bdr txt-lft-50 text-capitalize">3. &nbsp;&nbsp;<?= namaUser($auditor3) ?></td>
             </tr>
         </table>
         <br>
@@ -154,14 +160,14 @@
                 <td colspan="3" class="txt-lft-20">KETERLIBATAN UNIT KERJA DALAM PENYUSUNAN MUTU</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Belum memiliki*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['penyusunan_mutu_1'] ?></td>
             </tr>
             <tr>
                 <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
                 <td colspan="3" class="txt-lft-20">REVISI PROGRAM MUTU</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Belum memiliki*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['penyusunan_mutu_2'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>PEMERIKSAAN BERSAMA</b></td>
@@ -171,14 +177,14 @@
                 <td colspan="3" class="txt-lft-20">PEMERIKSAAN KONDISI LAPANGAN PADA TAHAP AWAL PERUBAHAN KONTRAK</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Tidak melibatkan unit kerja*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['pemeriksaan_1'] ?></td>
             </tr>
             <tr>
                 <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
                 <td colspan="3" class="txt-lft-20">PEMERIKSAAN BERSAMA MENGAKIBATKAN PERUBAHAN KONTRAK</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Tidak mengakibatkan perubahan kontrak*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['pemeriksaan_2'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>PERUBAHAN KEGIATAN PERUBAHAN</b></td>
@@ -188,7 +194,7 @@
                 <td colspan="3" class="txt-lft-20">PERUBAHAN KEGIATAN</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Tidak ada perubahan kegiatan*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['perubahan_kegiatan'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>ASURANSI</b></td>
@@ -198,14 +204,14 @@
                 <td colspan="3" class="txt-lft-20">UNIT KERJA MEMERIKSA BARANG YANG DIKIRIM OLEH PENYEDIA</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Asuransi sudah sesuai dengan kontrak*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['asuransi_1'] ?></td>
             </tr>
             <tr>
                 <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
                 <td colspan="3" class="txt-lft-20">PENJELASAN MANFAAT SUDAH DI JELASKAN DI DALAM KONTRAK</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Sudah di jelaskan di dalam kontrak*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['asuransi_2'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>PENGIRIMAN BARANG OLEH PENYEDIA</b></td>
@@ -215,7 +221,7 @@
                 <td colspan="3" class="txt-lft-20">PENGIRIMAN BARANG OLEH PENYEDIA</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Pengiriman sudah sesuai peraturan dan kontrak*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['pengiriman'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>UJI COBA BARANG</b></td>
@@ -225,7 +231,7 @@
                 <td colspan="3" class="txt-lft-20">UJI COBA SETELAH DIKIRIM</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Barang sudah dilakukan uji coba dan disaksikan pphp*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['uji_coba'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>SERAH TERIMA BARANG</b></td>
@@ -235,7 +241,7 @@
                 <td colspan="3" class="txt-lft-20">SERAH TERIMA BARANG</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Terdapat satu PC yang cacat*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['serah_terima'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>DENDA DAN GANTI RUGI</b></td>
@@ -245,7 +251,7 @@
                 <td colspan="3" class="txt-lft-20">DENDA DAN GANTI RUGI</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*TErdapat keterlambatan pengiriman dan penyedia mengganti rugi*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['denda'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>PERPANJANGAN WAKTU PELAKANAAN PEKERJAAN</b></td>
@@ -255,7 +261,7 @@
                 <td colspan="3" class="txt-lft-20">PERPANJANGAN WAKTU PELAKANAAN PEKERJAAN</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Tidak ada perpanjangan waktu*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['perpanjangan'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>LAPORAN HASIL KEGIATAN</b></td>
@@ -265,77 +271,80 @@
                 <td colspan="3" class="txt-lft-20">LAPORAN HASIL KEGIATAN</td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;">*Sudah ada laporan dan dokumentasi pelaksanaaan kegiatan*</td>
+                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['laporan'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>CATATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*Tidak ada catatan*</td>
+                <td colspan="4" style="height: 100px;"><?= $data_visit['catatan'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>KRITERIA/PERSYARATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*Perpres no 44 tentang pengadaan barang*</td>
+                <td colspan="4" style="height: 100px;"><?= $data_visit['kriteria'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>AKAR PENYEBAB</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*Tidak ada*</td>
+                <td colspan="4" style="height: 100px;"><?= $data_visit['akar_penyebab'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>AKIBAT</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*Tidak ada catatan*</td>
+                <td colspan="4" style="height: 100px;"><?= $data_visit['akibat'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>REKOMENDASI</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*Tidak ada rekomendasi*</td>
+                <td colspan="4" style="height: 100px;"><?= $data_visit['rekomendasi'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>TANGGAPAN AUDITEE</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*Tidak ada*</td>
+                <td colspan="4" style="height: 100px;"><?= $data_visit['tanggapan_auditee'] ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>RENCANA PERBAIKAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*Tidak ada*</td>
+                <td colspan="4" style="height: 100px;"><?= $data_visit['rencana_perbaikan'] ?></td>
             </tr>
         </table>
         <table style="width: 100%;" class="bdr-none-top">
             <tr>
                 <td colspan="2" style="width: 50%;" class="bdr-none-top bdr-none-rght"><b>Pimpinan Auditi</b></td>
-                <!--ketua unit -->
                 <td colspan="2" style="width: 50%;" class="bdr-none-top bdr-none-lft"><b>Ketua Auditor</b></td>
-                <!--auditor 1 -->
             </tr>
             <tr>
                 <div style="width: 100%;">
-                    <td colspan="2" style="height: 100px;" class="bdr-none-rght">*ttd*</td>
-                    <td colspan="2" style="height: 100px;" class="bdr-none-lft">*ttd*</td>
+                    <td colspan="2" style="height: 100px;" class="bdr-none-rght">
+                        <img src="../../AdminLTE/dist/img/ttd/<?= ttdUser($auditee) ?>" height="100" width="100">
+                    </td>
+                    <td colspan="2" style="height: 100px;" class="bdr-none-lft">
+                        <img src="../../AdminLTE/dist/img/ttd/<?= ttdUser($auditor1) ?>" height="100" width="100">
+                    </td>
                 </div>
             </tr>
             <tr>
-                <td colspan="2" class="bdr-none-rght"><b>*nama*</b></td>
-                <td colspan="2" class="bdr-none-lft"><b>*nama*</b></td>
+                <td colspan="2" class="bdr-none-rght text-capitalize"><b><?= namaUser($auditee) ?></b></td>
+                <td colspan="2" class="bdr-none-lft text-capitalize"><b><?= namaUser($auditor1) ?></b></td>
             </tr>
             <tr>
                 <td colspan="4"><b>Direview Oleh</b></td>
-                <!--ketuaspi -->
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;">*ttd*</td>
+                <td colspan="4" style="height: 100px;">
+                    <img src="../../AdminLTE/dist/img/ttd/<?= $data_ketua_spi['ttd'] ?>" height="100" width="100">
+                </td>
             </tr>
             <tr>
-                <td colspan="4"><b>*Rostika Listyaningrum*</b></td>
+                <td colspan="4" class="text-capitalize"><b><?= namaUser($ketua) ?></b></td>
             </tr>
         </table>
     </div>
