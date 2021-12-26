@@ -34,7 +34,7 @@
         <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="unit.php" class="nav-link <?php if ($page == "Dashboard") echo "active"?>">
+          <a href="unit.php" class="nav-link <?php if ($page == "Dashboard") echo "active" ?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -42,7 +42,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="barang.php" class="nav-link <?php if ($page == "Paket Barang") echo "active"?>">
+          <a href="barang.php" class="nav-link <?php if ($page == "Paket Barang") echo "active" ?>">
             <i class="nav-icon fas fa-box-open"></i>
             <p>
               Paket Barang
@@ -50,23 +50,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link <?php if ($page == "Data Desk") echo "active"?>">
-            <i class="nav-icon fas fa-swatchbook"></i>
+          <a href="audit.php" class="nav-link <?php if ($page == "Data Audit") echo "active" ?>">
+            <i class="nav-icon fas fa-box-open"></i>
             <p>
               Data Audit
-              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="desk.php" class="nav-link <?php if ($page == "Data Desk") echo "active"?>">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Data Desk</p>
-              </a>
-            </li>
-          </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-file-invoice"></i>
             <p>
@@ -81,7 +72,7 @@
               Berita Acara
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="../Login/logout.php" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>

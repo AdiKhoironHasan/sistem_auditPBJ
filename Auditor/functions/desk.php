@@ -79,10 +79,10 @@ if (isset($_POST['ubah'])) {
         echo "<script>alert('Ubah Data Desk Berhasil')</script>";
         header("refresh: 0; url=timeline.php?id=" . $id_rka . "");
     } else {
-        echo "Error: " . $sql . " " . mysqli_error($conn);
+        // echo "Error: " . $sql . " " . mysqli_error($conn);
         // var_export(mysqli_error($conn));
         echo "<script>alert('Ubah Data Desk Gagal')</script>";
-        // header("refresh: 0; url=timeline.php?id=" . $id_rka . "");
+        header("refresh: 0; url=timeline.php?id=" . $id_rka . "");
     }
     // //mysqli_close($conn);
 }
