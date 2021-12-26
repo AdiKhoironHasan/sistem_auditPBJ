@@ -111,7 +111,6 @@ include 'functions/visit.php';
             <div class="card-body">
 
                 <form action="" method="POST">
-                    <input type="hidden" name="id_desk" value="<?= $data_desk['id_desk'] ?>">
                     <table style="width: 100%;">
                         <tr>
                             <td style="width: 20%" rowspan="3" class="bdr bdr-none-bot" style="padding-top: 30px"><img src="https://pnc.ac.id/wp-content/uploads/2019/09/LOGO-PNC-2-300x300.png" style="width: 100px; height: 100px"></td>
@@ -146,7 +145,7 @@ include 'functions/visit.php';
                         <tr>
                             <td class="text-uppercase"><?= namaUnit($unit) ?></td>
                             <td style="background-color: lightblue;">
-                                <input type="text" name="tipe_monitoring" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['tipe_monitoring'] ?>" name="tipe_monitoring" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                             <td class="text-uppercase"><?= namaBarang($id_barang) ?></td>
                         </tr>
@@ -156,9 +155,9 @@ include 'functions/visit.php';
                             <th>AUDITOR</th>
                         </tr>
                         <tr>
-                            <td><?= date("d-m-Y", strtotime($data_desk["masa_monitoring_awal"])) ?></td>
+                            <td><?= date("d-m-Y", strtotime($data_visit["masa_monitoring_awal"])) ?></td>
                             <td rowspan="3" style="background-color: lightblue;">
-                                <input type="text" name="tgl_monitoring" class="forn-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini" onfocus="(this.type='date')">
+                                <input type="text" value="<?= $data_visit["tgl_monitoring"] ?>" name="tgl_monitoring" class="forn-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini" onfocus="(this.type='date')">
                             </td>
                             <td class="bdr txt-lft-50 text-capitalize">1. <?= namaUser($auditor1) ?></td>
                         </tr>
@@ -167,7 +166,7 @@ include 'functions/visit.php';
                             <td class="bdr txt-lft-50 text-capitalize">2. <?= namaUser($auditor2) ?></td>
                         </tr>
                         <tr>
-                            <td><?= date("d-m-Y", strtotime($data_desk['masa_monitoring_akhir'])) ?></td>
+                            <td><?= date("d-m-Y", strtotime($data_visit['masa_monitoring_akhir'])) ?></td>
                             <td class="bdr txt-lft-50 text-capitalize">3. <?= namaUser($auditor3) ?></td>
                         </tr>
                     </table>
@@ -183,7 +182,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue; ">
-                                <input type="text" name="penyusunan_mutu_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['penyusunan_mutu_1'] ?>" name="penyusunan_mutu_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -192,7 +191,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="penyusunan_mutu_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['penyusunan_mutu_2'] ?>" name="penyusunan_mutu_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -204,7 +203,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="pemeriksaan_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['pemeriksaan_1'] ?>" name="pemeriksaan_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -213,7 +212,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="pemeriksaan_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['pemeriksaan_2'] ?>" name="pemeriksaan_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -225,7 +224,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="perubahan_kegiatan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['perubahan_kegiatan'] ?>" name="perubahan_kegiatan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -237,7 +236,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="asuransi_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['asuransi_1'] ?>" name="asuransi_1" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -246,7 +245,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="asuransi_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['asuransi_2'] ?>" name="asuransi_2" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -258,7 +257,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="pengiriman" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['pengiriman'] ?>" name="pengiriman" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -270,7 +269,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="uji_coba" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['uji_coba'] ?>" name="uji_coba" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -282,7 +281,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="serah_terima" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['serah_terima'] ?>" name="serah_terima" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -294,7 +293,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="denda" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['denda'] ?>" name="denda" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -306,7 +305,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="perpanjangan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['perpanjangan'] ?>" name="perpanjangan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -318,7 +317,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="3" class="txt-lft-20" style="height: 50px; background-color: lightblue;">
-                                <input type="text" name="laporan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
+                                <input type="text" value="<?= $data_visit['laporan'] ?>" name="laporan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini">
                             </td>
                         </tr>
                         <tr>
@@ -326,7 +325,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="4" style="height: 100px; background-color: lightblue;">
-                                <textarea name="catatan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
+                                <textarea name="catatan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"><?= $data_visit['catatan'] ?></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -334,7 +333,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="4" style="height: 100px; background-color: lightblue;">
-                                <textarea name="kriteria" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
+                                <textarea name="kriteria" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"><?= $data_visit['kriteria'] ?></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -342,7 +341,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="4" style="height: 100px; background-color: lightblue;">
-                                <textarea name="akar_penyebab" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
+                                <textarea name="akar_penyebab" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"><?= $data_visit['akar_penyebab'] ?></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -350,7 +349,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="4" style="height: 100px; background-color: lightblue;">
-                                <textarea name="akibat" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
+                                <textarea name="akibat" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"><?= $data_visit['akibat'] ?></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -358,7 +357,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="4" style="height: 100px; background-color: lightblue;">
-                                <textarea name="rekomendasi" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
+                                <textarea name="rekomendasi" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"><?= $data_visit['rekomendasi'] ?></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -366,7 +365,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="4" style="height: 100px; background-color: lightblue;">
-                                <textarea name="tanggapan_auditee" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
+                                <textarea name="tanggapan_auditee" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"><?= $data_visit['tanggapan_auditee'] ?></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -374,7 +373,7 @@ include 'functions/visit.php';
                         </tr>
                         <tr>
                             <td colspan="4" style="height: 100px; background-color: lightblue;">
-                                <textarea name="rencana_perbaikan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"></textarea>
+                                <textarea name="rencana_perbaikan" class="form-control form-control-lg border-0 text-center bg-transparent" placeholder="ketik di sini"><?= $data_visit['rencana_perbaikan'] ?></textarea>
                             </td>
                         </tr>
                     </table>
@@ -412,7 +411,7 @@ include 'functions/visit.php';
                     <div class="row justify-content-center mt-3 rounded-sm mx-1" style="background-color: #ADD8E6;">
                         <div class="col-md-8 text-center d-grid gap-2 my-2">
                             <a href="timeline.php?id=<?= $id_rka ?>" class="btn btn-primary btn-lg mx-2">Kembali</a>
-                            <input type="submit" name="tambah" class="btn btn-success btn-lg mx-2" value="Submit">
+                            <input type="submit" name="ubah" class="btn btn-success btn-lg mx-2" value="Submit">
                         </div>
                     </div>
                 </form>

@@ -104,7 +104,7 @@
                                         <div class="timeline-footer">
                                             <a href="visit.php?id=<?= $id_rka ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah</a>
                                             <a href="visit-ubah.php?id=<?= $id_rka ?>" class="btn btn-info btn-sm <?= $visit_ubah ?>">Ubah</a>
-                                            <a href="functions/desk-delete.php?id=<?= $id_rka ?>" onclick="return confirm('Anda yakin mau menghapus data desk ini ?')" class="btn btn-danger btn-sm <?= $visit_ubah ?>">Hapus</a>
+                                            <a href="functions/visit-delete.php?id=<?= $id_rka ?>&&idd=<?= $data_desk['id_desk'] ?>" onclick="return confirm('Anda yakin mau menghapus data visit ini ?')" class="btn btn-danger btn-sm <?= $visit_ubah ?>">Hapus</a>
                                             <a href="layouts/visit-pdf.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $visit_cetak ?>">Cetak</a>
                                         </div>
                                     </div>
