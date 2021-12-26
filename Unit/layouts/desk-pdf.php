@@ -109,7 +109,7 @@ include "../functions/data_audit.php";
             </tr>
             <tr>
                 <td class="bdr bdr-none-top">
-                    <h3><b>APIP</b></h3>
+                    <h3><b>SPI</b></h3>
                 </td>
                 <td class="txt-lft-20 bdr-none">Halaman</td>
                 <td class="txt-lft bdr-none">:</td>

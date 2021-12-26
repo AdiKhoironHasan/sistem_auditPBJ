@@ -55,7 +55,7 @@
                             <div class="timeline">
                                 <!-- Timeline time label -->
                                 <div class="time-label">
-                                    <span class="bg-primary"><?= $data_rka['tanggal'] ?></span>
+                                    <span class="bg-primary"><?= tanggal($data_rka['tanggal']) ?></span>
                                 </div>
                                 <div>
                                     <!-- Before each timeline item corresponds to one icon on the left scale -->
@@ -64,7 +64,7 @@
                                     <div class="timeline-item">
                                         <h3 class="timeline-header"><b>Perencanaan RKA</b> <i class="fas fa-check-circle text-success"></i></h3>
                                         <div class="timeline-body">
-                                            Rencana Kerja Audit dibuat pada <?= $data_rka['tanggal'] ?>
+                                            Rencana Kerja Audit dibuat pada <?= tanggal($data_rka['tanggal']) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -111,18 +111,33 @@
                                 </div>
                                 <div>
                                     <!-- Before each timeline item corresponds to one icon on the left scale -->
-                                    <i class="fas fa-newspaper bg-<?= $berita_color ?>"></i>
+                                    <i class="fas fa-check-double bg-<?= $konfirmasi_color ?>"></i>
                                     <!-- Timeline item -->
                                     <div class="timeline-item">
                                         <!-- Header. Optional -->
-                                        <h3 class="timeline-header"><b>Berita Acara</b> <i class="fas <?= $berita_icon ?> text-<?= $berita_color ?>"></i></h3>
+                                        <h3 class="timeline-header"><b>Konfirmasi Data Audit</b> <i class="fas <?= $konfirmasi_icon ?> text-<?= $konfirmasi_color ?>"></i></h3>
+
                                         <!-- Body -->
                                         <div class="timeline-body">
-                                            <?= $berita_keterangan ?>
+                                            <?= $konfirmasi_status ?>
+                                        </div>
+                                        <!-- Placement of additional controls. Optional -->
+                                    </div>
+                                </div>
+                                <div>
+                                    <!-- Before each timeline item corresponds to one icon on the left scale -->
+                                    <i class="fas fa-newspaper bg-<?= $konfirmasi_color ?>"></i>
+                                    <!-- Timeline item -->
+                                    <div class="timeline-item">
+                                        <!-- Header. Optional -->
+                                        <h3 class="timeline-header"><b>Berita Acara</b> <i class="fas <?= $konfirmasi_icon ?> text-<?= $konfirmasi_color ?>"></i></h3>
+                                        <!-- Body -->
+                                        <div class="timeline-body">
+                                            <?= $berita_status ?>
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="layouts/berita-acara.php" class="btn btn-success btn-sm <?= $berita_cetak ?>">Cetak</a>
+                                            <a href="layouts/berita-acara.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $berita_cetak ?>">Lihat</a>
                                         </div>
                                     </div>
                                 </div>

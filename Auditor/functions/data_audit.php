@@ -25,6 +25,12 @@ if (!empty($data_desk)) {
     $id_desk = $data_desk['id_desk'];
     $data_visit = mysqli_query($conn, "SELECT * FROM tb_visit WHERE id_desk = $id_desk");
     $data_visit = mysqli_fetch_array($data_visit);
+
+    if (!empty($data_visit)) {
+        $id_visit = $data_visit['id_visit'];
+        $data_berita = mysqli_query($conn, "SELECT * FROM tb_berita WHERE id_visit=$id_visit");
+        $data_berita = mysqli_fetch_array($data_berita);
+    }
 }
 
 function ttdUser($id)

@@ -48,10 +48,12 @@ include 'functions/rka.php';
         </div>
       </div>
       <div class="card-body">
-        <div class="mb-2">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal_rka_tambah">Tambah</button>
-          <!-- <button type="button" class="btn btn-secondary">Secondary</button> -->
-        </div>
+        <?php if ($data_user['level'] == 'Ketua SPI') { ?>
+          <div class="mb-2">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal_rka_tambah">Tambah</button>
+            <!-- <button type="button" class="btn btn-secondary">Secondary</button> -->
+          </div>
+        <?php } ?>
         <table id="example1" class="table table-bordered table-striped text-center">
           <thead>
             <tr>
@@ -79,7 +81,13 @@ include 'functions/rka.php';
                 <td><?= NamaAuditor($row["auditor1"]); ?></td>
                 <td><?= NamaAuditor($row["auditor2"]); ?></td>
                 <td><?= NamaAuditor($row["auditor3"]); ?></td>
-                <td><span class="badge badge-primary"><?= $row["status"]; ?></span></td>
+                <td><span class="badge badge-<?php if ($row['status'] == "Terlaksana") {
+                                                echo "success";
+                                              } elseif ($row['status'] == "Tidak Terlaksana") {
+                                                echo "danger";
+                                              } elseif ($row['status'] == "Belum Terlaksana") {
+                                                echo "primary";
+                                              } ?>"><?= $row["status"]; ?></span></td>
                 <td><?= $row["tahun"]; ?></td>
                 <td><?= tanggal($row["tanggal"]); ?></td>
                 <td>
@@ -87,7 +95,9 @@ include 'functions/rka.php';
                     <!-- <a href="timeline.php?<?= sendToTimeline($row['id_rka'], $row['id_unit'], $row['auditor1'], $row['auditor2'], $row['auditor3'], $dataKetuaSPI['id_user'], idKetuaUnit($row['id_unit']), $row["id_barang"]) ?>"><i class="fas fa-info-circle" style="color: deepskyblue;"></i></a> -->
                     <a href="timeline.php?id=<?= $row["id_rka"] ?>"><i class="fas fa-info-circle" style="color: deepskyblue;"></i></a>
                     <a href="#modal_rka_edit<?= $row["id_rka"] ?>" data-toggle="modal" style="color: limegreen;"><i class="far fa-edit"></i></a>
-                    <a href="functions/rka_delete.php?id=<?= $row["id_rka"] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" style="color: crimson;"><i class="far fa-trash-alt"></i></a>
+                    <?php if ($data_user['level'] == 'Ketua SPI') { ?>
+                      <a href="functions/rka_delete.php?id=<?= $row["id_rka"] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" style="color: crimson;"><i class="far fa-trash-alt"></i></a>
+                    <?php } ?>
                   </div>
                 </td>
               </tr>

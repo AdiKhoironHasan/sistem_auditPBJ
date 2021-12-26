@@ -36,10 +36,21 @@
 <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="../AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="../AdminLTE/plugins/jquery-chained/jquery.chained.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-chained/1.0.1/jquery.chained.min.js"></script> -->
 <!-- <script src="../AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script> -->
 
 <!-- Page specific script -->
 <!-- <script src="../functions/functions.js"></script> -->
+
+
+<script>
+  // $("#barang").chained("#unit");
+  $(document).ready(function() {
+    $("#barang").chained("#unit");
+  });
+</script>
+
 <script>
   // Aktifkan script customfile
   $(function() {
@@ -113,7 +124,7 @@
       }
     });
   });
-  
+
   $(document).ready(function() {
     $('#cekNamaUnit').keyup(function() {
       var namaUnit = $('#cekNamaUnit').val();

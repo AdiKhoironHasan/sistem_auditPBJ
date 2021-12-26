@@ -52,7 +52,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div>
+            <!-- <div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Dark Mode</span></div>
             <script>
               // function($) {
               var $dark_mode_container = $('<div />', {
@@ -60,7 +60,7 @@
               }).append($dark_mode_checkbox).append('<span>Dark Mode</span>')
               $container.append($dark_mode_container)
               // }
-            </script>
+            </script> -->
           </li>
         </ul>
       </nav>

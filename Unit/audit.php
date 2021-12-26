@@ -73,7 +73,13 @@ include 'functions/audit.php';
                 <td><?= namaUser($row["auditor1"]); ?></td>
                 <td><?= namaUser($row["auditor2"]); ?></td>
                 <td><?= namaUser($row["auditor3"]); ?></td>
-                <td><span class="badge badge-primary"><?= $row["status"]; ?></span></td>
+                <td><span class="badge badge-<?php if ($row['status'] == "Terlaksana") {
+                                                echo "success";
+                                              } elseif ($row['status'] == "Tidak Terlaksana") {
+                                                echo "danger";
+                                              } elseif ($row['status'] == "Belum Terlaksana") {
+                                                echo "primary";
+                                              } ?>"><?= $row["status"]; ?></span></td>
                 <td>
                   <div class="text-center">
                     <a href="timeline.php?id=<?= $row["id_rka"] ?>"><i class="fas fa-info-circle" style="color: deepskyblue;"></i></a>

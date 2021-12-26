@@ -45,36 +45,27 @@ if (!empty($data_visit)) {
     $id_visit = 0;
 }
 
-$cek_berita = mysqli_query($conn, "SELECT id_berita, tanggal FROM tb_berita WHERE id_visit=$id_visit");
+$cek_berita = mysqli_query($conn, "SELECT id_berita, tanggal, status FROM tb_berita WHERE id_visit=$id_visit");
 $data_berita = mysqli_fetch_array($cek_berita);
+
 if (!empty($data_berita)) {
-    $berita_cetak = '';
-    $berita_color = 'success';
-    $berita_icon = 'fa-check-circle';
-    $berita_keterangan = 'berita acara dapat di cetak';
-    // $rka_status = 'RKA selesai di laksanakan';
-    // $rka_icon = 'fa-check-circle';
-    // $rka_color = 'success';
-    $berita_tgl = $data_berita['tanggal'];
+    if ($data_berita['status'] == 'Disetujui') {
+        $status = 'menerima';
+    } elseif ($data_berita['status'] == 'Tidak Disetujui') {
+        $status = 'menolak';
+    }
+
+    $konfirmasi_icon = 'fa-check-circle';
+    $konfirmasi_status = 'Data audit sudah di konfirmasi, pihak Auditi <b>' . $status . '</b> hasil audit.';
+    $konfirmasi_color = 'success';
+    $berita_tgl = tanggal($data_berita['tanggal']);
+    $berita_status = 'Berita acara sudah ada';
+    $konfirmasi_cetak = '';
 } else {
-    $berita_cetak = 'disabled';
-    $berita_color = 'warning';
-    $berita_icon = 'fa-exclamation-triangle';
-    $berita_keterangan = 'berita acara tidak dapat di cetak';
-    // $rka_status = 'RKA tidak di laksanakan';
-    // $rka_icon = 'fa-times-circle';
-    // $rka_color = 'danger';
+    $konfirmasi_icon = 'fa-exclamation-triangle';
+    $konfirmasi_status = 'Data Audit belum di konfirmasi oleh pihak Auditi';
+    $konfirmasi_color = 'warning';
     $berita_tgl = 'Belum Selesai';
-}
-
-function sendToDesk($id, $u, $a1, $a2, $a3, $k, $a, $b)
-{
-    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&k=$k&a=$a&b=$b";
-    return $data;
-}
-
-function sendToVisit($id, $u, $a1, $a2, $a3, $b)
-{
-    $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&b=$b";
-    return $data;
+    $berita_status = 'Berita acara belum ada';
+    $berita_cetak = 'disabled';
 }

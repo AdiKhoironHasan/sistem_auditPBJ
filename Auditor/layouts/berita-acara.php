@@ -1,3 +1,15 @@
+<?php
+include "../functions/connect.php";
+include "../functions/auditor.php";
+include "../functions/data_audit.php";
+
+if ($data_berita['status'] == 'Disetujui') {
+    $status = 'menerima';
+} elseif ($data_berita['status'] == 'Tidak Disetujui') {
+    $status = 'menolak';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,7 +117,7 @@
             </tr>
             <tr>
                 <!-- <td class="bdr bdr-none-top" style="padding-top: 10px;">
-                    <h3><b>APIP</b></h3>
+                    <h3><b>SPI</b></h3>
                 </td> -->
                 <td class="txt-lft-20 bdr-none">Halaman</td>
                 <td class="txt-lft bdr-none">:</td>
@@ -122,7 +134,7 @@
             <tr>
                 <td style="width: 8%;" class="bdr-none txt-lft">Nama</td>
                 <td class="bdr-none">:</td>
-                <td class="txt-lft bdr-none">*Prih Diantoro Abdau*</td>
+                <td class="txt-lft bdr-none"><?= namaUser($auditor1) ?></td>
             </tr>
             <tr>
                 <td class="bdr-none txt-lft">Jabatan</td>
@@ -131,12 +143,12 @@
             </tr>
         </table>
         <br>
-        <p>Mengadakan final meeting di PERPUSTAKAAN pihak auditi <b>menerima seluruh</b>/menerima sebagian/menolak* hasil pemeriksaan yang telah dilaksanakan oleh pihak Auditor.</p>
+        <p>Mengadakan final meeting di kantor pihak auditi <b><?= $status ?></b> hasil pemeriksaan yang telah dilaksanakan oleh pihak Auditor.</p>
         <p>Dengan demikian hasil final meeting yang dilakukan antara auditor dan auditi dengan data temuan audit (DTA) terlampir</p>
         <br>
         <table style="width: 100%;">
             <tr>
-                <td colspan="2" class="txt-rght-50 bdr-none">*Jember, 12/11/2018*</td>
+                <td colspan="2" class="txt-rght-50 bdr-none">Cilacap, <?= tanggal($data_berita['tanggal']) ?></td>
             </tr>
             <tr>
                 <td colspan="2" style="height: 20px;" class="bdr-none"></td>
@@ -146,12 +158,16 @@
                 <td class="bdr-none">Pihak Auditor</td>
             </tr>
             <tr>
-                <td class="bdr-none">*ttd*</td>
-                <td class="bdr-none">*ttd*</td>
+                <td class="bdr-none">
+                    <img src="../../AdminLTE/dist/img/ttd/<?= ttdUser($auditee) ?>" height="100" width="100">
+                </td>
+                <td class="bdr-none">
+                    <img src="../../AdminLTE/dist/img/ttd/<?= ttdUser($auditor1) ?>" height="100" width="100">
+                </td>
             </tr>
             <tr>
-                <td class="bdr-none">*Nama*</td>
-                <td class="bdr-none">*Prih Diantoro Abdau*</td>
+                <td class="bdr-none"><?= namaUser($auditee) ?></td>
+                <td class="bdr-none"><?= namaUser($auditor1) ?></td>
             </tr>
         </table>
     </div>

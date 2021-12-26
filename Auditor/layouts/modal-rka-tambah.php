@@ -10,14 +10,26 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
+            <label>Unit</label>
+            <select type="text" id="unit" name="unit" class="form-control" required>
+              <option hidden selected value="">--Pilih Unit--</option>
+              <?php
+              $q_unit = mysqli_query($conn, "SELECT * FROM tb_unit");
+              foreach ($q_unit as $q_unit_row) :
+              ?>
+                <option value="<?= $q_unit_row["id_unit"]; ?>"><?= $q_unit_row["nama_unit"]; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group">
             <label>Paket Barang</label>
-            <select type="text" name="barang" class="form-control" required>
+            <select type="text" id="barang" name="barang" class="form-control" required>
               <option hidden selected value="">--Pilih Paket Barang--</option>
               <?php
-              $q_barang = mysqli_query($conn, "SELECT * FROM tb_barang");
+              $q_barang = mysqli_query($conn, "SELECT * FROM tb_barang JOIN tb_unit WHERE tb_barang.id_unit = tb_unit.id_unit");
               foreach ($q_barang as $q_barang_row) :
               ?>
-                <option value="<?= $q_barang_row["id_barang"]; ?>"><?= $q_barang_row["nama_barang"]; ?></option>
+                <option class="<?= $q_barang_row['id_unit'] ?>" value="<?= $q_barang_row["id_barang"]; ?>"><?= $q_barang_row["nama_barang"]; ?></option>
               <?php endforeach; ?>
             </select>
           </div>

@@ -74,7 +74,7 @@
                                 <td><?= $row["tahun_anggaran"]; ?></td>
                                 <td>
                                     <div class="text-center">
-                                        <a href="timeline.php" style="color: deepskyblue"><i class="fas fa-info-circle"></i></a>
+                                        <!-- <a href="timeline.php" style="color: deepskyblue"><i class="fas fa-info-circle"></i></a> -->
                                         <a href="#modal_barang_edit<?= $row["id_barang"]; ?>" data-toggle="modal" style="color: limegreen;"><i class="far fa-edit"></i></a>
                                         <a href="functions/barang_delete.php?id=<?= $row["id_barang"] ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" style="color: crimson;"><i class="far fa-trash-alt"></i></a>
                                     </div>

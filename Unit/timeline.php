@@ -55,7 +55,7 @@
                             <div class="timeline">
                                 <!-- Timeline time label -->
                                 <div class="time-label">
-                                    <span class="bg-primary"><?= $data_rka['tanggal'] ?></span>
+                                    <span class="bg-primary"><?= tanggal($data_rka['tanggal']) ?></span>
                                 </div>
                                 <div>
                                     <!-- Before each timeline item corresponds to one icon on the left scale -->
@@ -64,7 +64,7 @@
                                     <div class="timeline-item">
                                         <h3 class="timeline-header"><b>Perencanaan RKA</b> <i class="fas fa-check-circle text-success"></i></h3>
                                         <div class="timeline-body">
-                                            Rencana Kerja Audit dibuat pada <?= $data_rka['tanggal'] ?>
+                                            Rencana Kerja Audit dibuat pada <?= tanggal($data_rka['tanggal']) ?>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="layouts/berita-acara.php" class="btn btn-success btn-sm <?= $berita_cetak ?>">Lihat</a>
+                                            <a href="layouts/berita-acara.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $berita_cetak ?>">Lihat</a>
                                         </div>
                                     </div>
                                 </div>
