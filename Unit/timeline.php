@@ -1,5 +1,5 @@
 <?php require "functions/connect.php" ?>
-<?php require "functions/auditor.php" ?>
+<?php require "functions/unit.php" ?>
 <?php require "functions/timeline.php" ?>
 <?php
 // var_dump($data_desk);
@@ -81,10 +81,7 @@
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="desk.php?id=<?= $id_rka ?>" class=" btn btn-primary btn-sm <?= $desk_tambah ?>">Tambah</a>
-                                            <a href="desk-ubah.php?id=<?= $id_rka ?>" class="btn btn-info btn-sm <?= $desk_ubah ?>">Ubah</a>
-                                            <a href="functions/desk-delete.php?id=<?= $id_rka ?>" onclick="return confirm('Anda yakin mau menghapus data desk ini ?')" class="btn btn-danger btn-sm <?= $desk_ubah ?>">Hapus</a>
-                                            <a href="layouts/desk-pdf.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $desk_cetak ?>">Cetak</a>
+                                            <a href="layouts/desk-pdf.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $desk_cetak ?>">Lihat</a>
                                         </div>
                                     </div>
                                 </div>
@@ -102,27 +99,42 @@
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="visit.php?id=<?= $id_rka ?>" class="btn btn-primary btn-sm <?= $visit_tambah ?>">Tambah</a>
-                                            <a href="visit-ubah.php?id=<?= $id_rka ?>" class="btn btn-info btn-sm <?= $visit_ubah ?>">Ubah</a>
-                                            <a href="functions/visit-delete.php?id=<?= $id_rka ?>&&idd=<?= $data_desk['id_desk'] ?>" onclick="return confirm('Anda yakin mau menghapus data visit ini ?')" class="btn btn-danger btn-sm <?= $visit_ubah ?>">Hapus</a>
-                                            <a href="layouts/visit-pdf.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $visit_cetak ?>">Cetak</a>
+                                            <a href="layouts/visit-pdf.php?id=<?= $id_rka ?>" class="btn btn-success btn-sm <?= $visit_cetak ?>">Lihat</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <!-- Before each timeline item corresponds to one icon on the left scale -->
-                                    <i class="fas fa-newspaper bg-<?= $berita_color ?>"></i>
+                                    <i class="fas fa-check-double bg-<?= $konfirmasi_color ?>"></i>
                                     <!-- Timeline item -->
                                     <div class="timeline-item">
                                         <!-- Header. Optional -->
-                                        <h3 class="timeline-header"><b>Berita Acara</b> <i class="fas <?= $berita_icon ?> text-<?= $berita_color ?>"></i></h3>
+                                        <h3 class="timeline-header"><b>Konfirmasi Data Audit</b> <i class="fas <?= $konfirmasi_icon ?> text-<?= $konfirmasi_color ?>"></i></h3>
+
                                         <!-- Body -->
                                         <div class="timeline-body">
-                                            <?= $berita_keterangan ?>
+                                            <?= $konfirmasi_status ?>
                                         </div>
                                         <!-- Placement of additional controls. Optional -->
                                         <div class="timeline-footer">
-                                            <a href="layouts/berita-acara.php" class="btn btn-success btn-sm <?= $berita_cetak ?>">Cetak</a>
+                                            <button type="button" class="btn btn-primary btn-sm" <?= $konfirmasi_button ?> data-toggle="modal" data-target="#modal-visit-konfirmasi<?= $id_visit ?>">Konfirmasi</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <!-- Before each timeline item corresponds to one icon on the left scale -->
+                                    <i class="fas fa-newspaper bg-<?= $konfirmasi_color ?>"></i>
+                                    <!-- Timeline item -->
+                                    <div class="timeline-item">
+                                        <!-- Header. Optional -->
+                                        <h3 class="timeline-header"><b>Berita Acara</b> <i class="fas <?= $konfirmasi_icon ?> text-<?= $konfirmasi_color ?>"></i></h3>
+                                        <!-- Body -->
+                                        <div class="timeline-body">
+                                            <?= $berita_status ?>
+                                        </div>
+                                        <!-- Placement of additional controls. Optional -->
+                                        <div class="timeline-footer">
+                                            <a href="layouts/berita-acara.php" class="btn btn-success btn-sm <?= $berita_cetak ?>">Lihat</a>
                                         </div>
                                     </div>
                                 </div>
@@ -150,6 +162,5 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-<?php include "layouts/modal-rka-tambah.php" ?>
+<?php include "layouts/modal-visit-konfirmasi.php" ?>
 <?php require "layouts/footer.php" ?>

@@ -48,23 +48,21 @@ if (!empty($data_visit)) {
 $cek_berita = mysqli_query($conn, "SELECT id_berita, tanggal FROM tb_berita WHERE id_visit=$id_visit");
 $data_berita = mysqli_fetch_array($cek_berita);
 if (!empty($data_berita)) {
-    $berita_cetak = '';
-    $berita_color = 'success';
-    $berita_icon = 'fa-check-circle';
-    $berita_keterangan = 'berita acara dapat di cetak';
-    // $rka_status = 'RKA selesai di laksanakan';
-    // $rka_icon = 'fa-check-circle';
-    // $rka_color = 'success';
+    $konfirmasi_icon = 'fa-check-circle';
+    $konfirmasi_button = 'disabled';
+    $konfirmasi_status = 'Data sudah di konfirmasi';
+    $konfirmasi_color = 'success';
     $berita_tgl = $data_berita['tanggal'];
+    $berita_status = 'Berita acara sudah ada';
+    $konfirmasi_cetak = '';
 } else {
-    $berita_cetak = 'disabled';
-    $berita_color = 'warning';
-    $berita_icon = 'fa-exclamation-triangle';
-    $berita_keterangan = 'berita acara tidak dapat di cetak';
-    // $rka_status = 'RKA tidak di laksanakan';
-    // $rka_icon = 'fa-times-circle';
-    // $rka_color = 'danger';
+    $konfirmasi_icon = 'fa-exclamation-triangle';
+    $konfirmasi_button = '';
+    $konfirmasi_status = 'Data belum di konfirmasi';
+    $konfirmasi_color = 'warning';
     $berita_tgl = 'Belum Selesai';
+    $berita_status = 'Berita acara belum ada';
+    $berita_cetak = 'disabled';
 }
 
 function sendToDesk($id, $u, $a1, $a2, $a3, $k, $a, $b)
@@ -77,4 +75,39 @@ function sendToVisit($id, $u, $a1, $a2, $a3, $b)
 {
     $data = "id=$id&u=$u&a1=$a1&a2=$a2&a3=$a3&b=$b";
     return $data;
+}
+
+if (isset($_POST['audit-terima'])) {
+    $id_visit = $_POST['id'];
+    $tanggal = $_POST['tanggal'];
+    mysqli_autocommit($conn, FALSE);
+
+    mysqli_query($conn, "INSERT INTO tb_berita VALUES (NULL, $id_visit, '$tanggal', 'Disetujui')");
+    mysqli_query($conn, "UPDATE tb_rka SET status='Terlaksana' WHERE id_rka=$id_rka");
+
+    if (!mysqli_commit($conn)) {
+        echo "<script>alert('Gagal Melakukan Konfirmasi')</script>";
+        header("refresh: 0; url=timeline.php?id=" . $id_rka . "");
+    } else {
+        echo "<script>alert('Berhasil Melakukan Konfirmasi')</script>";
+        header("refresh: 0; url=timeline.php?id=" . $id_rka . "");
+    }
+}
+
+if (isset($_POST['audit-tolak'])) {
+    $id_visit = $_POST['id'];
+    $tanggal = $_POST['tanggal'];
+
+    mysqli_autocommit($conn, FALSE);
+
+    mysqli_query($conn, "INSERT INTO tb_berita VALUES (NULL, $id_visit, '$tanggal', 'Tidak Disetujui')");
+    mysqli_query($conn, "UPDATE tb_rka SET status='Terlaksana' WHERE id_rka=$id_rka");
+
+    if (!mysqli_commit($conn)) {
+        echo "<script>alert('Gagal Melakukan Konfirmasi')</script>";
+        header("refresh: 0; url=timeline.php?id=" . $id_rka . "");
+    } else {
+        echo "<script>alert('Berhasil Melakukan Konfirmasi')</script>";
+        header("refresh: 0; url=timeline.php?id=" . $id_rka . "");
+    }
 }

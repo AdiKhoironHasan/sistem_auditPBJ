@@ -1,6 +1,7 @@
 <?php
 include "../functions/connect.php";
-include "../functions/auditor.php";
+include "../functions/unit.php";
+include "../functions/audit.php";
 include "../functions/data_audit.php";
 ?>
 

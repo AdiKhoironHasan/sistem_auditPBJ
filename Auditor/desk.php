@@ -452,7 +452,7 @@ include 'functions/desk.php';
                     <div class="row justify-content-center mt-3 rounded-sm mx-1" style="background-color: #ADD8E6;">
                         <div class="col-md-8 text-center d-grid gap-2 my-2">
                             <a href="timeline.php?id=<?= $id_rka ?>" class="btn btn-primary btn-lg mx-2">Kembali</a>
-                            <input type="submit" name="tambah" class="btn btn-primary btn-lg mx-2" value="Submit">
+                            <input type="submit" name="tambah" class="btn btn-success btn-lg mx-2" value="Submit">
                         </div>
                     </div>
                 </form>

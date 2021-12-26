@@ -1,9 +1,12 @@
 <?php
 include "../functions/connect.php";
-include "../functions/auditor.php";
+include "../functions/unit.php";
+include "../functions/audit.php";
 include "../functions/data_audit.php";
-?>
 
+// $Querydata$data_desk = mysqli_query($conn, "SELECT * FROM tb_desk WHERE id_desk = 2"); //id dari row yang dipilih
+// $data_desk = mysqli_fetch_array($Querydata$data_desk);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,12 +103,12 @@ include "../functions/data_audit.php";
                 <td class="txt-lft bdr-none">:</td>
             </tr>
             <tr>
-                <td rowspan="2" class="bdr"><b>DESKRIPSI TEMUAN MONEV (DTV)</b></td>
+                <td rowspan="2" class="bdr"><b>KERTAS KERJA AUDIT</b></td>
                 <td class="txt-lft-20 bdr-none">Tanggal Terbit</td>
                 <td class="txt-lft bdr-none">:</td>
             </tr>
             <tr>
-                <td class="bdr bdr-none-top" style="padding-top: 10px;">
+                <td class="bdr bdr-none-top">
                     <h3><b>APIP</b></h3>
                 </td>
                 <td class="txt-lft-20 bdr-none">Halaman</td>
@@ -121,7 +124,7 @@ include "../functions/data_audit.php";
             </tr>
             <tr>
                 <td class="text-uppercase"><?= namaUnit($unit) ?></td>
-                <td class="text-uppercase"><?= $data_visit["tipe_monitoring"]; ?></td>
+                <td class="text-uppercase"><?= $data_desk["tipe_monitoring"]; ?></td>
                 <td class="text-uppercase"><?= namaBarang($id_barang) ?></td>
             </tr>
             <tr>
@@ -130,190 +133,217 @@ include "../functions/data_audit.php";
                 <th>AUDITOR</th>
             </tr>
             <tr>
-                <td><?= date("d-m-Y", strtotime($data_visit["masa_monitoring_awal"])) ?></td>
-                <td rowspan="3"><?= date("d-m-Y", strtotime($data_visit["tgl_monitoring"])) ?></td>
+                <td><?= date("d-m-Y", strtotime($data_desk["masa_monitoring_awal"])) ?></td>
+                <td rowspan="3"><?= date("d-m-Y", strtotime($data_desk["tgl_monitoring"])) ?></td>
                 <td class="bdr txt-lft-50 text-capitalize">1. &nbsp;&nbsp;<?= namaUser($auditor1) ?></td>
             </tr>
             <tr>
-                <td>sd.</td>
+                <td>s/d.</td>
                 <td class="bdr txt-lft-50 text-capitalize">2. &nbsp;&nbsp;<?= namaUser($auditor2) ?></td>
             </tr>
             <tr>
-                <td><?= date("d-m-Y", strtotime($data_visit['masa_monitoring_akhir'])) ?></td>
+                <td><?= date("d-m-Y", strtotime($data_desk['masa_monitoring_akhir'])) ?></td>
                 <td class="bdr txt-lft-50 text-capitalize">3. &nbsp;&nbsp;<?= namaUser($auditor3) ?></td>
             </tr>
         </table>
         <br>
-
         <table style="width: 100%;">
-            <!-- <tr>
+            <tr>
                 <th style="width: 5%;">NO</th>
                 <th style="width: 35%;">ITEM</th>
                 <th style="width: 45%;">URAIAN</th>
                 <th style="width: 15%;">KODE TEMUAN</th>
-            </tr> -->
-            <tr>
-                <td colspan="4"><b>PENYUSUNAN PROGRAM MUTU</b></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">KETERLIBATAN UNIT KERJA DALAM PENYUSUNAN MUTU</td>
+                <td colspan="4"><b>PENDANDATANGANAN KONTRAK</b></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['penyusunan_mutu_1'] ?></td>
+                <td><b>1</b></td>
+                <td colspan="3" class="txt-lft-20"><b>KONTRAK</b></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
-                <td colspan="3" class="txt-lft-20">REVISI PROGRAM MUTU</td>
+                <td>a</td>
+                <td class="txt-lft-20">TGL SPPBJ</td>
+                <td class="txt-up"><?= $data_desk['kontrak_1'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['penyusunan_mutu_2'] ?></td>
+                <td>b</td>
+                <td class="txt-lft-20">SUBSTANSI KONTRAK</td>
+                <td class="txt-up"><?= $data_desk['kontrak_2'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="4"><b>PEMERIKSAAN BERSAMA</b></td>
+                <td>c</td>
+                <td class="txt-lft-20">TTD KONTRAK OLEH PENYEDIA</td>
+                <td class="txt-up"><?= $data_desk['kontrak_3'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">PEMERIKSAAN KONDISI LAPANGAN PADA TAHAP AWAL PERUBAHAN KONTRAK</td>
+                <td>d</td>
+                <td class="txt-lft-20">PERTENTANGAN</td>
+                <td class="txt-up"><?= $data_desk['kontrak_4'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['pemeriksaan_1'] ?></td>
+                <td colspan="4" style="height: 50px;"></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
-                <td colspan="3" class="txt-lft-20">PEMERIKSAAN BERSAMA MENGAKIBATKAN PERUBAHAN KONTRAK</td>
+                <td colspan="4"><b>PELAKSANAAN KONTRAK PENGADAAN BARANG</b></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['pemeriksaan_2'] ?></td>
+                <td><b>1</b></td>
+                <td colspan="3" class="txt-lft-20"><b>SURAT PESANAN</b></td>
             </tr>
             <tr>
-                <td colspan="4"><b>PERUBAHAN KEGIATAN PERUBAHAN</b></td>
+                <td>a</td>
+                <td class="txt-lft-20">TGL SURAT PESANAN</td>
+                <td class="txt-up"><?= $data_desk['surat_pesanan_1'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">PERUBAHAN KEGIATAN</td>
+                <td>b</td>
+                <td class="txt-lft-20">TTD PENYEDIA</td>
+                <td class="txt-up"><?= $data_desk['surat_pesanan_2'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['perubahan_kegiatan'] ?></td>
+                <td>c</td>
+                <td class="txt-lft-20">MATERAI 6000</td>
+                <td class="txt-up"><?= $data_desk['surat_pesanan_3'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="4"><b>ASURANSI</b></td>
+                <td>d</td>
+                <td class="txt-lft-20">TANGGAL DISETUJUI</td>
+                <td class="txt-up"><?= $data_desk['surat_pesanan_4'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">UNIT KERJA MEMERIKSA BARANG YANG DIKIRIM OLEH PENYEDIA</td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['asuransi_1'] ?></td>
+                <td><b>2</b></td>
+                <td colspan="3" class="txt-lft-20"><b>PENYUSUNAN PROGRAM MUTU</b></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>2</b></td>
-                <td colspan="3" class="txt-lft-20">PENJELASAN MANFAAT SUDAH DI JELASKAN DI DALAM KONTRAK</td>
+                <td>a</td>
+                <td class="txt-lft-20">INFORMASI PENGADAAN BARANG</td>
+                <td class="txt-up"><?= $data_desk['penyusunan_program_mutu'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['asuransi_2'] ?></td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
             <tr>
-                <td colspan="4"><b>PENGIRIMAN BARANG OLEH PENYEDIA</b></td>
+                <td><b>3</b></td>
+                <td colspan="3" class="txt-lft-20"><b>PEMERIKSAAN BERSAMA</b></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">PENGIRIMAN BARANG OLEH PENYEDIA</td>
+                <td>a</td>
+                <td class="txt-lft-20">PEMERIKSAAN KONDISI LAPANGAN PADA TAHAP AWAL PELAKSANAAN KONTRAK</td>
+                <td class="txt-up"><?= $data_desk['pemeriksaan_bersama'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['pengiriman'] ?></td>
+                <td colspan="4" style="height: 30px;"></td>
+            </tr>
+
+            <tr>
+                <td><b>4</b></td>
+                <td colspan="3" class="txt-lft-20"><b>PEMBAYARAN UANG MUKA</b></td>
             </tr>
             <tr>
-                <td colspan="4"><b>UJI COBA BARANG</b></td>
+                <td>a</td>
+                <td class="txt-lft-20">BESARAN UANG MUKA</td>
+                <td class="txt-up"><?= $data_desk['pembayaran_uang_muka_1'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">UJI COBA SETELAH DIKIRIM</td>
+                <td>b</td>
+                <td class="txt-lft-20">JAMINAN UANG MUKA</td>
+                <td class="txt-up"><?= $data_desk['pembayaran_uang_muka_2'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['uji_coba'] ?></td>
+                <td colspan="4" style="height: 30px;"></td>
+            </tr>
+
+            <tr>
+                <td><b>5</b></td>
+                <td colspan="3" class="txt-lft-20"><b>UJI COBA BARANG</b></td>
             </tr>
             <tr>
-                <td colspan="4"><b>SERAH TERIMA BARANG</b></td>
+                <td>a</td>
+                <td class="txt-lft-20">UJI COBA YANG DILAKUKAN OLEH PENYEDIA</td>
+                <td class="txt-up"><?= $data_desk['uji_coba_barang'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">SERAH TERIMA BARANG</td>
+                <td colspan="4" style="height: 30px;"></td>
+            </tr>
+
+            <tr>
+                <td><b>6</b></td>
+                <td colspan="3" class="txt-lft-20"><b>SERAH TERIMA BARANG</b></td>
             </tr>
             <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['serah_terima'] ?></td>
+                <td>a</td>
+                <td class="txt-lft-20">BERITA ACARA SERAH</td>
+                <td class="txt-up"><?= $data_desk['serah_terima_barang_1'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td colspan="4"><b>DENDA DAN GANTI RUGI</b></td>
+                <td>b</td>
+                <td class="txt-lft-20">WAKTU PENERIMAAN</td>
+                <td class="txt-up"><?= $data_desk['serah_terima_barang_2'] ?></td>
+                <td></td>
             </tr>
             <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">DENDA DAN GANTI RUGI</td>
+                <td colspan="4" style="height: 30px;"></td>
             </tr>
-            <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['denda'] ?></td>
-            </tr>
-            <tr>
-                <td colspan="4"><b>PERPANJANGAN WAKTU PELAKANAAN PEKERJAAN</b></td>
-            </tr>
-            <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">PERPANJANGAN WAKTU PELAKANAAN PEKERJAAN</td>
-            </tr>
-            <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['perpanjangan'] ?></td>
-            </tr>
-            <tr>
-                <td colspan="4"><b>LAPORAN HASIL KEGIATAN</b></td>
-            </tr>
-            <tr>
-                <td rowspan="2" style="vertical-align: text-top;"><b>1</b></td>
-                <td colspan="3" class="txt-lft-20">LAPORAN HASIL KEGIATAN</td>
-            </tr>
-            <tr>
-                <td colspan="3" class="txt-lft-20" style="height: 50px;"><?= $data_visit['laporan'] ?></td>
-            </tr>
+
             <tr>
                 <td colspan="4"><b>CATATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;"><?= $data_visit['catatan'] ?></td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk['catatan'] ?></td>
             </tr>
             <tr>
-                <td colspan="4"><b>KRITERIA/PERSYARATAN</b></td>
+                <td colspan="4"><b>KRITERIA / PERSYARATAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;"><?= $data_visit['kriteria'] ?></td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["kriteria"]; ?></td>
             </tr>
             <tr>
-                <td colspan="4"><b>AKAR PENYEBAB</b></td>
+                <td colspan="4"><b>AKAR PENYEAB</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;"><?= $data_visit['akar_penyebab'] ?></td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["akar_penyebab"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>AKIBAT</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;"><?= $data_visit['akibat'] ?></td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["akibat"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>REKOMENDASI</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;"><?= $data_visit['rekomendasi'] ?></td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["rekomendasi"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>TANGGAPAN AUDITEE</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;"><?= $data_visit['tanggapan_auditee'] ?></td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["tanggapan_auditee"]; ?></td>
             </tr>
             <tr>
                 <td colspan="4"><b>RENCANA PERBAIKAN</b></td>
             </tr>
             <tr>
-                <td colspan="4" style="height: 100px;"><?= $data_visit['rencana_perbaikan'] ?></td>
+                <td colspan="4" style="height: 100px;"><?= $data_desk["rencana_perbaikan"]; ?></td>
             </tr>
         </table>
         <table style="width: 100%;" class="bdr-none-top">
