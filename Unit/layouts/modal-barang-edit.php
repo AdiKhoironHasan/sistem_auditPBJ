@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label>Nilai Kontrak</label>
                         <!-- id="rupiah" -->
-                        <input type="text" name="nilai_kontrak" class="form-control" placeholder="Rp." value="<?= $row["nilai_kontrak"]; ?>" required>
+                        <input type="text" name="nilai_kontrak" id="rupiah" class="form-control" placeholder="Rp." value="<?= $row["nilai_kontrak"]; ?>" required>
                     </div>
                     <div class="form-group">
                         <label>Tahun Anggaran</label>

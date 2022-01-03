@@ -17,7 +17,7 @@ if (isset($_POST['tambah'])) {
         $sql = "SELECT * FROM tb_user WHERE username='$username'";
         $result = mysqli_query($conn, $sql);
         if (!$result->num_rows > 0) {
-            $sql = "INSERT INTO tb_user (id_user, nama, username,password, status, level) VALUES (NULL, '$nama', '$username','$password1', 'Aktif', '$level')";
+            $sql = "INSERT INTO tb_user (id_user, nama, username,password, status, foto, ttd, level) VALUES (NULL, '$nama', '$username','$password1', 'Aktif', 'empty.png', 'empty.png', '$level')";
             $result = mysqli_query($conn, $sql);
             if ($result) {
                 echo "<script>alert('Selamat, registrasi berhasil!')</script>";

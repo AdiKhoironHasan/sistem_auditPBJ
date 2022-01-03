@@ -46,10 +46,6 @@ include 'functions/audit.php';
         </div>
       </div>
       <div class="card-body">
-        <div class="mb-2">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal_rka_tambah">Tambah</button>
-          <!-- <button type="button" class="btn btn-secondary">Secondary</button> -->
-        </div>
         <table id="example1" class="table table-bordered table-striped text-center">
           <thead>
             <tr>

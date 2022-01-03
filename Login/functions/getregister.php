@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+// error_reporting(0);
 session_start();
 
 if (isset($_SESSION['username'])) {
@@ -19,7 +19,7 @@ if (isset($_POST['register'])) {
     $sql = "SELECT * FROM tb_user WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
     if (!$result->num_rows > 0) {
-      $sql = "INSERT INTO tb_user VALUES (NULL, '$nama', '$username', '$password1', '$npak', '$level', '$nohp', NULL, NULL, 'Mendaftar')";
+      $sql = "INSERT INTO tb_user VALUES (NULL, '$nama', '$username', '$password1', '$npak', '$level', '$nohp', 'empty.png', 'empty.png', 'Mendaftar')";
       $result = mysqli_query($conn, $sql);
       if ($result) {
         echo "<script>alert('Selamat, registrasi berhasil!')</script>";
@@ -31,7 +31,8 @@ if (isset($_POST['register'])) {
         // $_POST['cpassword'] = "";
       } else {
         echo "<script>alert('Woops! Terjadi kesalahan.')</script>";
-        header("refresh: 0; url=register.php");
+        echo mysqli_error($conn);
+        // header("refresh: 0; url=register.php");
       }
     } else {
       echo "<script>alert('Woops! Username Sudah Terdaftar.')</script>";

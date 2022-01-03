@@ -17,7 +17,7 @@
           <div class="form-group">
             <label>Ketua Unit</label>
             <?php
-            $q_user_id = mysqli_query($conn, "SELECT nama, id_user FROM tb_user WHERE level = 'Ketua Unit'");
+            $q_user_id = mysqli_query($conn, "SELECT nama, id_user FROM tb_user WHERE level = 'Ketua Unit' AND status='Aktif'");
             ?>
             <select type="text" name="ketua_unit" class="form-control" required>
               <option hidden selected value="">--Pilih Ketua Unit--</option>

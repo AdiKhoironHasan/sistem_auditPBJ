@@ -36,17 +36,7 @@
           <div class="card card-primary card-outline">
             <div class="card-body box-profile">
               <div class="text-center">
-                <?php
-                if ($data_user['foto'] == NULL) {
-                ?>
-                  <img class="profile-user-img img-fluid img-circle" src="../AdminLTE/dist/img/no-pictures.png" alt="User profile picture">
-                <?php
-                } else {
-                ?>
-                  <img class="profile-user-img img-fluid img-circle h-25 w-25" src="../AdminLTE/dist/img/foto/<?= $data_user['foto']; ?>" alt="User profile picture">
-                <?php
-                }
-                ?>
+                <img class="profile-user-img img-fluid img-circle h-25 w-25" src="../AdminLTE/dist/img/foto/<?= $data_user['foto']; ?>" alt="User profile picture">
               </div>
 
               <h3 class="profile-username text-center"><?= $data_user['nama']; ?></h3>
@@ -231,17 +221,7 @@
                       <div class="card-body">
                         <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                           <div class="text-center mb-3">
-                            <?php
-                            if ($data_user['foto'] == NULL) {
-                            ?>
-                              <img src="../AdminLTE/dist/img/no-pictures.png" class="h-25 w-25  border border-primary">
-                            <?php
-                            } else {
-                            ?>
-                              <img src="../AdminLTE/dist/img/foto/<?= $data_user['foto']; ?>" class="h-25 w-25  border border-primary">
-                            <?php
-                            }
-                            ?>
+                            <img src="../AdminLTE/dist/img/foto/<?= $data_user['foto']; ?>" class="h-25 w-25  border border-primary">
                           </div>
                           <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Foto Profil</label>
@@ -279,17 +259,7 @@
                       <div class="card-body">
                         <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                           <div class="text-center mb-3">
-                            <?php
-                            if ($data_user['ttd'] == NULL) {
-                            ?>
-                              <img src="../AdminLTE/dist/img/no-pictures.png" class="h-25 w-25  border border-primary">
-                            <?php
-                            } else {
-                            ?>
-                              <img src="../AdminLTE/dist/img/ttd/<?= $data_user['ttd']; ?>" class="h-25 w-25  border border-primary">
-                            <?php
-                            }
-                            ?>
+                            <img src="../AdminLTE/dist/img/ttd/<?= $data_user['ttd']; ?>" class="h-25 w-25  border border-primary">
                           </div>
                           <div class="form-group row">
                             <label for="inputName" class="col-sm-2 col-form-label">Tanda Tangan</label>

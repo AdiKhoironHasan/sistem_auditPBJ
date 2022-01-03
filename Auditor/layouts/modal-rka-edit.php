@@ -10,12 +10,18 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="id" value="<?= $row["id_rka"]; ?>">
+                    <?php
+                    $idBarang = $row['id_barang'];
+                    $listBarang = mysqli_query($conn, "SELECT id_unit FROM tb_barang WHERE id_barang = $idBarang");
+                    $listBarang = mysqli_fetch_array($listBarang);
+                    $idUnit = $listBarang['id_unit'];
+                    ?>
                     <div class="form-group">
                         <label>Paket Barang</label>
                         <select type="text" name="barang" class="form-control" required>
                             <option hidden selected value="<?= $row["id_barang"]; ?>"><?= $row["nama_barang"]; ?></option>
                             <?php
-                            $q_barang = mysqli_query($conn, "SELECT * FROM tb_barang");
+                            $q_barang = mysqli_query($conn, "SELECT * FROM v_data_barang WHERE id_unit=$idUnit");
                             foreach ($q_barang as $q_barang_row) :
                             ?>
                                 <option value="<?= $q_barang_row["id_barang"]; ?>"><?= $q_barang_row["nama_barang"]; ?></option>

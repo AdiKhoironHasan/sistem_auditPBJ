@@ -27,7 +27,7 @@ if (isset($_POST['tambah'])) {
     echo "<script>alert('Tambah data barang gagal..!')</script>";
     header("refresh: 0; url=barang.php");
     // echo "Error: " . $sql . " " . mysqli_error($conn);
-    
+
   }
   // //mysqli_close($conn);
 }
@@ -39,7 +39,12 @@ if (isset($_POST['edit'])) // when click on Update button
   $barang = $_POST["nama_barang"];
   $no_kontrak = $_POST['no_kontrak'];
   $tanggal = $_POST['tanggal_kontrak'];
-  $nilai = $_POST['nilai_kontrak'];
+
+  $sNilai = $_POST['nilai_kontrak'];
+
+
+  $nilai = (int) filter_var($sNilai, FILTER_SANITIZE_NUMBER_INT);
+
   $tahun = $_POST['tahun'];
 
   $edit = mysqli_query($conn, "UPDATE tb_barang SET nama_barang='$barang', no_kontrak='$no_kontrak', tanggal_kontrak='$tanggal', nilai_kontrak='$nilai', tahun_anggaran='$tahun' WHERE id_barang='$id_barang' ");
@@ -50,7 +55,7 @@ if (isset($_POST['edit'])) // when click on Update button
     header("refresh: 0; url=barang.php");
     exit;
   } else {
-    echo mysqli_error($conn);
+    // echo mysqli_error($conn);
     // echo "Error: " . $sql . " " . mysqli_error($conn);
     echo ("GAGAL EDIT DATA");
   }

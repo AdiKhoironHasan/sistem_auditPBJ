@@ -40,7 +40,7 @@ include 'functions/getregister.php';
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" name="username" placeholder="Username">
+            <input type="text" class="form-control" name="username" maxlength="10" placeholder="Username">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -74,7 +74,7 @@ include 'functions/getregister.php';
           <div class="input-group mb-3">
             <select type="text" name="level" class="form-control">
               <option value="" hidden selected disabled>Jabatan</option>
-              <option value="Auditor">Anggota SPI</option>
+              <option value="Anggota SPI">Anggota SPI</option>
               <option value="Ketua Unit">Ketua Unit</option>
               <option value="Direktur">Direktur</option>
             </select>
