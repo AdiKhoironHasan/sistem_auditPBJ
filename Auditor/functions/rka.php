@@ -60,7 +60,7 @@ if (isset($_POST['edit'])) // when click on Update button
 }
 
 $sql = mysqli_query($conn, "SELECT * FROM tb_rka");
-$rka = mysqli_query($conn, "SELECT * FROM v_data_rka");
+$rka = mysqli_query($conn, "SELECT * FROM v_data_rka ORDER BY id_rka DESC");
 if (!$rka) {
     $rka = [];
 } else {
